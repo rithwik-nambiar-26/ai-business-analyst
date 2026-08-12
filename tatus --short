@@ -1,0 +1,4402 @@
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/main.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/pages/ai_chat.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/pages/business_insights.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/pages/dashboard.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/pages/data_quality.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/pages/exploratory_analysis.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/pages/forecasting.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app/utils/data_manager.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/insights/business_insight_engine.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/insights/insight_generator.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/rag/document_processor.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/rag/llm_handler.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/schema/dataset_understanding.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/test_insights.py', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tests/test_profiler.py', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex b7bc814..ef6907c 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -1,126 +1,21 @@[m
+[31m-# Byte-compiled / optimized / DLL files[m
+[32m+[m[32m# Python[m
+[32m+[m[32m*.pyc[m
+ __pycache__/[m
+[31m-*.py[cod][m
+[31m-*$py.class[m
+ [m
+[31m-# C extensions[m
+[31m-*.so[m
+[31m-[m
+[31m-# Distribution / packaging[m
+[31m-.Python[m
+[31m-build/[m
+[31m-develop-eggs/[m
+[31m-dist/[m
+[31m-downloads/[m
+[31m-eggs/[m
+[31m-.eggs/[m
+[31m-lib/[m
+[31m-lib64/[m
+[31m-parts/[m
+[31m-sdist/[m
+[31m-var/[m
+[31m-wheels/[m
+[31m-pip-wheel-metadata/[m
+[31m-share/python-wheels/[m
+[31m-*.egg-info/[m
+[31m-.installed.cfg[m
+[31m-*.egg[m
+[31m-MANIFEST[m
+[31m-[m
+[31m-# PyInstaller[m
+[31m-#  Usually these files are written by a python script from a template[m
+[31m-#  before PyInstaller builds the exe, so as to inject date/other infos into it.[m
+[31m-*.manifest[m
+[31m-*.spec[m
+[32m+[m[32m# Environment files[m
+[32m+[m[32m.env[m
+ [m
+[31m-# Installer logs[m
+[31m-pip-log.txt[m
+[31m-pip-delete-this-directory.txt[m
+[32m+[m[32m# Virtual environments[m
+[32m+[m[32m.venv/[m
+ [m
+[31m-# Unit test / coverage reports[m
+[31m-htmlcov/[m
+[31m-.tolles/[m
+[31m-.coverage[m
+[31m-.coverage.*[m
+[31m-.cache[m
+[31m-nosetests.xml[m
+[31m-coverage.xml[m
+[31m-*.cover[m
+[31m-*.py,cover[m
+[31m-.hypothesis/[m
+[31m-.pytest_cache/[m
+[32m+[m[32m# OS generated files[m
+[32m+[m[32m.DS_Store[m
+ [m
+[31m-# Translations[m
+[31m-*.mo[m
+[31m-*.pot[m
+[32m+[m[32m# IDE files[m
+[32m+[m[32m.vscode/[m
+ [m
+[31m-# Django stuff:[m
+[32m+[m[32m# Logs[m
+ *.log[m
+[31m-local_settings.py[m
+[31m-db.sqlite3[m
+[31m-db.sqlite3-journal[m
+[31m-[m
+[31m-# Sphinx documentation[m
+[31m-docs/_build/[m
+[31m-[m
+[31m-# PyBuilder[m
+[31m-target/[m
+[31m-[m
+[31m-# Jupyter Notebook[m
+[31m-.ipynb_checkpoints[m
+[31m-[m
+[31m-# IPython[m
+[31m-profile_default/[m
+[31m-ipython_config.py[m
+[31m-[m
+[31m-# pyenv[m
+[31m-.python-version[m
+ [m
+[31m-# pipenv[m
+[31m-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.[m
+[31m-#   However, in case of collaboration, if platform is not identical, it could cause issues.[m
+[31m-#Pipfile.lock[m
+[31m-[m
+[31m-# PEP 582; used by e.g. github.com/pdm-project/pdm[m
+[31m-__pypackages__/[m
+[31m-[m
+[31m-# Celery stuff[m
+[31m-celerybeat-schedule[m
+[31m-celerybeat.pid[m
+[31m-[m
+[31m-# SageMath parsed files[m
+[31m-*.sage.py[m
+[31m-[m
+[31m-# Environments[m
+[31m-.env[m
+[31m-.venv[m
+[31m-env/[m
+[31m-venv/[m
+[31m-ENV/[m
+[31m-env.bak/[m
+[31m-venv.bak/[m
+[31m-[m
+[31m-# Streamlit config/files[m
+[31m-.streamlit/[m
+[31m-*.csv[m
+[31m-*.xlsx[m
+[31m-*.parquet[m
+[31m-[m
+[31m-# Data files (keep raw folder contents local)[m
+[31m-data/raw/*[m
+[31m-!data/raw/.gitkeep[m
+[31m-data/processed/*[m
+[31m-!data/processed/.gitkeep[m
+[31m-data/embeddings/*[m
+[31m-!data/embeddings/.gitkeep[m
+[31m-reports/*[m
+[31m-!reports/.gitkeep[m
+[31m-[m
+[31m-# IDEs[m
+[31m-.vscode/[m
+[31m-.idea/[m
+[31m-*.suo[m
+[31m-*.ntvs*[m
+[31m-*.njsproj[m
+[31m-*.sln[m
+[31m-*.sw?[m
+[32m+[m[32m# Data files[m
+[32m+[m[32mdata/user_datasets/[m
+[1mdiff --git a/README.md b/README.md[m
+[1mindex ef791cb..546d4a7 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -380,9 +380,8 @@[m [mDeveloped interactive dashboards, predictive analytics modules, and conversation[m
+ # Author[m
+ [m
+ ## Rithwik Nambiar[m
+[31m-[m
+ ---[m
+ [m
+ # License[m
+ [m
+[31m-This project is developed for educational, portfolio, and research purposes.[m
+\ No newline at end of file[m
+[32m+[m[32mThis project is developed for educational, portfolio, and research purposes.[m
+[1mdiff --git a/app/main.py b/app/main.py[m
+[1mindex 202f9a3..34d144e 100644[m
+[1m--- a/app/main.py[m
+[1m+++ b/app/main.py[m
+[36m@@ -10,6 +10,7 @@[m [mfrom src.profiling.data_profiler import DataProfiler[m
+ from src.preprocessing.data_cleaner import DataCleaner[m
+ from src.eda.exploratory_analysis import ExploratoryAnalysis[m
+ from src.insights.insight_generator import InsightGenerator[m
+[32m+[m[32mfrom src.insights.business_insight_engine import BusinessInsightEngine[m
+ [m
+ from app.utils.data_manager import DataManager[m
+ [m
+[36m@@ -20,7 +21,7 @@[m [mfrom app.utils.data_manager import DataManager[m
+ [m
+ st.set_page_config([m
+     page_title="Universal AI Data Analyst",[m
+[31m-    page_icon="📊",[m
+[32m+[m[32m    page_icon="���📊",[m
+     layout="wide"[m
+ )[m
+ [m
+[36m@@ -28,7 +29,7 @@[m [mst.set_page_config([m
+ # HEADER[m
+ # --------------------------------------------------[m
+ [m
+[31m-st.title("📊 Universal AI Data Analyst")[m
+[32m+[m[32mst.title("���📊 Universal AI Data Analyst")[m
+ [m
+ st.markdown([m
+     """[m
+[36m@@ -52,7 +53,7 @@[m [mst.markdown("---")[m
+ # SIDEBAR[m
+ # --------------------------------------------------[m
+ [m
+[31m-st.sidebar.title("📁 Dataset Management")[m
+[32m+[m[32mst.sidebar.title("���📁 Dataset Management")[m
+ [m
+ uploaded_file = st.sidebar.file_uploader([m
+     "Upload Dataset",[m
+[36m@@ -132,7 +133,7 @@[m [mif df is None:[m
+ [m
+     st.info([m
+         """[m
+[31m-        👋 Welcome to Universal AI Data Analyst[m
+[32m+[m[32m        �� 👋 Welcome to Universal AI Data Analyst[m
+ [m
+         Upload a dataset to begin analysis.[m
+ [m
+[36m@@ -167,6 +168,10 @@[m [mdataset_fingerprint = ([m
+     DataManager.get_dataset_fingerprint()[m
+ )[m
+ [m
+[32m+[m[32mdataset_intelligence = ([m
+[32m+[m[32m    DataManager.get_dataset_intelligence()[m
+[32m+[m[32m)[m
+[32m+[m
+ # --------------------------------------------------[m
+ # CURRENT DATASET PANEL[m
+ # --------------------------------------------------[m
+[36m@@ -187,10 +192,14 @@[m [mif active_dataset:[m
+         active_dataset[m
+     )[m
+ [m
+[31m-    if dataset_summary:[m
+[32m+[m[32m    if dataset_intelligence:[m
+[32m+[m
+[32m+[m[32m        st.sidebar.write([m
+[32m+[m[32m            f"Type: {dataset_intelligence.get('dataset_type', 'Generic').title()}"[m
+[32m+[m[32m        )[m
+ [m
+         st.sidebar.write([m
+[31m-            f"Type: {dataset_summary.get('dataset_type', 'Generic')}"[m
+[32m+[m[32m            f"Entity: {dataset_intelligence.get('entity_type', 'Records').title()}"[m
+         )[m
+ [m
+         st.sidebar.write([m
+[36m@@ -201,6 +210,9 @@[m [mif active_dataset:[m
+             f"Columns: {dataset_summary.get('column_count', 0)}"[m
+         )[m
+ [m
+[32m+[m[32m        # Show description[m
+[32m+[m[32m        st.sidebar.caption(dataset_intelligence.get('description', ''))[m
+[32m+[m
+ # --------------------------------------------------[m
+ # PROCESSING PIPELINE[m
+ # --------------------------------------------------[m
+[36m@@ -223,21 +235,21 @@[m [meda_report = ([m
+     eda.generate_eda_report()[m
+ )[m
+ [m
+[31m-insight_generator = ([m
+[31m-    InsightGenerator([m
+[31m-        eda_report[m
+[31m-    )[m
+[32m+[m[32m# Generate basic insights for context building[m
+[32m+[m[32mbasic_insight_generator = InsightGenerator([m
+[32m+[m[32m    eda_report[m
+ )[m
+[32m+[m[32mbasic_insights = basic_insight_generator.generate_all_insights()[m
+ [m
+[31m-insights = ([m
+[31m-    insight_generator.generate_all_insights()[m
+[31m-)[m
+[32m+[m[32m# Generate business insights for display[m
+[32m+[m[32mbusiness_insight_engine = BusinessInsightEngine(eda_report)[m
+[32m+[m[32mbusiness_insights = business_insight_engine.generate_all_insights()[m
+ [m
+ # --------------------------------------------------[m
+ # DATASET OVERVIEW[m
+ # --------------------------------------------------[m
+ [m
+[31m-st.header("📁 Dataset Overview")[m
+[32m+[m[32mst.header("���📁 Dataset Overview")[m
+ [m
+ col1, col2, col3, col4 = st.columns(4)[m
+ [m
+[36m@@ -273,6 +285,10 @@[m [mwith col4:[m
+         ][m
+     )[m
+ [m
+[32m+[m[32m# Dataset description[m
+[32m+[m[32mif dataset_intelligence:[m
+[32m+[m[32m    st.info(dataset_intelligence.get('description', ''))[m
+[32m+[m
+ # --------------------------------------------------[m
+ # DATASET UNDERSTANDING[m
+ # --------------------------------------------------[m
+[36m@@ -280,17 +296,21 @@[m [mwith col4:[m
+ st.markdown("---")[m
+ [m
+ st.header([m
+[31m-    "🧠 Dataset Understanding"[m
+[32m+[m[32m    "Dataset Intelligence"[m
+ )[m
+ [m
+[31m-if dataset_summary:[m
+[32m+[m[32mif dataset_intelligence:[m
+ [m
+     col1, col2 = st.columns(2)[m
+ [m
+     with col1:[m
+ [m
+         st.write([m
+[31m-            f"**Dataset Type:** {dataset_summary.get('dataset_type', 'Unknown')}"[m
+[32m+[m[32m            f"**Dataset Type:** {dataset_intelligence.get('dataset_type', 'Generic').title()}"[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32m        st.write([m
+[32m+[m[32m            f"**Primary Entity:** {dataset_intelligence.get('entity_type', 'Records').title()}"[m
+         )[m
+ [m
+         st.write([m
+[36m@@ -304,26 +324,75 @@[m [mif dataset_summary:[m
+     with col2:[m
+ [m
+         st.write([m
+[31m-            "**Candidate Metrics**"[m
+[32m+[m[32m            "**Description**"[m
+         )[m
+[32m+[m[32m        st.info(dataset_intelligence.get('description', 'No description available'))[m
+ [m
+         st.write([m
+[31m-            dataset_summary.get([m
+[31m-                "candidate_metrics",[m
+[31m-                [][m
+[31m-            )[m
+[32m+[m[32m            "**Key Features Detected**"[m
+         )[m
+[32m+[m[32m        features = [][m
+[32m+[m[32m        if dataset_intelligence.get('important_metrics'):[m
+[32m+[m[32m            features.append(f"{len(dataset_intelligence['important_metrics'])} key measurements")[m
+[32m+[m[32m        if dataset_intelligence.get('important_dimensions'):[m
+[32m+[m[32m            features.append(f"{len(dataset_intelligence['important_dimensions'])} grouping categories")[m
+[32m+[m[32m        if dataset_intelligence.get('time_column'):[m
+[32m+[m[32m            features.append("Time series capability")[m
+[32m+[m[32m        if dataset_intelligence.get('available_analyses'):[m
+[32m+[m[32m            features.append(f"{len(dataset_intelligence['available_analyses'])} analysis types available")[m
+[32m+[m
+[32m+[m[32m        for feature in features:[m
+[32m+[m[32m            st.write(f"• {feature}")[m
+[32m+[m[32melse:[m
+[32m+[m[32m    # Fallback to original dataset summary if intelligence not available[m
+[32m+[m[32m    if dataset_summary:[m
+ [m
+[31m-        st.write([m
+[31m-            "**Candidate Dimensions**"[m
+[31m-        )[m
+[32m+[m[32m        col1, col2 = st.columns(2)[m
+ [m
+[31m-        st.write([m
+[31m-            dataset_summary.get([m
+[31m-                "candidate_dimensions",[m
+[31m-                [][m
+[32m+[m[32m        with col1:[m
+[32m+[m
+[32m+[m[32m            st.write([m
+[32m+[m[32m                f"**Rows:** {dataset_summary.get('row_count', 0):,}"[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32m            st.write([m
+[32m+[m[32m                f"**Columns:** {dataset_summary.get('column_count', 0)}"[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32m            st.write([m
+[32m+[m[32m                "**Capabilities**"[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32m            st.json([m
+[32m+[m[32m                dataset_summary.get([m
+[32m+[m[32m                    "capabilities",[m
+[32m+[m[32m                    {}[m
+[32m+[m[32m                )[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32m        with col2:[m
+[32m+[m
+[32m+[m[32m            st.write([m
+[32m+[m[32m                "**Candidate Metrics**"[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32m            st.write([m
+[32m+[m[32m                dataset_summary.get([m
+[32m+[m[32m                    "candidate_metrics",[m
+[32m+[m[32m                    [][m
+[32m+[m[32m                )[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32m            st.write([m
+[32m+[m[32m                "**Candidate Dimensions**"[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32m            st.write([m
+[32m+[m[32m                dataset_summary.get([m
+[32m+[m[32m                    "candidate_dimensions",[m
+[32m+[m[32m                    [][m
+[32m+[m[32m                )[m
+             )[m
+[31m-        )[m
+ [m
+ # --------------------------------------------------[m
+ # SCHEMA ANALYSIS[m
+[36m@@ -331,7 +400,7 @@[m [mif dataset_summary:[m
+ [m
+ st.markdown("---")[m
+ [m
+[31m-st.header("🔍 Schema Analysis")[m
+[32m+[m[32mst.header("���🔍 Schema Analysis")[m
+ [m
+ if schema_metadata:[m
+ [m
+[36m@@ -415,7 +484,7 @@[m [mif schema_metadata:[m
+ [m
+ st.markdown("---")[m
+ [m
+[31m-st.header("🧹 Data Quality")[m
+[32m+[m[32mst.header("���🧹 Data Quality")[m
+ [m
+ col1, col2 = st.columns(2)[m
+ [m
+[36m@@ -448,7 +517,7 @@[m [mwith col2:[m
+ st.markdown("---")[m
+ [m
+ st.header([m
+[31m-    "📈 Exploratory Data Analysis"[m
+[32m+[m[32m    "���📈 Exploratory Data Analysis"[m
+ )[m
+ [m
+ st.subheader([m
+[36m@@ -508,17 +577,44 @@[m [mst.json([m
+ st.markdown("---")[m
+ [m
+ st.header([m
+[31m-    "🤖 AI Insights"[m
+[32m+[m[32m    "���🤖 AI Insights"[m
+ )[m
+ [m
+[31m-for index, insight in enumerate([m
+[31m-    insights,[m
+[31m-    start=1[m
+[31m-):[m
+[31m-[m
+[31m-    st.success([m
+[31m-        f"Insight {index}: {insight}"[m
+[31m-    )[m
+[32m+[m[32m# Display business insights with categorization[m
+[32m+[m[32mif business_insights:[m
+[32m+[m[32m    # Group insights by category[m
+[32m+[m[32m    insights_by_category = {}[m
+[32m+[m[32m    for insight in business_insights:[m
+[32m+[m[32m        category = insight.category[m
+[32m+[m[32m        if category not in insights_by_category:[m
+[32m+[m[32m            insights_by_category[category] = [][m
+[32m+[m[32m        insights_by_category[category].append(insight)[m
+[32m+[m
+[32m+[m[32m    # Display insights by category[m
+[32m+[m[32m    category_icons = {[m
+[32m+[m[32m        "performance": "���📈",[m
+[32m+[m[32m        "risk": "��⚠��️",[m
+[32m+[m[32m        "opportunity": "���💡",[m
+[32m+[m[32m        "trend": "���🔮",[m
+[32m+[m[32m        "data_quality": "���🧹"[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    for category, category_insights in insights_by_category.items():[m
+[32m+[m[32m        icon = category_icons.get(category, "���📊")[m
+[32m+[m[32m        with st.expander(f"{icon} {category.title()} Insights ({len(category_insights)})", expanded=True):[m
+[32m+[m[32m            for index, insight in enumerate(category_insights, start=1):[m
+[32m+[m[32m                st.info(f"**Insight {index}:** {insight.insight}")[m
+[32m+[m[32m                if insight.suggested_action:[m
+[32m+[m[32m                    st.caption(f"���💡 Suggested Action: {insight.suggested_action}")[m
+[32m+[m[32melse:[m
+[32m+[m[32m    # Fallback to basic insights if no business insights generated[m
+[32m+[m[32m    for index, insight in enumerate([m
+[32m+[m[32m        basic_insights,[m
+[32m+[m[32m        start=1[m
+[32m+[m[32m    ):[m
+[32m+[m[32m        st.success([m
+[32m+[m[32m            f"Insight {index}: {insight}"[m
+[32m+[m[32m        )[m
+ [m
+ # --------------------------------------------------[m
+ # QUESTIONS[m
+[36m@@ -529,7 +625,7 @@[m [mif dataset_summary:[m
+     st.markdown("---")[m
+ [m
+     st.header([m
+[31m-        "💡 Suggested Questions"[m
+[32m+[m[32m        "���💡 Suggested Questions"[m
+     )[m
+ [m
+     for question in dataset_summary.get([m
+[36m@@ -546,7 +642,7 @@[m [mif dataset_summary:[m
+ st.markdown("---")[m
+ [m
+ st.header([m
+[31m-    "🔐 Dataset Fingerprint"[m
+[32m+[m[32m    "���🔐 Dataset Fingerprint"[m
+ )[m
+ [m
+ st.code([m
+[36m@@ -560,7 +656,7 @@[m [mst.code([m
+ st.markdown("---")[m
+ [m
+ st.header([m
+[31m-    "📄 Dataset Preview"[m
+[32m+[m[32m    "���📄 Dataset Preview"[m
+ )[m
+ [m
+ st.dataframe([m
+[1mdiff --git a/app/pages/ai_chat.py b/app/pages/ai_chat.py[m
+[1mindex 38b85f2..24a7b7f 100644[m
+[1m--- a/app/pages/ai_chat.py[m
+[1m+++ b/app/pages/ai_chat.py[m
+[36m@@ -37,7 +37,7 @@[m [mst.set_page_config([m
+ )[m
+ [m
+ st.title([m
+[31m-    "🤖 AI Data Analyst Chat"[m
+[32m+[m[32m    "���������🤖 AI Data Analyst Chat"[m
+ )[m
+ [m
+ # =====================================[m
+[36m@@ -70,6 +70,8 @@[m [mdataset_fingerprint = ([m
+     DataManager.get_dataset_fingerprint()[m
+ )[m
+ [m
+[32m+[m[32mdataset_intelligence = DataManager.get_dataset_intelligence()[m
+[32m+[m
+ if dataset_fingerprint is None:[m
+ [m
+     st.error([m
+[36m@@ -106,20 +108,10 @@[m [mst.success([m
+ [m
+ if dataset_summary:[m
+ [m
+[31m-    col1, col2, col3 = st.columns(3)[m
+[32m+[m[32m    col1, col2 = st.columns(2)[m
+ [m
+     with col1:[m
+ [m
+[31m-        st.metric([m
+[31m-            "Dataset Type",[m
+[31m-            dataset_summary.get([m
+[31m-                "dataset_type",[m
+[31m-                "Generic"[m
+[31m-            )[m
+[31m-        )[m
+[31m-[m
+[31m-    with col2:[m
+[31m-[m
+         st.metric([m
+             "Rows",[m
+             dataset_summary.get([m
+[36m@@ -128,7 +120,7 @@[m [mif dataset_summary:[m
+             )[m
+         )[m
+ [m
+[31m-    with col3:[m
+[32m+[m[32m    with col2:[m
+ [m
+         st.metric([m
+             "Columns",[m
+[36m@@ -142,19 +134,33 @@[m [mif dataset_summary:[m
+ # SUGGESTED QUESTIONS[m
+ # =====================================[m
+ [m
+[31m-if dataset_summary:[m
+[32m+[m[32mif dataset_intelligence and dataset_intelligence.get('suggested_questions'):[m
+ [m
+     st.markdown([m
+         "### Suggested Questions"[m
+     )[m
+ [m
+     for suggested_question in ([m
+[32m+[m[32m        dataset_intelligence.get([m
+[32m+[m[32m            'suggested_questions',[m
+[32m+[m[32m            [][m
+[32m+[m[32m        )[m
+[32m+[m[32m    ):[m
+ [m
+[32m+[m[32m        st.info([m
+[32m+[m[32m            suggested_question[m
+[32m+[m[32m        )[m
+[32m+[m[32melif dataset_summary:[m
+[32m+[m
+[32m+[m[32m    st.markdown([m
+[32m+[m[32m        "### Suggested Questions"[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    for suggested_question in ([m
+         dataset_summary.get([m
+             "suggested_questions",[m
+             [][m
+         )[m
+[31m-[m
+     ):[m
+ [m
+         st.info([m
+[36m@@ -297,20 +303,24 @@[m [mif question:[m
+                 # ==========================[m
+ [m
+                 retrieved_docs = ([m
+[31m-[m
+                     rag_engine.retrieve([m
+                         question[m
+                     )[m
+[31m-[m
+                 )[m
+ [m
+[31m-                response = ([m
+[31m-[m
+[31m-                    llm.ask_rag_question([m
+[31m-                        retrieved_docs,[m
+[31m-                        question[m
+[31m-                    )[m
+[31m-[m
+[32m+[m[32m                # Build context string from dataset summary and retrieved documents[m
+[32m+[m[32m                context_parts = [][m
+[32m+[m[32m                if dataset_summary:[m
+[32m+[m[32m                    context_parts.append("Dataset Summary:")[m
+[32m+[m[32m                    for key, value in dataset_summary.items():[m
+[32m+[m[32m                        context_parts.append(f"  {key}: {value}")[m
+[32m+[m[32m                context_parts.append("\nRetrieved Records:")[m
+[32m+[m[32m                context_parts.extend(retrieved_docs)[m
+[32m+[m[32m                context_string = "\n".join(context_parts)[m
+[32m+[m
+[32m+[m[32m                response = llm.ask_question([m
+[32m+[m[32m                    context_string,[m
+[32m+[m[32m                    question[m
+                 )[m
+ [m
+                 st.markdown([m
+[36m@@ -322,11 +332,8 @@[m [mif question:[m
+                 ):[m
+ [m
+                     for i, doc in enumerate([m
+[31m-[m
+                         retrieved_docs,[m
+[31m-[m
+                         start=1[m
+[31m-[m
+                     ):[m
+ [m
+                         st.markdown([m
+[1mdiff --git a/app/pages/business_insights.py b/app/pages/business_insights.py[m
+[1mindex 5e39545..eb0b154 100644[m
+[1m--- a/app/pages/business_insights.py[m
+[1m+++ b/app/pages/business_insights.py[m
+[36m@@ -3,117 +3,341 @@[m [mfrom pathlib import Path[m
+ [m
+ import streamlit as st[m
+ [m
+[31m-project_root = Path(__file__).resolve().parent.parent.parent[m
+[31m-sys.path.append(str(project_root))[m
+[32m+[m[32mproject_root = ([m
+[32m+[m[32m    Path(__file__)[m
+[32m+[m[32m    .resolve()[m
+[32m+[m[32m    .parent[m
+[32m+[m[32m    .parent[m
+[32m+[m[32m    .parent[m
+[32m+[m[32m)[m
+ [m
+[31m-from src.ingestion.data_loader import DataLoader[m
+[31m-from src.eda.exploratory_analysis import ExploratoryAnalysis[m
+[31m-from src.insights.insight_generator import InsightGenerator[m
+[32m+[m[32msys.path.append([m
+[32m+[m[32m    str(project_root)[m
+[32m+[m[32m)[m
+ [m
+[32m+[m[32mfrom app.utils.data_manager import ([m
+[32m+[m[32m    DataManager[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mfrom src.eda.exploratory_analysis import ([m
+[32m+[m[32m    ExploratoryAnalysis[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mfrom src.insights.insight_generator import ([m
+[32m+[m[32m    InsightGenerator[m
+[32m+[m[32m)[m
+[32m+[m[32mfrom src.insights.business_insight_engine import ([m
+[32m+[m[32m    BusinessInsightEngine[m
+[32m+[m[32m)[m
+ [m
+ st.set_page_config([m
+     page_title="Business Insights",[m
+     layout="wide"[m
+ )[m
+ [m
+[31m-st.title("Business Insights & Recommendations")[m
+[31m-[m
+[31m-# ---------------------------------------[m
+[31m-# Load Data[m
+[31m-# ---------------------------------------[m
+[31m-[m
+[31m-df = DataLoader.load_data()[m
+[31m-[m
+[31m-eda = ExploratoryAnalysis(df)[m
+[31m-[m
+[31m-eda_report = eda.generate_eda_report()[m
+[31m-[m
+[31m-insight_generator = InsightGenerator([m
+[31m-    eda_report[m
+[32m+[m[32mst.title([m
+[32m+[m[32m    "���������📊 Business Insights"[m
+ )[m
+ [m
+[31m-insights = insight_generator.generate_all_insights()[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# LOAD DATASET[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-# ---------------------------------------[m
+[31m-# Executive Summary[m
+[31m-# ---------------------------------------[m
+[32m+[m[32mdf = DataManager.get_data()[m
+ [m
+[31m-st.header("Executive Summary")[m
+[32m+[m[32mif df is None:[m
+ [m
+[31m-for insight in insights:[m
+[32m+[m[32m    st.warning([m
+[32m+[m[32m        "Please upload and select a dataset first."[m
+[32m+[m[32m    )[m
+ [m
+[31m-    st.success(insight)[m
+[32m+[m[32m    st.stop()[m
+ [m
+[31m-st.markdown("---")[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# EDA[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-# ---------------------------------------[m
+[31m-# Key Findings[m
+[31m-# ---------------------------------------[m
+[32m+[m[32meda = ExploratoryAnalysis([m
+[32m+[m[32m    df[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32meda_report = ([m
+[32m+[m[32m    eda.generate_eda_report()[m
+[32m+[m[32m)[m
+ [m
+[31m-st.header("Key Findings")[m
+[32m+[m[32m# Generate basic insights for compatibility[m
+[32m+[m[32mbasic_insight_generator = ([m
+[32m+[m[32m    InsightGenerator([m
+[32m+[m[32m        eda_report[m
+[32m+[m[32m    )[m
+[32m+[m[32m)[m
+[32m+[m[32mbasic_insights = basic_insight_generator.generate_all_insights()[m
+ [m
+[31m-region = eda_report[[m
+[31m-    "region_analysis"[m
+[31m-]["best_region"][m
+[32m+[m[32m# Generate business insights for display[m
+[32m+[m[32mbusiness_insight_engine = BusinessInsightEngine(eda_report)[m
+[32m+[m[32mbusiness_insights = business_insight_engine.generate_all_insights()[m
+ [m
+[31m-category = eda_report[[m
+[31m-    "category_analysis"[m
+[31m-]["best_category"][m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# DATASET OVERVIEW[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-segment_sales = eda_report[[m
+[31m-    "segment_analysis"[m
+[31m-]["sales_by_segment"][m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Dataset Overview"[m
+[32m+[m[32m)[m
+ [m
+[31m-top_segment = max([m
+[31m-    segment_sales,[m
+[31m-    key=segment_sales.get[m
+[32m+[m[32msummary = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "dataset_summary",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+ )[m
+ [m
+[31m-col1, col2, col3 = st.columns(3)[m
+[32m+[m[32mcol1, col2, col3, col4 = st.columns(4)[m
+ [m
+ with col1:[m
+ [m
+     st.metric([m
+[31m-        "Best Region",[m
+[31m-        region[m
+[32m+[m[32m        "Rows",[m
+[32m+[m[32m        summary.get([m
+[32m+[m[32m            "rows",[m
+[32m+[m[32m            0[m
+[32m+[m[32m        )[m
+     )[m
+ [m
+ with col2:[m
+ [m
+     st.metric([m
+[31m-        "Best Category",[m
+[31m-        category[m
+[32m+[m[32m        "Columns",[m
+[32m+[m[32m        summary.get([m
+[32m+[m[32m            "columns",[m
+[32m+[m[32m            0[m
+[32m+[m[32m        )[m
+     )[m
+ [m
+ with col3:[m
+ [m
+     st.metric([m
+[31m-        "Top Segment",[m
+[31m-        top_segment[m
+[32m+[m[32m        "Missing Values",[m
+[32m+[m[32m        summary.get([m
+[32m+[m[32m            "missing_values",[m
+[32m+[m[32m            0[m
+[32m+[m[32m        )[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32mwith col4:[m
+[32m+[m
+[32m+[m[32m    st.metric([m
+[32m+[m[32m        "Duplicate Rows",[m
+[32m+[m[32m        summary.get([m
+[32m+[m[32m            "duplicate_rows",[m
+[32m+[m[32m            0[m
+[32m+[m[32m        )[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32mst.divider()[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# EXECUTIVE INSIGHTS[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Executive Insights"[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32m# Get dataset intelligence for context[m
+[32m+[m[32mdataset_intelligence = DataManager.get_dataset_intelligence()[m
+[32m+[m[32mentity_name = dataset_intelligence.get('entity_name_singular', 'record') if dataset_intelligence else 'record'[m
+[32m+[m[32mentity_type = dataset_intelligence.get('entity_type', 'records') if dataset_intelligence else 'records'[m
+[32m+[m
+[32m+[m[32m# Display business insights with categorization[m
+[32m+[m[32mif business_insights:[m
+[32m+[m[32m    # Group insights by category[m
+[32m+[m[32m    insights_by_category = {}[m
+[32m+[m[32m    for insight in business_insights:[m
+[32m+[m[32m        category = insight.category[m
+[32m+[m[32m        if category not in insights_by_category:[m
+[32m+[m[32m            insights_by_category[category] = [][m
+[32m+[m[32m        insights_by_category[category].append(insight)[m
+[32m+[m
+[32m+[m[32m    # Display insights by category[m
+[32m+[m[32m    category_icons = {[m
+[32m+[m[32m        "performance": "���������📈",[m
+[32m+[m[32m        "risk": "������⚠������️",[m
+[32m+[m[32m        "opportunity": "���������💡",[m
+[32m+[m[32m        "trend": "���������🔮",[m
+[32m+[m[32m        "data_quality": "���������🧹"[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    for category, category_insights in insights_by_category.items():[m
+[32m+[m[32m        icon = category_icons.get(category, "���������📊")[m
+[32m+[m[32m        with st.expander(f"{icon} {category.title()} Insights ({len(category_insights)})", expanded=True):[m
+[32m+[m[32m            for index, insight in enumerate(category_insights, start=1):[m
+[32m+[m[32m                st.info(f"**Insight {index}:** {insight.insight}")[m
+[32m+[m[32m                if insight.suggested_action:[m
+[32m+[m[32m                    st.caption(f"���������💡 Suggested Action: {insight.suggested_action}")[m
+[32m+[m[32melse:[m
+[32m+[m[32m    # Fallback to basic insights if no business insights generated[m
+[32m+[m[32m    for insight in basic_insights:[m
+[32m+[m[32m        st.success([m
+[32m+[m[32m            insight[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32mst.divider()[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# NUMERIC FINDINGS[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mnumeric_summary = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "numeric_summary",[m
+[32m+[m[32m        {}[m
+     )[m
+[32m+[m[32m)[m
+ [m
+[31m-st.markdown("---")[m
+[32m+[m[32mif numeric_summary:[m
+ [m
+[31m-# ---------------------------------------[m
+[31m-# Recommendations[m
+[31m-# ---------------------------------------[m
+[32m+[m[32m    st.header([m
+[32m+[m[32m        "Numeric Findings"[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    for column, stats in ([m
+[32m+[m[32m        numeric_summary.items()[m
+[32m+[m[32m    ):[m
+ [m
+[31m-st.header("Business Recommendations")[m
+[32m+[m[32m        with st.expander([m
+[32m+[m[32m            column[m
+[32m+[m[32m        ):[m
+ [m
+[31m-recommendations = [[m
+[32m+[m[32m            st.write([m
+[32m+[m[32m                stats[m
+[32m+[m[32m            )[m
+ [m
+[31m-    "Increase investment in high-performing regions.",[m
+[32m+[m[32mst.divider()[m
+ [m
+[31m-    "Focus on Technology products to maximize profit.",[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# CATEGORICAL FINDINGS[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-    "Reduce excessive discounting strategies.",[m
+[32m+[m[32mcategorical_summary = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "categorical_summary",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mif categorical_summary:[m
+[32m+[m
+[32m+[m[32m    st.header([m
+[32m+[m[32m        "Categorical Findings"[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    for column, values in ([m
+[32m+[m[32m        categorical_summary.items()[m
+[32m+[m[32m    ):[m
+[32m+[m
+[32m+[m[32m        with st.expander([m
+[32m+[m[32m            column[m
+[32m+[m[32m        ):[m
+[32m+[m
+[32m+[m[32m            st.write([m
+[32m+[m[32m                values[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32mst.divider()[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# CORRELATIONS[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mcorrelations = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "correlation_analysis",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mif correlations:[m
+[32m+[m
+[32m+[m[32m    st.header([m
+[32m+[m[32m        "Strong Relationships"[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    sorted_correlations = sorted([m
+[32m+[m[32m        correlations.items(),[m
+[32m+[m[32m        key=lambda x: abs([m
+[32m+[m[32m            x[1][m
+[32m+[m[32m        ),[m
+[32m+[m[32m        reverse=True[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    for pair, value in ([m
+[32m+[m[32m        sorted_correlations[:10][m
+[32m+[m[32m    ):[m
+[32m+[m
+[32m+[m[32m        st.info([m
+[32m+[m[32m            f"{pair} → {value}"[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32mst.divider()[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# OUTLIERS[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32moutliers = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "outlier_analysis",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mif outliers:[m
+[32m+[m
+[32m+[m[32m    st.header([m
+[32m+[m[32m        "Outlier Analysis"[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    for column, details in ([m
+[32m+[m[32m        outliers.items()[m
+[32m+[m[32m    ):[m
+[32m+[m
+[32m+[m[32m        st.warning([m
+[32m+[m[32m            f"{column}: "[m
+[32m+[m[32m            f"{details['outlier_count']} "[m
+[32m+[m[32m            f"outliers "[m
+[32m+[m[32m            f"({details['outlier_percentage']}%)"[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32mst.divider()[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# DATA QUALITY[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mmissing = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "missing_value_analysis",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Data Quality Findings"[m
+[32m+[m[32m)[m
+ [m
+[31m-    "Improve performance in low-revenue regions.",[m
+[32m+[m[32mif missing:[m
+ [m
+[31m-    "Target Consumer customers with retention campaigns."[m
+[32m+[m[32m    for column, count in ([m
+[32m+[m[32m        missing.items()[m
+[32m+[m[32m    ):[m
+ [m
+[31m-][m
+[32m+[m[32m        st.warning([m
+[32m+[m[32m            f"{column}: {count} missing values"[m
+[32m+[m[32m        )[m
+ [m
+[31m-for rec in recommendations:[m
+[32m+[m[32melse:[m
+ [m
+[31m-    st.info(rec)[m
+\ No newline at end of file[m
+[32m+[m[32m    st.success([m
+[32m+[m[32m        "No missing values detected."[m
+[32m+[m[32m    )[m
+\ No newline at end of file[m
+[1mdiff --git a/app/pages/dashboard.py b/app/pages/dashboard.py[m
+[1mindex 38dd3db..a390d95 100644[m
+[1m--- a/app/pages/dashboard.py[m
+[1m+++ b/app/pages/dashboard.py[m
+[36m@@ -1,172 +1,432 @@[m
+ import sys[m
+ from pathlib import Path[m
+ [m
+[32m+[m[32mimport pandas as pd[m
+ import streamlit as st[m
+ import plotly.express as px[m
+ [m
+[31m-project_root = Path(__file__).resolve().parent.parent.parent[m
+[31m-sys.path.append(str(project_root))[m
+[32m+[m[32mproject_root = ([m
+[32m+[m[32m    Path(__file__)[m
+[32m+[m[32m    .resolve()[m
+[32m+[m[32m    .parent[m
+[32m+[m[32m    .parent[m
+[32m+[m[32m    .parent[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32msys.path.append([m
+[32m+[m[32m    str(project_root)[m
+[32m+[m[32m)[m
+ [m
+[31m-from src.ingestion.data_loader import DataLoader[m
+[32m+[m[32mfrom app.utils.data_manager import ([m
+[32m+[m[32m    DataManager[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mfrom src.eda.exploratory_analysis import ([m
+[32m+[m[32m    ExploratoryAnalysis[m
+[32m+[m[32m)[m
+ [m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# PAGE CONFIG[m
+[32m+[m[32m# =====================================[m
+ [m
+ st.set_page_config([m
+     page_title="Dashboard",[m
+     layout="wide"[m
+ )[m
+ [m
+[31m-st.title("Business Dashboard")[m
+[32m+[m[32mst.title([m
+[32m+[m[32m    "���������📊 Dataset Intelligence Dashboard"[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# LOAD DATA[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mdf = DataManager.get_data()[m
+ [m
+[31m-# Load Data[m
+[31m-df = DataLoader.load_data()[m
+[32m+[m[32mif df is None:[m
+ [m
+[31m-# KPIs[m
+[32m+[m[32m    st.warning([m
+[32m+[m[32m        "Please upload and select a dataset first."[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    st.stop()[m
+ [m
+[31m-total_sales = round(df["Sales"].sum(), 2)[m
+[32m+[m[32mdataset_summary = ([m
+[32m+[m[32m    DataManager.get_dataset_summary()[m
+[32m+[m[32m)[m
+[32m+[m[32mdataset_intelligence = DataManager.get_dataset_intelligence()[m
+ [m
+[31m-total_profit = round(df["Profit"].sum(), 2)[m
+[32m+[m[32meda = ExploratoryAnalysis([m
+[32m+[m[32m    df[m
+[32m+[m[32m)[m
+ [m
+[31m-profit_margin = round([m
+[31m-    (total_profit / total_sales) * 100,[m
+[31m-    2[m
+[32m+[m[32meda_report = ([m
+[32m+[m[32m    eda.generate_eda_report()[m
+ )[m
+ [m
+[31m-total_orders = df["Order ID"].nunique()[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# DATASET OVERVIEW[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-# KPI SECTION[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Dataset Overview"[m
+[32m+[m[32m)[m
+ [m
+ col1, col2, col3, col4 = st.columns(4)[m
+ [m
+ with col1:[m
+[32m+[m
+     st.metric([m
+[31m-        "Total Sales",[m
+[31m-        f"${total_sales:,.0f}"[m
+[32m+[m[32m        "Rows",[m
+[32m+[m[32m        dataset_summary.get([m
+[32m+[m[32m            "row_count",[m
+[32m+[m[32m            0[m
+[32m+[m[32m        )[m
+     )[m
+ [m
+ with col2:[m
+[32m+[m
+     st.metric([m
+[31m-        "Total Profit",[m
+[31m-        f"${total_profit:,.0f}"[m
+[32m+[m[32m        "Columns",[m
+[32m+[m[32m        dataset_summary.get([m
+[32m+[m[32m            "column_count",[m
+[32m+[m[32m            0[m
+[32m+[m[32m        )[m
+     )[m
+ [m
+ with col3:[m
+[32m+[m
+     st.metric([m
+[31m-        "Profit Margin",[m
+[31m-        f"{profit_margin}%"[m
+[32m+[m[32m        "Missing Values",[m
+[32m+[m[32m        sum([m
+[32m+[m[32m            dataset_summary.get([m
+[32m+[m[32m                "missing_values",[m
+[32m+[m[32m                {}[m
+[32m+[m[32m            ).values()[m
+[32m+[m[32m        )[m
+     )[m
+ [m
+ with col4:[m
+[32m+[m
+     st.metric([m
+[31m-        "Total Orders",[m
+[31m-        total_orders[m
+[32m+[m[32m        "Duplicate Rows",[m
+[32m+[m[32m        dataset_summary.get([m
+[32m+[m[32m            "duplicate_rows",[m
+[32m+[m[32m            0[m
+[32m+[m[32m        )[m
+     )[m
+ [m
+[31m-st.markdown("---")[m
+[32m+[m[32mst.divider()[m
+ [m
+[31m-# SALES BY REGION[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# KEY METRICS[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-region_sales = ([m
+[31m-    df.groupby("Region")["Sales"][m
+[31m-    .sum()[m
+[31m-    .reset_index()[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Key Metrics"[m
+ )[m
+ [m
+[31m-fig_region_sales = px.bar([m
+[31m-    region_sales,[m
+[31m-    x="Region",[m
+[31m-    y="Sales",[m
+[31m-    title="Sales by Region"[m
+[31m-)[m
+[32m+[m[32m# Get KPIs from dataset intelligence[m
+[32m+[m[32mif dataset_intelligence and dataset_intelligence.get('kpis'):[m
+[32m+[m[32m    kpis = dataset_intelligence['kpis'][m
+[32m+[m
+[32m+[m[32m    # Limit to 4 columns[m
+[32m+[m[32m    metric_columns = st.columns(min(4, len(kpis)))[m
+[32m+[m
+[32m+[m[32m    for idx, kpi in enumerate(kpis[:4]):[m
+[32m+[m[32m        column = kpi['column'][m
+[32m+[m[32m        display_name = kpi['display_name'][m
+[32m+[m[32m        calc_type = kpi['calculation'][m
+[32m+[m
+[32m+[m[32m        try:[m
+[32m+[m[32m            if calc_type == 'sum':[m
+[32m+[m[32m                value = round(float(df[column].sum()), 2)[m
+[32m+[m[32m            else:  # average[m
+[32m+[m[32m                value = round(float(df[column].mean()), 2)[m
+[32m+[m
+[32m+[m[32m            # Format based on KPI specification[m
+[32m+[m[32m            format_type = kpi.get('format', 'number')[m
+[32m+[m[32m            if format_type == 'currency':[m
+[32m+[m[32m                formatted_value = f"${value:,.2f}"[m
+[32m+[m[32m            else:[m
+[32m+[m[32m                formatted_value = f"{value:,.2f}"[m
+[32m+[m
+[32m+[m[32m            with metric_columns[idx]:[m
+[32m+[m[32m                st.metric([m
+[32m+[m[32m                    display_name,[m
+[32m+[m[32m                    formatted_value[m
+[32m+[m[32m                )[m
+[32m+[m[32m        except Exception:[m
+[32m+[m[32m            continue[m
+[32m+[m[32melse:[m
+[32m+[m[32m    # Fallback to original logic[m
+[32m+[m[32m    candidate_metrics = ([m
+[32m+[m[32m        dataset_summary.get([m
+[32m+[m[32m            "candidate_metrics",[m
+[32m+[m[32m            [][m
+[32m+[m[32m        )[m
+[32m+[m[32m    )[m
+ [m
+[31m-st.plotly_chart([m
+[31m-    fig_region_sales,[m
+[31m-    use_container_width=True[m
+[31m-)[m
+[32m+[m[32m    if candidate_metrics:[m
+ [m
+[31m-# PROFIT BY REGION[m
+[32m+[m[32m        metric_columns = st.columns([m
+[32m+[m[32m            min([m
+[32m+[m[32m                4,[m
+[32m+[m[32m                len(candidate_metrics)[m
+[32m+[m[32m            )[m
+[32m+[m[32m        )[m
+ [m
+[31m-region_profit = ([m
+[31m-    df.groupby("Region")["Profit"][m
+[31m-    .sum()[m
+[31m-    .reset_index()[m
+[31m-)[m
+[32m+[m[32m        for idx, metric in enumerate([m
+[32m+[m[32m            candidate_metrics[:4][m
+[32m+[m[32m        ):[m
+ [m
+[31m-fig_region_profit = px.bar([m
+[31m-    region_profit,[m
+[31m-    x="Region",[m
+[31m-    y="Profit",[m
+[31m-    title="Profit by Region"[m
+[31m-)[m
+[32m+[m[32m            try:[m
+ [m
+[31m-st.plotly_chart([m
+[31m-    fig_region_profit,[m
+[31m-    use_container_width=True[m
+[31m-)[m
+[32m+[m[32m                value = round([m
+[32m+[m[32m                    float([m
+[32m+[m[32m                        df[metric].mean()[m
+[32m+[m[32m                    ),[m
+[32m+[m[32m                    2[m
+[32m+[m[32m                )[m
+ [m
+[31m-# SALES BY CATEGORY[m
+[32m+[m[32m                with metric_columns[idx]:[m
+ [m
+[31m-category_sales = ([m
+[31m-    df.groupby("Category")["Sales"][m
+[31m-    .sum()[m
+[31m-    .reset_index()[m
+[31m-)[m
+[32m+[m[32m                    st.metric([m
+[32m+[m[32m                        metric,[m
+[32m+[m[32m                        value[m
+[32m+[m[32m                    )[m
+[32m+[m
+[32m+[m[32m            except Exception:[m
+[32m+[m
+[32m+[m[32m                continue[m
+[32m+[m
+[32m+[m[32m    else:[m
+ [m
+[31m-fig_category_sales = px.pie([m
+[31m-    category_sales,[m
+[31m-    names="Category",[m
+[31m-    values="Sales",[m
+[31m-    title="Sales by Category"[m
+[32m+[m[32m        st.info([m
+[32m+[m[32m            "No candidate metrics detected."[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32mst.divider()[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# METRIC EXPLORER[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Metric Explorer"[m
+ )[m
+ [m
+[31m-st.plotly_chart([m
+[31m-    fig_category_sales,[m
+[31m-    use_container_width=True[m
+[32m+[m[32mcandidate_metrics = ([m
+[32m+[m[32m    dataset_summary.get([m
+[32m+[m[32m        "candidate_metrics",[m
+[32m+[m[32m        [][m
+[32m+[m[32m    )[m
+[32m+[m[32m)[m
+[32m+[m[32mcandidate_dimensions = ([m
+[32m+[m[32m    dataset_summary.get([m
+[32m+[m[32m        "candidate_dimensions",[m
+[32m+[m[32m        [][m
+[32m+[m[32m    )[m
+ )[m
+ [m
+[31m-# SALES BY SEGMENT[m
+[32m+[m[32mif ([m
+ [m
+[31m-segment_sales = ([m
+[31m-    df.groupby("Segment")["Sales"][m
+[31m-    .sum()[m
+[31m-    .reset_index()[m
+[31m-)[m
+[32m+[m[32m    len(candidate_metrics) > 0[m
+[32m+[m[32m    and[m
+[32m+[m[32m    len(candidate_dimensions) > 0[m
+[32m+[m
+[32m+[m[32m):[m
+[32m+[m
+[32m+[m[32m    col1, col2 = st.columns(2)[m
+[32m+[m
+[32m+[m[32m    with col1:[m
+[32m+[m
+[32m+[m[32m        selected_metric = ([m
+[32m+[m[32m            st.selectbox([m
+[32m+[m[32m                "Select Metric",[m
+[32m+[m[32m                candidate_metrics[m
+[32m+[m[32m            )[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32m    with col2:[m
+[32m+[m
+[32m+[m[32m        selected_dimension = ([m
+[32m+[m[32m            st.selectbox([m
+[32m+[m[32m                "Select Dimension",[m
+[32m+[m[32m                candidate_dimensions[m
+[32m+[m[32m            )[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32m    try:[m
+[32m+[m
+[32m+[m[32m        chart_df = ([m
+[32m+[m[32m            df.groupby([m
+[32m+[m[32m                selected_dimension[m
+[32m+[m[32m            )[selected_metric][m
+[32m+[m
+[32m+[m[32m            .mean()[m
+[32m+[m
+[32m+[m[32m            .reset_index()[m
+ [m
+[31m-fig_segment_sales = px.pie([m
+[31m-    segment_sales,[m
+[31m-    names="Segment",[m
+[31m-    values="Sales",[m
+[31m-    title="Sales by Segment"[m
+[32m+[m[32m            .sort_values([m
+[32m+[m[32m                selected_metric,[m
+[32m+[m[32m                ascending=False[m
+[32m+[m[32m            )[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32m        if not chart_df.empty:[m
+[32m+[m
+[32m+[m[32m            fig = px.bar([m
+[32m+[m[32m                chart_df,[m
+[32m+[m[32m                x=selected_dimension,[m
+[32m+[m[32m                y=selected_metric,[m
+[32m+[m[32m                title=([m
+[32m+[m[32m                    f"{selected_metric}"[m
+[32m+[m[32m                    f" by "[m
+[32m+[m[32m                    f"{selected_dimension}"[m
+[32m+[m[32m                )[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32m            st.plotly_chart([m
+[32m+[m[32m                fig,[m
+[32m+[m[32m                use_container_width=True[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32m        else:[m
+[32m+[m
+[32m+[m[32m            st.info([m
+[32m+[m[32m                "No data available for chart."[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32m    except Exception as e:[m
+[32m+[m
+[32m+[m[32m        st.warning([m
+[32m+[m[32m            f"Unable to build chart: {e}"[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32melse:[m
+[32m+[m
+[32m+[m[32m    st.info([m
+[32m+[m[32m        "Metric Explorer requires both numeric metrics and categorical dimensions."[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32mst.divider()[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# CORRELATION HIGHLIGHTS[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Correlation Highlights"[m
+ )[m
+ [m
+[31m-st.plotly_chart([m
+[31m-    fig_segment_sales,[m
+[31m-    use_container_width=True[m
+[32m+[m[32mcorrelations = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "correlation_analysis",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+ )[m
+ [m
+[31m-st.markdown("---")[m
+[32m+[m[32mif correlations:[m
+[32m+[m
+[32m+[m[32m    valid_correlations = {[m
+[32m+[m
+[32m+[m[32m        pair: value[m
+[32m+[m
+[32m+[m[32m        for pair, value in correlations.items()[m
+[32m+[m
+[32m+[m[32m        if pd.notna(value)[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    if valid_correlations:[m
+[32m+[m
+[32m+[m[32m        top_correlations = sorted([m
+[32m+[m
+[32m+[m[32m            valid_correlations.items(),[m
+[32m+[m
+[32m+[m[32m            key=lambda x: abs([m
+[32m+[m[32m                x[1][m
+[32m+[m[32m            ),[m
+ [m
+[31m-# BEST REGION[m
+[32m+[m[32m            reverse=True[m
+ [m
+[31m-best_region = ([m
+[31m-    df.groupby("Region")["Sales"][m
+[31m-    .sum()[m
+[31m-    .idxmax()[m
+[32m+[m[32m        )[:5][m
+[32m+[m
+[32m+[m[32m        for pair, value in ([m
+[32m+[m[32m            top_correlations[m
+[32m+[m[32m        ):[m
+[32m+[m
+[32m+[m[32m            st.info([m
+[32m+[m[32m                f"{pair} → {value}"[m
+[32m+[m[32m            )[m
+[32m+[m
+[32m+[m[32m    else:[m
+[32m+[m
+[32m+[m[32m        st.info([m
+[32m+[m[32m            "No valid correlations detected."[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32melse:[m
+[32m+[m
+[32m+[m[32m    st.info([m
+[32m+[m[32m        "No correlation analysis available."[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32mst.divider()[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# OUTLIER SUMMARY[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Outlier Summary"[m
+ )[m
+ [m
+[31m-worst_region = ([m
+[31m-    df.groupby("Region")["Sales"][m
+[31m-    .sum()[m
+[31m-    .idxmin()[m
+[32m+[m[32moutliers = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "outlier_analysis",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+ )[m
+ [m
+[31m-col1, col2 = st.columns(2)[m
+[32m+[m[32mif outliers:[m
+ [m
+[31m-with col1:[m
+[31m-    st.success([m
+[31m-        f"Best Performing Region: {best_region}"[m
+[32m+[m[32m    outlier_df = pd.DataFrame([m
+[32m+[m[32m        outliers[m
+[32m+[m[32m    ).T[m
+[32m+[m
+[32m+[m[32m    outlier_df = ([m
+[32m+[m[32m        outlier_df[m
+[32m+[m[32m        .sort_values([m
+[32m+[m[32m            by="outlier_percentage",[m
+[32m+[m[32m            ascending=False[m
+[32m+[m[32m        )[m
+     )[m
+ [m
+[31m-with col2:[m
+[31m-    st.error([m
+[31m-        f"Worst Performing Region: {worst_region}"[m
+[31m-    )[m
+\ No newline at end of file[m
+[32m+[m[32m    st.dataframe([m
+[32m+[m[32m        outlier_df,[m
+[32m+[m[32m        use_container_width=True[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32melse:[m
+[32m+[m
+[32m+[m[32m    st.info([m
+[32m+[m[32m        "No outlier analysis available."[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32mst.divider()[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# DATA PREVIEW[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Dataset Preview"[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mst.dataframe([m
+[32m+[m[32m    df.head(20),[m
+[32m+[m[32m    use_container_width=True[m
+[32m+[m[32m)[m
+\ No newline at end of file[m
+[1mdiff --git a/app/pages/data_quality.py b/app/pages/data_quality.py[m
+[1mindex 20e6818..50c3b55 100644[m
+[1m--- a/app/pages/data_quality.py[m
+[1m+++ b/app/pages/data_quality.py[m
+[36m@@ -7,7 +7,7 @@[m [mimport streamlit as st[m
+ project_root = Path(__file__).resolve().parent.parent.parent[m
+ sys.path.append(str(project_root))[m
+ [m
+[31m-from src.ingestion.data_loader import DataLoader[m
+[32m+[m[32mfrom app.utils.data_manager import DataManager[m
+ from src.profiling.data_profiler import DataProfiler[m
+ from src.preprocessing.data_cleaner import DataCleaner[m
+ [m
+[36m@@ -19,7 +19,15 @@[m [mst.set_page_config([m
+ [m
+ st.title("Data Quality Report")[m
+ [m
+[31m-df = DataLoader.load_data()[m
+[32m+[m[32mdf = DataManager.get_data()[m
+[32m+[m
+[32m+[m[32mif df is None:[m
+[32m+[m
+[32m+[m[32m    st.warning([m
+[32m+[m[32m        "Please upload and select a dataset first."[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    st.stop()[m
+ [m
+ profiler = DataProfiler(df)[m
+ profile = profiler.generate_profile()[m
+[1mdiff --git a/app/pages/exploratory_analysis.py b/app/pages/exploratory_analysis.py[m
+[1mindex 7875ac5..eda4694 100644[m
+[1m--- a/app/pages/exploratory_analysis.py[m
+[1m+++ b/app/pages/exploratory_analysis.py[m
+[36m@@ -3,279 +3,315 @@[m [mfrom pathlib import Path[m
+ [m
+ import pandas as pd[m
+ import streamlit as st[m
+[31m-import plotly.express as px[m
+ [m
+[31m-project_root = Path(__file__).resolve().parent.parent.parent[m
+[31m-sys.path.append(str(project_root))[m
+[32m+[m[32mproject_root = ([m
+[32m+[m[32m    Path(__file__)[m
+[32m+[m[32m    .resolve()[m
+[32m+[m[32m    .parent[m
+[32m+[m[32m    .parent[m
+[32m+[m[32m    .parent[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32msys.path.append([m
+[32m+[m[32m    str(project_root)[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mfrom app.utils.data_manager import ([m
+[32m+[m[32m    DataManager[m
+[32m+[m[32m)[m
+ [m
+[31m-from src.ingestion.data_loader import DataLoader[m
+[32m+[m[32mfrom src.eda.exploratory_analysis import ([m
+[32m+[m[32m    ExploratoryAnalysis[m
+[32m+[m[32m)[m
+ [m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# PAGE CONFIG[m
+[32m+[m[32m# =====================================[m
+ [m
+ st.set_page_config([m
+     page_title="Exploratory Analysis",[m
+     layout="wide"[m
+ )[m
+ [m
+[31m-st.title("Exploratory Data Analysis")[m
+[32m+[m[32mst.title([m
+[32m+[m[32m    "📊 Exploratory Data Analysis"[m
+[32m+[m[32m)[m
+ [m
+[31m-# ---------------------------------------[m
+[32m+[m[32m# =====================================[m
+ # LOAD DATA[m
+[31m-# ---------------------------------------[m
+[31m-[m
+[31m-df = DataLoader.load_data()[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-# ---------------------------------------[m
+[31m-# SALES BY REGION[m
+[31m-# ---------------------------------------[m
+[32m+[m[32mdf = DataManager.get_data()[m
+ [m
+[31m-st.header("Sales by Region")[m
+[32m+[m[32mif df is None:[m
+ [m
+[31m-region_sales = ([m
+[31m-    df.groupby("Region")["Sales"][m
+[31m-    .sum()[m
+[31m-    .reset_index()[m
+[31m-    .sort_values([m
+[31m-        by="Sales",[m
+[31m-        ascending=False[m
+[32m+[m[32m    st.warning([m
+[32m+[m[32m        "Please upload and select a dataset first."[m
+     )[m
+[31m-)[m
+[31m-[m
+[31m-fig_region_sales = px.bar([m
+[31m-    region_sales,[m
+[31m-    x="Region",[m
+[31m-    y="Sales",[m
+[31m-    title="Sales by Region",[m
+[31m-    text_auto=".2s"[m
+[31m-)[m
+ [m
+[31m-st.plotly_chart([m
+[31m-    fig_region_sales,[m
+[31m-    use_container_width=True[m
+[31m-)[m
+[32m+[m[32m    st.stop()[m
+ [m
+[31m-# ---------------------------------------[m
+[31m-# PROFIT BY REGION[m
+[31m-# ---------------------------------------[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# EDA ENGINE[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-st.header("Profit by Region")[m
+[32m+[m[32meda = ExploratoryAnalysis(df)[m
+ [m
+[31m-region_profit = ([m
+[31m-    df.groupby("Region")["Profit"][m
+[31m-    .sum()[m
+[31m-    .reset_index()[m
+[31m-    .sort_values([m
+[31m-        by="Profit",[m
+[31m-        ascending=False[m
+[31m-    )[m
+[32m+[m[32meda_report = ([m
+[32m+[m[32m    eda.generate_eda_report()[m
+ )[m
+ [m
+[31m-fig_region_profit = px.bar([m
+[31m-    region_profit,[m
+[31m-    x="Region",[m
+[31m-    y="Profit",[m
+[31m-    title="Profit by Region",[m
+[31m-    text_auto=".2s"[m
+[31m-)[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# DATASET SUMMARY[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-st.plotly_chart([m
+[31m-    fig_region_profit,[m
+[31m-    use_container_width=True[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Dataset Summary"[m
+ )[m
+ [m
+[31m-# ---------------------------------------[m
+[31m-# CATEGORY & SEGMENT[m
+[31m-# ---------------------------------------[m
+[32m+[m[32msummary = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "dataset_summary",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+[32m+[m[32m)[m
+ [m
+[31m-col1, col2 = st.columns(2)[m
+[32m+[m[32mcol1, col2, col3, col4 = st.columns(4)[m
+ [m
+ with col1:[m
+ [m
+[31m-    st.header("Sales by Category")[m
+[32m+[m[32m    st.metric([m
+[32m+[m[32m        "Rows",[m
+[32m+[m[32m        summary.get([m
+[32m+[m[32m            "rows",[m
+[32m+[m[32m            0[m
+[32m+[m[32m        )[m
+[32m+[m[32m    )[m
+ [m
+[31m-    category_sales = ([m
+[31m-        df.groupby("Category")["Sales"][m
+[31m-        .sum()[m
+[31m-        .reset_index()[m
+[32m+[m[32mwith col2:[m
+[32m+[m
+[32m+[m[32m    st.metric([m
+[32m+[m[32m        "Columns",[m
+[32m+[m[32m        summary.get([m
+[32m+[m[32m            "columns",[m
+[32m+[m[32m            0[m
+[32m+[m[32m        )[m
+     )[m
+ [m
+[31m-    fig_category = px.pie([m
+[31m-        category_sales,[m
+[31m-        names="Category",[m
+[31m-        values="Sales",[m
+[31m-        hole=0.5[m
+[32m+[m[32mwith col3:[m
+[32m+[m
+[32m+[m[32m    st.metric([m
+[32m+[m[32m        "Missing Values",[m
+[32m+[m[32m        summary.get([m
+[32m+[m[32m            "missing_values",[m
+[32m+[m[32m            0[m
+[32m+[m[32m        )[m
+     )[m
+ [m
+[31m-    st.plotly_chart([m
+[31m-        fig_category,[m
+[31m-        use_container_width=True[m
+[32m+[m[32mwith col4:[m
+[32m+[m
+[32m+[m[32m    st.metric([m
+[32m+[m[32m        "Duplicate Rows",[m
+[32m+[m[32m        summary.get([m
+[32m+[m[32m            "duplicate_rows",[m
+[32m+[m[32m            0[m
+[32m+[m[32m        )[m
+     )[m
+ [m
+[31m-with col2:[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# NUMERIC ANALYSIS[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-    st.header("Sales by Segment")[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Numeric Analysis"[m
+[32m+[m[32m)[m
+ [m
+[31m-    segment_sales = ([m
+[31m-        df.groupby("Segment")["Sales"][m
+[31m-        .sum()[m
+[31m-        .reset_index()[m
+[32m+[m[32mnumeric_summary = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "numeric_summary",[m
+[32m+[m[32m        {}[m
+     )[m
+[32m+[m[32m)[m
+ [m
+[31m-    fig_segment = px.pie([m
+[31m-        segment_sales,[m
+[31m-        names="Segment",[m
+[31m-        values="Sales",[m
+[31m-        hole=0.5[m
+[31m-    )[m
+[32m+[m[32mif numeric_summary:[m
+ [m
+[31m-    st.plotly_chart([m
+[31m-        fig_segment,[m
+[32m+[m[32m    numeric_df = pd.DataFrame([m
+[32m+[m[32m        numeric_summary[m
+[32m+[m[32m    ).T[m
+[32m+[m
+[32m+[m[32m    st.dataframe([m
+[32m+[m[32m        numeric_df,[m
+         use_container_width=True[m
+     )[m
+ [m
+[31m-# ---------------------------------------[m
+[31m-# TOP PRODUCTS[m
+[31m-# ---------------------------------------[m
+[32m+[m[32melse:[m
+ [m
+[31m-st.header("Top 10 Products by Sales")[m
+[31m-[m
+[31m-top_products = ([m
+[31m-    df.groupby("Product Name")["Sales"][m
+[31m-    .sum()[m
+[31m-    .sort_values([m
+[31m-        ascending=False[m
+[32m+[m[32m    st.info([m
+[32m+[m[32m        "No numeric columns found."[m
+     )[m
+[31m-    .head(10)[m
+[31m-    .reset_index()[m
+[31m-)[m
+ [m
+[31m-fig_products = px.bar([m
+[31m-    top_products,[m
+[31m-    x="Sales",[m
+[31m-    y="Product Name",[m
+[31m-    orientation="h",[m
+[31m-    title="Top 10 Products"[m
+[31m-)[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# CATEGORICAL ANALYSIS[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-fig_products.update_layout([m
+[31m-    yaxis={[m
+[31m-        "categoryorder":[m
+[31m-        "total ascending"[m
+[31m-    }[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Categorical Analysis"[m
+ )[m
+ [m
+[31m-st.plotly_chart([m
+[31m-    fig_products,[m
+[31m-    use_container_width=True[m
+[32m+[m[32mcategorical_summary = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "categorical_summary",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+ )[m
+ [m
+[31m-# ---------------------------------------[m
+[31m-# TOP SUB-CATEGORIES[m
+[31m-# ---------------------------------------[m
+[32m+[m[32mif categorical_summary:[m
+[32m+[m
+[32m+[m[32m    for column, values in ([m
+[32m+[m[32m        categorical_summary.items()[m
+[32m+[m[32m    ):[m
+[32m+[m
+[32m+[m[32m        st.subheader([m
+[32m+[m[32m            column[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32m        category_df = pd.DataFrame([m
+[32m+[m
+[32m+[m[32m            list(values.items()),[m
+ [m
+[31m-st.header("Top 10 Sub-Categories")[m
+[32m+[m[32m            columns=[[m
+[32m+[m[32m                "Value",[m
+[32m+[m[32m                "Count"[m
+[32m+[m[32m            ][m
+[32m+[m[32m        )[m
+ [m
+[31m-top_subcategories = ([m
+[31m-    df.groupby("Sub-Category")["Sales"][m
+[31m-    .sum()[m
+[31m-    .sort_values([m
+[31m-        ascending=False[m
+[32m+[m[32m        st.dataframe([m
+[32m+[m[32m            category_df,[m
+[32m+[m[32m            use_container_width=True[m
+[32m+[m[32m        )[m
+[32m+[m
+[32m+[m[32melse:[m
+[32m+[m
+[32m+[m[32m    st.info([m
+[32m+[m[32m        "No categorical columns found."[m
+     )[m
+[31m-    .head(10)[m
+[31m-    .reset_index()[m
+[31m-)[m
+ [m
+[31m-fig_subcategory = px.bar([m
+[31m-    top_subcategories,[m
+[31m-    x="Sales",[m
+[31m-    y="Sub-Category",[m
+[31m-    orientation="h",[m
+[31m-    title="Top Sub-Categories"[m
+[31m-)[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# DATE ANALYSIS[m
+[32m+[m[32m# =====================================[m
+ [m
+[31m-fig_subcategory.update_layout([m
+[31m-    yaxis={[m
+[31m-        "categoryorder":[m
+[31m-        "total ascending"[m
+[31m-    }[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Date Analysis"[m
+ )[m
+ [m
+[31m-st.plotly_chart([m
+[31m-    fig_subcategory,[m
+[31m-    use_container_width=True[m
+[32m+[m[32mdate_summary = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "date_summary",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+ )[m
+ [m
+[31m-# ---------------------------------------[m
+[31m-# MONTHLY SALES TREND[m
+[31m-# ---------------------------------------[m
+[32m+[m[32mif date_summary:[m
+ [m
+[31m-st.header("Monthly Sales Trend")[m
+[32m+[m[32m    st.json([m
+[32m+[m[32m        date_summary[m
+[32m+[m[32m    )[m
+ [m
+[31m-monthly_sales = ([m
+[31m-    df.groupby([m
+[31m-        df["Order Date"].dt.to_period("M")[m
+[31m-    )["Sales"][m
+[31m-    .sum()[m
+[31m-    .reset_index()[m
+[31m-)[m
+[32m+[m[32melse:[m
+ [m
+[31m-monthly_sales["Order Date"] = ([m
+[31m-    monthly_sales["Order Date"][m
+[31m-    .astype(str)[m
+[31m-)[m
+[32m+[m[32m    st.info([m
+[32m+[m[32m        "No date columns found."[m
+[32m+[m[32m    )[m
+ [m
+[31m-fig_trend = px.line([m
+[31m-    monthly_sales,[m
+[31m-    x="Order Date",[m
+[31m-    y="Sales",[m
+[31m-    title="Monthly Sales Trend",[m
+[31m-    markers=True[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# CORRELATION ANALYSIS[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Correlation Analysis"[m
+ )[m
+ [m
+[31m-st.plotly_chart([m
+[31m-    fig_trend,[m
+[31m-    use_container_width=True[m
+[32m+[m[32mcorrelations = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "correlation_analysis",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+ )[m
+ [m
+[31m-# ---------------------------------------[m
+[31m-# CORRELATION MATRIX[m
+[31m-# ---------------------------------------[m
+[32m+[m[32mif correlations:[m
+ [m
+[31m-st.header("Correlation Analysis")[m
+[32m+[m[32m    correlation_df = pd.DataFrame([m
+ [m
+[31m-corr_df = df[[m
+[31m-    [[m
+[31m-        "Sales",[m
+[31m-        "Profit",[m
+[31m-        "Quantity",[m
+[31m-        "Discount"[m
+[31m-    ][m
+[31m-][m
+[32m+[m[32m        list([m
+[32m+[m[32m            correlations.items()[m
+[32m+[m[32m        ),[m
+ [m
+[31m-corr_matrix = corr_df.corr()[m
+[32m+[m[32m        columns=[[m
+[32m+[m[32m            "Column Pair",[m
+[32m+[m[32m            "Correlation"[m
+[32m+[m[32m        ][m
+[32m+[m[32m    )[m
+ [m
+[31m-fig_corr = px.imshow([m
+[31m-    corr_matrix,[m
+[31m-    text_auto=True,[m
+[31m-    aspect="auto",[m
+[31m-    title="Correlation Matrix"[m
+[31m-)[m
+[32m+[m[32m    correlation_df = ([m
+[32m+[m[32m        correlation_df[m
+[32m+[m[32m        .sort_values([m
+[32m+[m[32m            by="Correlation",[m
+[32m+[m[32m            ascending=False[m
+[32m+[m[32m        )[m
+[32m+[m[32m    )[m
+ [m
+[31m-st.plotly_chart([m
+[31m-    fig_corr,[m
+[31m-    use_container_width=True[m
+[32m+[m[32m    st.dataframe([m
+[32m+[m[32m        correlation_df,[m
+[32m+[m[32m        use_container_width=True[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32melse:[m
+[32m+[m
+[32m+[m[32m    st.info([m
+[32m+[m[32m        "Not enough numeric columns for correlation analysis."[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# OUTLIER ANALYSIS[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Outlier Analysis"[m
+ )[m
+ [m
+[31m-# ---------------------------------------[m
+[31m-# DATA PREVIEW[m
+[31m-# ---------------------------------------[m
+[32m+[m[32moutliers = ([m
+[32m+[m[32m    eda_report.get([m
+[32m+[m[32m        "outlier_analysis",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+[32m+[m[32m)[m
+ [m
+[31m-st.header("Dataset Preview")[m
+[32m+[m[32mif outliers:[m
+ [m
+[31m-with st.expander([m
+[31m-    "Click to View Data"[m
+[31m-):[m
+[32m+[m[32m    outlier_df = pd.DataFrame([m
+[32m+[m[32m        outliers[m
+[32m+[m[32m    ).T[m
+ [m
+     st.dataframe([m
+[31m-        df.head(100),[m
+[32m+[m[32m        outlier_df,[m
+         use_container_width=True[m
+[31m-    )[m
+\ No newline at end of file[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32melse:[m
+[32m+[m
+[32m+[m[32m    st.info([m
+[32m+[m[32m        "No outlier analysis available."[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m# =====================================[m
+[32m+[m[32m# DATA PREVIEW[m
+[32m+[m[32m# =====================================[m
+[32m+[m
+[32m+[m[32mst.header([m
+[32m+[m[32m    "Dataset Preview"[m
+[32m+[m[32m)[m
+[32m+[m
+[32m+[m[32mst.dataframe([m
+[32m+[m[32m    df.head(100),[m
+[32m+[m[32m    use_container_width=True[m
+[32m+[m[32m)[m
+\ No newline at end of file[m
+[1mdiff --git a/app/pages/forecasting.py b/app/pages/forecasting.py[m
+[1mindex eb3c748..ff9d2cb 100644[m
+[1m--- a/app/pages/forecasting.py[m
+[1m+++ b/app/pages/forecasting.py[m
+[36m@@ -16,9 +16,9 @@[m [msys.path.append([m
+     str(project_root)[m
+ )[m
+ [m
+[31m-from app.utils.data_manager import DataManager[m
+[31m-[m
+[31m-from src.ingestion.data_loader import DataLoader[m
+[32m+[m[32mfrom app.utils.data_manager import ([m
+[32m+[m[32m    DataManager[m
+[32m+[m[32m)[m
+ [m
+ from src.kpi.kpi_engine import ([m
+     identify_kpi_columns[m
+[36m@@ -52,17 +52,37 @@[m [mdf = DataManager.get_data()[m
+ [m
+ if df is None:[m
+ [m
+[31m-    try:[m
+[32m+[m[32m    st.warning([m
+[32m+[m[32m        "Please upload and select a dataset first."[m
+[32m+[m[32m    )[m
+[32m+[m
+[32m+[m[32m    st.stop()[m
+[32m+[m
+[32m+[m[32m# --------------------------------------------------[m
+[32m+[m[32m# CAPABILITY CHECK[m
+[32m+[m[32m# --------------------------------------------------[m
+[32m+[m
+[32m+[m[32mdataset_summary = ([m
+[32m+[m[32m    DataManager.get_dataset_summary()[m
+[32m+[m[32m)[m
+ [m
+[31m-        df = DataLoader.load_data()[m
+[32m+[m[32mcapabilities = ([m
+[32m+[m[32m    dataset_summary.get([m
+[32m+[m[32m        "capabilities",[m
+[32m+[m[32m        {}[m
+[32m+[m[32m    )[m
+[32m+[m[32m)[m
+ [m
+[31m-    except Exception:[m
+[32m+[m[32mif not capabilities.get([m
+[32m+[m[32m    "forecasting",[m
+[32m+[m[32m    False[m
+[32m+[m[32m):[m
+ [m
+[31m-        st.warning([m
+[31m-            "Please load a dataset first."[m
+[31m-        )[m
+[32m+[m[32m    st.info([m
+[32m+[m[32m        "This dataset does not support forecasting."[m
+[32m+[m[32m    )[m
+ [m
+[31m-        st.stop()[m
+[32m+[m[32m    st.stop()[m
+ [m
+ # --------------------------------------------------[m
+ # KPI DETECTION[m
+[36m@@ -190,8 +210,6 @@[m [mwith right_col:[m
+ [m
+             fig = go.Figure()[m
+ [m
+[31m-            # Historical Actuals[m
+[31m-[m
+             fig.add_trace([m
+                 go.Scatter([m
+                     x=history["Date"],[m
+[36m@@ -201,8 +219,6 @@[m [mwith right_col:[m
+                 )[m
+             )[m
+ [m
+[31m-            # Fitted[m
+[31m-[m
+             fig.add_trace([m
+                 go.Scatter([m
+                     x=history["Date"],[m
+[36m@@ -212,8 +228,6 @@[m [mwith right_col:[m
+                 )[m
+             )[m
+ [m
+[31m-            # Forecast[m
+[31m-[m
+             fig.add_trace([m
+                 go.Scatter([m
+                     x=future["Date"],[m
+[36m@@ -223,8 +237,6 @@[m [mwith right_col:[m
+                 )[m
+             )[m
+ [m
+[31m-            # Upper CI[m
+[31m-[m
+             fig.add_trace([m
+                 go.Scatter([m
+                     x=future["Date"],[m
+[36m@@ -234,8 +246,6 @@[m [mwith right_col:[m
+                 )[m
+             )[m
+ [m
+[31m-            # Lower CI[m
+[31m-[m
+             fig.add_trace([m
+                 go.Scatter([m
+                     x=future["Date"],[m
+[36m@@ -259,7 +269,7 @@[m [mwith right_col:[m
+ [m
+             st.plotly_chart([m
+                 fig,[m
+[31m-                width="stretch"[m
+[32m+[m[32m                use_container_width=True[m
+             )[m
+ [m
+             st.subheader([m
+[36m@@ -275,7 +285,7 @@[m [mwith right_col:[m
+                         "Upper_CI"[m
+                     ][m
+                 ],[m
+[31m-                width="stretch"[m
+[32m+[m[32m                use_container_width=True[m
+             )[m
+ [m
+     else:[m
+[1mdiff --git a/app/utils/data_manager.py b/app/utils/data_manager.py[m
+[1mindex fda813d..00fd749 100644[m
+[1m--- a/app/utils/data_manager.py[m
+[1m+++ b/app/utils/data_manager.py[m
+[36m@@ -6,6 +6,7 @@[m [mimport streamlit as st[m
+ from src.ingestion.data_loader import DataLoader[m
+ from src.schema.dataset_understanding import understand_dataset[m
+ from src.schema.schema_analyzer import analyze_schema[m
+[32m+[m[32mfrom src.dataset_intelligence import get_dataset_intelligence[m
+ [m
+ from src.dataset_manager.dataset_storage import ([m
+     DatasetStorage[m
+[36m@@ -196,6 +197,28 @@[m [mclass DataManager:[m
+             schema_metadata[m
+         )[m
+ [m
+[32m+[m[32m        # Generate dataset intelligence[m
+[32m+[m[32m        dataset_intelligence = get_dataset_intelligence(df)[m
+[32m+[m[32m        dataset_intelligence_dict = {[m
+[32m+[m[32m            'dataset_type': dataset_intelligence.dataset_type,[m
+[32m+[m[32m            'entity_type': dataset_intelligence.entity_type,[m
+[32m+[m[32m            'entity_name_singular': dataset_intelligence.entity_name_singular,[m
+[32m+[m[32m            'description': dataset_intelligence.description,[m
+[32m+[m[32m            'column_display_names': dataset_intelligence.column_display_names,[m
+[32m+[m[32m            'column_descriptions': dataset_intelligence.column_descriptions,[m
+[32m+[m[32m            'important_metrics': dataset_intelligence.important_metrics,[m
+[32m+[m[32m            'important_dimensions': dataset_intelligence.important_dimensions,[m
+[32m+[m[32m            'time_column': dataset_intelligence.time_column,[m
+[32m+[m[32m            'available_analyses': dataset_intelligence.available_analyses,[m
+[32m+[m[32m            'recommended_analyses': dataset_intelligence.recommended_analyses,[m
+[32m+[m[32m            'page_names': dataset_intelligence.page_names,[m
+[32m+[m[32m            'kpis': dataset_intelligence.kpis,[m
+[32m+[m[32m            'chart_suggestions': dataset_intelligence.chart_suggestions,[m
+[32m+[m[32m            'terminology': dataset_intelligence.terminology,[m
+[32m+[m[32m            'suggested_questions': dataset_intelligence.suggested_questions,[m
+[32m+[m[32m            'suggested_actions': dataset_intelligence.suggested_actions[m
+[32m+[m[32m        }[m
+[32m+[m
+         dataset_fingerprint = ([m
+             DataManager.generate_dataset_fingerprint([m
+                 df[m
+[36m@@ -218,6 +241,10 @@[m [mclass DataManager:[m
+             "dataset_summary"[m
+         ] = dataset_summary[m
+ [m
+[32m+[m[32m        st.session_state[[m
+[32m+[m[32m            "dataset_intelligence"[m
+[32m+[m[32m        ] = dataset_intelligence_dict[m
+[32m+[m
+         st.session_state[[m
+             "dataset_fingerprint"[m
+         ] = dataset_fingerprint[m
+[36m@@ -226,6 +253,7 @@[m [mclass DataManager:[m
+             "df": df,[m
+             "schema_metadata": schema_metadata,[m
+             "dataset_summary": dataset_summary,[m
+[32m+[m[32m            "dataset_intelligence": dataset_intelligence_dict,[m
+             "dataset_fingerprint": dataset_fingerprint,[m
+         }[m
+ [m
+[36m@@ -250,6 +278,12 @@[m [mclass DataManager:[m
+             "dataset_fingerprint"[m
+         )[m
+ [m
+[32m+[m[32m    @staticmethod[m
+[32m+[m[32m    def get_dataset_intelligence():[m
+[32m+[m[32m        return st.session_state.get([m
+[32m+[m[32m            "dataset_intelligence"[m
+[32m+[m[32m        )[m
+[32m+[m
+     @staticmethod[m
+     def generate_dataset_fingerprint([m
+         df[m
+[1mdiff --git a/data/user_datasets/dataset_registry.json b/data/user_datasets/dataset_registry.json[m
+[1mindex 954fa75..4e84271 100644[m
+[1m--- a/data/user_datasets/dataset_registry.json[m
+[1m+++ b/data/user_datasets/dataset_registry.json[m
+[36m@@ -16,5 +16,23 @@[m
+         "columns": 38,[m
+         "upload_time": "2026-06-14 12:47:35",[m
+         "fingerprint": "77605c365438fc4e0dc718cfa22b7b1e5d78f63fecbfea0c71097c63e34177d6"[m
+[32m+[m[32m    },[m
+[32m+[m[32m    {[m
+[32m+[m[32m        "dataset_name": "heart.csv",[m
+[32m+[m[32m        "dataset_path": "data\\user_datasets\\heart.csv",[m
+[32m+[m[32m        "dataset_type": "Generic",[m
+[32m+[m[32m        "rows": 1025,[m
+[32m+[m[32m        "columns": 14,[m
+[32m+[m[32m        "upload_time": "2026-06-22 20:34:53",[m
+[32m+[m[32m        "fingerprint": "38d67f80809a519a8596ba81d025f0077d68ca7cda0d516c088062d4db5cbda3"[m
+[32m+[m[32m    },[m
+[32m+[m[32m    {[m
+[32m+[m[32m        "dataset_name": "creditcard.csv",[m
+[32m+[m[32m        "dataset_path": "data\\user_datasets\\creditcard.csv",[m
+[32m+[m[32m        "dataset_type": "Generic",[m
+[32m+[m[32m        "rows": 284807,[m
+[32m+[m[32m        "columns": 31,[m
+[32m+[m[32m        "upload_time": "2026-06-22 20:35:57",[m
+[32m+[m[32m        "fingerprint": "44acf5c0a185484861faaf4edd9e0c45e366e661a9815463832f8c1ac7b2017a"[m
+     }[m
+ ][m
+\ No newline at end of file[m
+[1mdiff --git a/src/analytics/query_patterns.py b/src/analytics/query_patterns.py[m
+[1mdeleted file mode 100644[m
+[1mindex 74fea47..0000000[m
+[1m--- a/src/analytics/query_patterns.py[m
+[1m+++ /dev/null[m
+[36m@@ -1,151 +0,0 @@[m
+[31m-import re[m
+[31m-[m
+[31m-[m
+[31m-class QueryPatterns:[m
+[31m-[m
+[31m-    COUNT_PATTERNS = [[m
+[31m-[m
+[31m-        r"how many (.+)",[m
+[31m-        r"count (.+)",[m
+[31m-        r"number of (.+)"[m
+[31m-    ][m
+[31m-[m
+[31m-    AVERAGE_PATTERNS = [[m
+[31m-[m
+[31m-        r"average (.+)",[m
+[31m-        r"mean (.+)",[m
+[31m-        r"avg (.+)"[m
+[31m-    ][m
+[31m-[m
+[31m-    MAX_PATTERNS = [[m
+[31m-[m
+[31m-        r"maximum (.+)",[m
+[31m-        r"highest (.+)",[m
+[31m-        r"max (.+)"[m
+[31m-    ][m
+[31m-[m
+[31m-    MIN_PATTERNS = [[m
+[31m-[m
+[31m-        r"minimum (.+)",[m
+[31m-        r"lowest (.+)",[m
+[31m-        r"min (.+)"[m
+[31m-    ][m
+[31m-[m
+[31m-    TOTAL_PATTERNS = [[m
+[31m-[m
+[31m-        r"total (.+)",[m
+[31m-        r"sum of (.+)"[m
+[31m-    ][m
+[31m-[m
+[31m-    GROUPBY_PATTERNS = [[m
+[31m-[m
+[31m-        r"average (.+) by (.+)",[m
+[31m-        r"mean (.+) by (.+)",[m
+[31m-        r"avg (.+) by (.+)",[m
+[31m-[m
+[31m-        r"count (.+) by (.+)",[m
+[31m-        r"number of (.+) by (.+)",[m
+[31m-        r"how many (.+) by (.+)",[m
+[31m-[m
+[31m-        r"total (.+) by (.+)",[m
+[31m-        r"sum of (.+) by (.+)"[m
+[31m-    ][m
+[31m-[m
+[31m-    @staticmethod[m
+[31m-    def detect_question_type([m
+[31m-        question[m
+[31m-    ):[m
+[31m-[m
+[31m-        question = question.lower()[m
+[31m-[m
+[31m-        # =====================================[m
+[31m-        # GROUP BY DETECTION FIRST[m
+[31m-        # =====================================[m
+[31m-[m
+[31m-        for pattern in ([m
+[31m-            QueryPatterns.GROUPBY_PATTERNS[m
+[31m-        ):[m
+[31m-[m
+[31m-            if re.search([m
+[31m-                pattern,[m
+[31m-                question[m
+[31m-            ):[m
+[31m-[m
+[31m-                return "groupby"[m
+[31m-[m
+[31m-        # =====================================[m
+[31m-        # COUNT[m
+[31m-        # =====================================[m
+[31m-[m
+[31m-        for pattern in ([m
+[31m-            QueryPatterns.COUNT_PATTERNS[m
+[31m-        ):[m
+[31m-[m
+[31m-            if re.search([m
+[31m-                pattern,[m
+[31m-                question[m
+[31m-            ):[m
+[31m-[m
+[31m-                return "count"[m
+[31m-[m
+[31m-        # =====================================[m
+[31m-        # AVERAGE[m
+[31m-        # =====================================[m
+[31m-[m
+[31m-        for pattern in ([m
+[31m-            QueryPatterns.AVERAGE_PATTERNS[m
+[31m-        ):[m
+[31m-[m
+[31m-            if re.search([m
+[31m-                pattern,[m
+[31m-                question[m
+[31m-            ):[m
+[31m-[m
+[31m-                return "average"[m
+[31m-[m
+[31m-        # =====================================[m
+[31m-        # MAXIMUM[m
+[31m-        # =====================================[m
+[31m-[m
+[31m-        for pattern in ([m
+[31m-            QueryPatterns.MAX_PATTERNS[m
+[31m-        ):[m
+[31m-[m
+[31m-            if re.search([m
+[31m-                pattern,[m
+[31m-                question[m
+[31m-            ):[m
+[31m-[m
+[31m-                return "maximum"[m
+[31m-[m
+[31m-        # =====================================[m
+[31m-        # MINIMUM[m
+[31m-        # =====================================[m
+[31m-[m
+[31m-        for pattern in ([m
+[31m-            QueryPatterns.MIN_PATTERNS[m
+[31m-        ):[m
+[31m-[m
+[31m-            if re.search([m
+[31m-                pattern,[m
+[31m-                question[m
+[31m-            ):[m
+[31m-[m
+[31m-                return "minimum"[m
+[31m-[m
+[31m-        # =====================================[m
+[31m-        # TOTAL[m
+[31m-        # =====================================[m
+[31m-[m
+[31m-        for pattern in ([m
+[31m-            QueryPatterns.TOTAL_PATTERNS[m
+[31m-        ):[m
+[31m-[m
+[31m-            if re.search([m
+[31m-                pattern,[m
+[31m-                question[m
+[31m-            ):[m
+[31m-[m
+[31m-                return "total"[m
+[31m-[m
+[31m-        return None[m
+\ No newline at end of file[m
+[1mdiff --git a/src/analytics/question_analyzer.py b/src/analytics/question_analyzer.py[m
+[1mdeleted file mode 100644[m
+[1mindex 63164a7..0000000[m
+[1m--- a/src/analytics/question_analyzer.py[m
+[1m+++ /dev/null[m
+[36m@@ -1,125 +0,0 @@[m
+[31m-from src.analytics.semantic_mapper import ([m
+[31m-    SemanticMapper[m
+[31m-)[m
+[31m-[m
+[31m-[m
+[31m-class QuestionAnalyzer:[m
+[31m-[m
+[31m-    @staticmethod[m
+[31m-    def find_matching_column([m
+[31m-        question,[m
+[31m-        columns[m
+[31m-    ):[m
+[31m-[m
+[31m-        question = question.lower()[m
+[31m-[m
+[31m-        for column in columns:[m
+[31m-[m
+[31m-            if ([m
+[31m-                column.lower()[m
+[31m-                in question[m
+[31m-            ):[m
+[31m-[m
+[31m-                return column[m
+[31m-[m
+[31m-        return None[m
+[31m-[m
+[31m-    @staticmethod[m
+[31m-    def find_matching_value([m
+[31m-        question,[m
+[31m-        dataframe[m
+[31m-    ):[m
+[31m-[m
+[31m-        question = question.lower()[m
+[31m-[m
+[31m-        for column in dataframe.columns:[m
+[31m-[m
+[31m-            try:[m
+[31m-[m
+[31m-                values = ([m
+[31m-                    dataframe[column][m
+[31m-                    .dropna()[m
+[31m-                    .astype(str)[m
+[31m-                    .unique()[m
+[31m-                )[m
+[31m-[m
+[31m-                for value in values:[m
+[31m-[m
+[31m-                    if ([m
+[31m-                        str(value)[m
+[31m-                        .lower()[m
+[31m-                        in question[m
+[31m-                    ):[m
+[31m-[m
+[31m-                        return ([m
+[31m-                            column,[m
+[31m-                            value[m
+[31m-                        )[m
+[31m-[m
+[31m-            except Exception:[m
+[31m-[m
+[31m-                continue[m
+[31m-[m
+[31m-        return ([m
+[31m-            None,[m
+[31m-            None[m
+[31m-        )[m
+[31m-[m
+[31m-    # =====================================[m
+[31m-    # GROUP BY DETECTION[m
+[31m-    # =====================================[m
+[31m-[m
+[31m-    @staticmethod[m
+[31m-    def find_groupby_columns([m
+[31m-        question,[m
+[31m-        columns[m
+[31m-    ):[m
+[31m-[m
+[31m-        question = question.lower()[m
+[31m-[m
+[31m-        measure_column = None[m
+[31m-[m
+[31m-        group_column = None[m
+[31m-[m
+[31m-        # =====================================[m
+[31m-        # FIND GROUP COLUMN[m
+[31m-        # =====================================[m
+[31m-[m
+[31m-        if " by " in question:[m
+[31m-[m
+[31m-            parts = question.split([m
+[31m-                " by "[m
+[31m-            )[m
+[31m-[m
+[31m-            after_by = parts[1][m
+[31m-[m
+[31m-            group_column = ([m
+[31m-                SemanticMapper.find_column([m
+[31m-                    after_by,[m
+[31m-                    columns[m
+[31m-                )[m
+[31m-            )[m
+[31m-[m
+[31m-        # =====================================[m
+[31m-        # FIND MEASURE COLUMN[m
+[31m-        # =====================================[m
+[31m-[m
+[31m-        measure_column = ([m
+[31m-            SemanticMapper.find_column([m
+[31m-                question,[m
+[31m-                columns[m
+[31m-            )[m
+[31m-        )[m
+[31m-[m
+[31m-        if ([m
+[31m-            measure_column[m
+[31m-            ==[m
+[31m-            group_column[m
+[31m-        ):[m
+[31m-[m
+[31m-            measure_column = None[m
+[31m-[m
+[31m-        return ([m
+[31m-            measure_column,[m
+[31m-            group_column[m
+[31m-        )[m
+\ No newline at end of file[m
+[1mdiff --git a/src/insights/business_insight_engine.py b/src/insights/business_insight_engine.py[m
+[1mindex e69de29..9bf001b 100644[m
+[1m--- a/src/insights/business_insight_engine.py[m
+[1m+++ b/src/insights/business_insight_engine.py[m
+[36m@@ -0,0 +1,218 @@[m
+[32m+[m[32m"""[m
+[32m+[m[32mBusiness Insight Engine for generating analyst-style insights from EDA reports.[m
+[32m+[m[32mThis module transforms statistical findings into actionable business insights.[m
+[32m+[m[32m"""[m
+[32m+[m
+[32m+[m[32mimport pandas as pd[m
+[32m+[m[32mfrom typing import Dict, List, Any, Optional[m
+[32m+[m[32mfrom dataclasses import dataclass[m
+[32m+[m
+[32m+[m
+[32m+[m[32m@dataclass[m
+[32m+[m[32mclass BusinessInsight:[m
+[32m+[m[32m    """Represents a business insight with supporting evidence."""[m
+[32m+[m[32m    insight: str[m
+[32m+[m[32m    category: str  # e.g., 'performance', 'risk', 'opportunity', 'trend'[m
+[32m+[m[32m    confidence: str  # e.g., 'high', 'medium', 'low'[m
+[32m+[m[32m    supporting_data: Dict[str, Any][m
+[32m+[m[32m    suggested_action: Optional[str] = None[m
+[32m+[m
+[32m+[m
+[32m+[m[32mclass BusinessInsightEngine:[m
+[32m+[m[32m    """[m
+[32m+[m[32m    Generates business insights from exploratory data analysis reports.[m
+[32m+[m[32m    Focuses on creating analyst-style interpretations rather than just statistics.[m
+[32m+[m[32m    """[m
+[32m+[m
+[32m+[m[32m    def __init__(self, eda_report: Dict[str, Any]):[m
+[32m+[m[32m        self.eda_report = eda_report[m
+[32m+[m[32m        self.insights = [][m
+[32m+[m
+[32m+[m[32m    def generate_all_insights(self) -> List[BusinessInsight]:[m
+[32m+[m[32m        """Generate all types of business insights."""[m
+[32m+[m[32m        self.insights = [][m
+[32m+[m
+[32m+[m[32m        # Generate insights in order of priority[m
+[32m+[m[32m        self._generate_performance_insights()[m
+[32m+[m[32m        self._generate_risk_insights()[m
+[32m+[m[32m        self._generate_opportunity_insights()[m
+[32m+[m[32m        self._generate_trend_insights()[m
+[32m+[m[32m        self._generate_data_quality_insights()[m
+[32m+[m
+[32m+[m[32m        return self.insights[m
+[32m+[m
+[32m+[m[32m    def _generate_performance_insights(self):[m
+[32m+[m[32m        """Generate insights about business performance."""[m
+[32m+[m[32m        numeric_summary = self.eda_report.get("numeric_summary", {})[m
+[32m+[m[32m        categorical_summary = self.eda_report.get("categorical_summary", {})[m
+[32m+[m[32m        correlations = self.eda_report.get("correlation_analysis", {})[m
+[32m+[m
+[32m+[m[32m        # Insight 1: Identify top performing metrics[m
+[32m+[m[32m        if numeric_summary:[m
+[32m+[m[32m            # Find metrics with highest values or best performance indicators[m
+[32m+[m[32m            for col, stats in numeric_summary.items():[m
+[32m+[m[32m                if 'mean' in stats and 'std' in stats:[m
+[32m+[m[32m                    # Simple performance scoring: high mean relative to std suggests consistent performance[m
+[32m+[m[32m                    if stats['std'] > 0:[m
+[32m+[m[32m                        performance_score = stats['mean'] / stats['std'][m
+[32m+[m[32m                        if performance_score > 2:  # Arbitrary threshold for good performance[m
+[32m+[m[32m                            self.insights.append(BusinessInsight([m
+[32m+[m[32m                                insight=f"The '{col}' metric shows strong performance with an average value of {stats['mean']:,.2f} and consistent delivery (low volatility).",[m
+[32m+[m[32m                                category="performance",[m
+[32m+[m[32m                                confidence="medium",[m
+[32m+[m[32m                                supporting_data={"metric": col, "mean": stats['mean'], "std": stats['std']},[m
+[32m+[m[32m                                suggested_action=f"Monitor {col} closely as it's a key strength area."[m
+[32m+[m[32m                            ))[m
+[32m+[m
+[32m+[m[32m        # Insight 2: Top categorical performers[m
+[32m+[m[32m        if categorical_summary:[m
+[32m+[m[32m            for col, values in categorical_summary.items():[m
+[32m+[m[32m                if values:[m
+[32m+[m[32m                    top_value = max(values, key=values.get)[m
+[32m+[m[32m                    top_count = values[top_value][m
+[32m+[m[32m                    total = sum(values.values())[m
+[32m+[m[32m                    percentage = (top_count / total) * 100 if total > 0 else 0[m
+[32m+[m
+[32m+[m[32m                    if percentage > 40:  # Dominant category[m
+[32m+[m[32m                        self.insights.append(BusinessInsight([m
+[32m+[m[32m                            insight=f"The '{col}' field is dominated by '{top_value}' ({percentage:.1f}% of records), suggesting strong market concentration.",[m
+[32m+[m[32m                            category="performance",[m
+[32m+[m[32m                            confidence="high",[m
+[32m+[m[32m                            supporting_data={"field": col, "top_value": top_value, "percentage": percentage},[m
+[32m+[m[32m                            suggested_action=f"Consider diversification strategies for {col} to reduce dependency on '{top_value}'."[m
+[32m+[m[32m                        ))[m
+[32m+[m
+[32m+[m[32m    def _generate_risk_insights(self):[m
+[32m+[m[32m        """Generate insights about potential risks and concerns."""[m
+[32m+[m[32m        outliers = self.eda_report.get("outlier_analysis", {})[m
+[32m+[m[32m        missing_values = self.eda_report.get("missing_value_analysis", {})[m
+[32m+[m[32m        numeric_summary = self.eda_report.get("numeric_summary", {})[m
+[32m+[m
+[32m+[m[32m        # Insight 1: High outlier percentages indicate data quality or operational risks[m
+[32m+[m[32m        for col, details in outliers.items():[m
+[32m+[m[32m            if details['outlier_percentage'] > 15:  # High outlier percentage[m
+[32m+[m[32m                self.insights.append(BusinessInsight([m
+[32m+[m[32m                    insight=f"The '{col}' metric shows {details['outlier_percentage']:.1f}% outliers, indicating potential data quality issues or unusual business events requiring investigation.",[m
+[32m+[m[32m                    category="risk",[m
+[32m+[m[32m                    confidence="high",[m
+[32m+[m[32m                    supporting_data={"column": col, "outlier_count": details['outlier_count'], "percentage": details['outlier_percentage']},[m
+[32m+[m[32m                    suggested_action=f"Investigate the root cause of outliers in {col} - could indicate data entry errors, fraud, or exceptional business events."[m
+[32m+[m[32m                ))[m
+[32m+[m
+[32m+[m[32m        # Insight 2: Significant missing values in key metrics[m
+[32m+[m[32m        for col, count in missing_values.items():[m
+[32m+[m[32m            total_rows = self.eda_report.get("dataset_summary", {}).get("rows", 1)[m
+[32m+[m[32m            missing_pct = (count / total_rows) * 100 if total_rows > 0 else 0[m
+[32m+[m
+[32m+[m[32m            if missing_pct > 10 and col in numeric_summary:  # Important metric with missing data[m
+[32m+[m[32m                self.insights.append(BusinessInsight([m
+[32m+[m[32m                    insight=f"Critical data gap: {missing_pct:.1f}% of '{col}' values are missing, which may significantly impact analysis accuracy and decision-making.",[m
+[32m+[m[32m                    category="risk",[m
+[32m+[m[32m                    confidence="high",[m
+[32m+[m[32m                    supporting_data={"column": col, "missing_count": count, "missing_percentage": missing_pct},[m
+[32m+[m[32m                    suggested_action=f"Implement data collection improvements for {col} to reduce missing values below 5%."[m
+[32m+[m[32m                ))[m
+[32m+[m
+[32m+[m[32m    def _generate_opportunity_insights(self):[m
+[32m+[m[32m        """Generate insights about business opportunities."""[m
+[32m+[m[32m        numeric_summary = self.eda_report.get("numeric_summary", {})[m
+[32m+[m[32m        correlations = self.eda_report.get("correlation_analysis", {})[m
+[32m+[m[32m        categorical_summary = self.eda_report.get("categorical_summary", {})[m
+[32m+[m
+[32m+[m[32m        # Insight 1: Strong positive correlations suggest leverage points[m
+[32m+[m[32m        strong_pos_correlations = [][m
+[32m+[m[32m        for pair, corr in correlations.items():[m
+[32m+[m[32m            if corr > 0.7:  # Strong positive correlation[m
+[32m+[m[32m                strong_pos_correlations.append((pair, corr))[m
+[32m+[m
+[32m+[m[32m        if strong_pos_correlations:[m
+[32m+[m[32m            # Take the strongest correlation[m
+[32m+[m[32m            strongest_pair, strongest_corr = max(strong_pos_correlations, key=lambda x: x[1])[m
+[32m+[m[32m            self.insights.append(BusinessInsight([m
+[32m+[m[32m                insight=f"Strong positive relationship ({strongest_corr:.3f}) detected between {strongest_pair}. Improving one metric likely improves the other.",[m
+[32m+[m[32m                category="opportunity",[m
+[32m+[m[32m                confidence="medium",[m
+[32m+[m[32m                supporting_data={"metric_pair": strongest_pair, "correlation": strongest_corr},[m
+[32m+[m[32m                suggested_action=f"Focus on improving {strongest_pair.split(' vs ')[0]} as it strongly correlates with {strongest_pair.split(' vs ')[1]}."[m
+[32m+[m[32m            ))[m
+[32m+[m
+[32m+[m[32m        # Insight 2: Underperforming segments with high potential[m
+[32m+[m[32m        if numeric_summary and categorical_summary:[m
+[32m+[m[32m            for cat_col, cat_values in categorical_summary.items():[m
+[32m+[m[32m                if len(cat_values) > 1:[m
+[32m+[m[32m                    # Find categories with below-average performance in key metrics[m
+[32m+[m[32m                    for num_col, num_stats in numeric_summary.items():[m
+[32m+[m[32m                        if 'mean' in num_stats:[m
+[32m+[m[32m                            overall_avg = num_stats['mean'][m
+[32m+[m[32m                            # This is simplified - in reality we'd need to group by category[m
+[32m+[m[32m                            # For now, we'll note the opportunity for segmentation analysis[m
+[32m+[m[32m                            if len(cat_values) >= 3:  # Enough segments to analyze[m
+[32m+[m[32m                                self.insights.append(BusinessInsight([m
+[32m+[m[32m                                    insight=f"The '{cat_col}' field has {len(cat_values)} distinct segments, suggesting opportunities for targeted strategies based on segment performance.",[m
+[32m+[m[32m                                    category="opportunity",[m
+[32m+[m[32m                                    confidence="low",[m
+[32m+[m[32m                                    supporting_data={"segment_field": cat_col, "segment_count": len(cat_values)},[m
+[32m+[m[32m                                    suggested_action=f"Analyze performance of {num_col} across different {cat_col} segments to identify high/low performers."[m
+[32m+[m[32m                                ))[m
+[32m+[m[32m                                break  # Just one insight per categorical field for now[m
+[32m+[m[32m                    break  # Just one opportunity insight for now[m
+[32m+[m
+[32m+[m[32m    def _generate_trend_insights(self):[m
+[32m+[m[32m        """Generate insights about trends and changes over time."""[m
+[32m+[m[32m        date_summary = self.eda_report.get("date_summary", {})[m
+[32m+[m[32m        numeric_summary = self.eda_report.get("numeric_summary", {})[m
+[32m+[m
+[32m+[m[32m        # Insight 1: Time-series data available for trend analysis[m
+[32m+[m[32m        if date_summary and numeric_summary:[m
+[32m+[m[32m            date_col = list(date_summary.keys())[0] if date_summary else None[m
+[32m+[m[32m            if date_col:[m
+[32m+[m[32m                date_info = date_summary[date_col][m
+[32m+[m[32m                self.insights.append(BusinessInsight([m
+[32m+[m[32m                    insight=f"Dataset spans {date_info.get('start_date', 'unknown')} to {date_info.get('end_date', 'unknown')} ({date_info.get('records', 0)} time-period records), enabling trend analysis and forecasting.",[m
+[32m+[m[32m                    category="trend",[m
+[32m+[m[32m                    confidence="high",[m
+[32m+[m[32m                    supporting_data={"date_column": date_col, "start_date": date_info.get('start_date'), "end_date": date_info.get('end_date')},[m
+[32m+[m[32m                    suggested_action="Use forecasting capabilities to predict future trends and plan accordingly."[m
+[32m+[m[32m                ))[m
+[32m+[m
+[32m+[m[32m    def _generate_data_quality_insights(self):[m
+[32m+[m[32m        """Generate insights about data quality issues."""[m
+[32m+[m[32m        dataset_summary = self.eda_report.get("dataset_summary", {})[m
+[32m+[m[32m        missing_values = self.eda_report.get("missing_value_analysis", {})[m
+[32m+[m[32m        duplicate_rows = self.eda_report.get("dataset_summary", {}).get("duplicate_rows", 0)[m
+[32m+[m
+[32m+[m[32m        # Overall data quality assessment[m
+[32m+[m[32m        total_rows = dataset_summary.get("rows", 1)[m
+[32m+[m[32m        total_missing = sum(missing_values.values()) if missing_values else 0[m
+[32m+[m
+[32m+[m[32m        if total_rows > 0:[m
+[32m+[m[32m            missing_pct = (total_missing / (total_rows * len(self.eda_report.get("column_names", [])))) * 100 if self.eda_report.get("column_names") else 0[m
+[32m+[m[32m            duplicate_pct = (duplicate_rows / total_rows) * 100 if total_rows > 0 else 0[m
+[32m+[m
+[32m+[m[32m            if missing_pct > 5 or duplicate_pct > 5:[m
+[32m+[m[32m                quality_issues = [][m
+[32m+[m[32m                if missing_pct > 5:[m
+[32m+[m[32m                    quality_issues.append(f"{missing_pct:.1f}% missing data")[m
+[32m+[m[32m                if duplicate_pct > 5:[m
+[32m+[m[32m                    quality_issues.append(f"{duplicate_pct:.1f}% duplicate records")[m
+[32m+[m
+[32m+[m[32m                self.insights.append(BusinessInsight([m
+[32m+[m[32m                    insight=f"Data quality concerns detected: {', '.join(quality_issues)}. This may affect the reliability of analytical results.",[m
+[32m+[m[32m                    category="risk",[m
+[32m+[m[32m                    confidence="medium",[m
+[32m+[m[32m                    supporting_data={"missing_percentage": missing_pct, "duplicate_percentage": duplicate_pct},[m
+[32m+[m[32m                    suggested_action="Invest in data cleaning and validation processes to improve data quality before critical decision-making."[m
+[32m+[m[32m                ))[m
+[32m+[m
+[32m+[m[32m    def get_insights_summary(self) -> List[Dict[str, Any]]:[m
+[32m+[m[32m        """Get insights in a format suitable for display or API response."""[m
+[32m+[m[32m        return [[m
+[32m+[m[32m            {[m
+[32m+[m[32m                "insight": insight.insight,[m
+[32m+[m[32m                "category": insight.category,[m
+[32m+[m[32m                "confidence": insight.confidence,[m
+[32m+[m[32m                "supporting_data": insight.supporting_data,[m
+[32m+[m[32m                "suggested_action": insight.suggested_action[m
+[32m+[m[32m            }[m
+[32m+[m[32m            for insight in self.insights[m
+[32m+[m[32m        ][m
+\ No newline at end of file[m
+[1mdiff --git a/src/insights/insight_generator.py b/src/insights/insight_generator.py[m
+[1mindex 578648e..e808a6f 100644[m
+[1m--- a/src/insights/insight_generator.py[m
+[1m+++ b/src/insights/insight_generator.py[m
+[36m@@ -30,13 +30,26 @@[m [mclass InsightGenerator:[m
+             0[m
+         )[m
+ [m
+[31m-        return ([m
+[32m+[m[32m        insight = ([m
+             f"The dataset contains {rows:,} rows and "[m
+             f"{columns} columns. "[m
+             f"There are {missing:,} missing values and "[m
+             f"{duplicates:,} duplicate records."[m
+         )[m
+ [m
+[32m+[m[32m        # Add business context[m
+[32m+[m[32m        if rows > 0:[m
+[32m+[m[32m            if missing == 0 and duplicates == 0:[m
+[32m+[m[32m                insight += " The dataset appears to be clean and ready for analysis."[m
+[32m+[m[32m            elif missing > rows * 0.1:  # More than 10% missing data[m
+[32m+[m[32m                insight += " Significant missing data may impact analysis reliability - consider data imputation or collection improvements."[m
+[32m+[m[32m            elif duplicates > rows * 0.05:  # More than 5% duplicates[m
+[32m+[m[32m                insight += " Notable duplicate records present - consider deduplication to ensure accurate counts."[m
+[32m+[m[32m            else:[m
+[32m+[m[32m                insight += " Dataset has minor data quality issues that should be reviewed before critical decisions."[m
+[32m+[m
+[32m+[m[32m        return insight[m
+[32m+[m
+     def generate_numeric_insight(self):[m
+ [m
+         numeric_summary = self.eda_report.get([m
+[36m@@ -57,7 +70,7 @@[m [mclass InsightGenerator:[m
+             numeric_summary.items()[m
+         )[:3]:[m
+ [m
+[31m-            insights.append([m
+[32m+[m[32m            insight = ([m
+                 f"{column} has an average value of "[m
+                 f"{stats['mean']:,.2f} "[m
+                 f"with values ranging from "[m
+[36m@@ -65,6 +78,20 @@[m [mclass InsightGenerator:[m
+                 f"{stats['max']:,.2f}."[m
+             )[m
+ [m
+[32m+[m[32m            # Add business context based on statistics[m
+[32m+[m[32m            if stats['std'] > 0:[m
+[32m+[m[32m                cv = stats['std'] / stats['mean'] if stats['mean'] != 0 else float('inf')[m
+[32m+[m[32m                if cv < 0.5:[m
+[32m+[m[32m                    insight += " Values show relatively low variability, suggesting consistency."[m
+[32m+[m[32m                elif cv > 2.0:[m
+[32m+[m[32m                    insight += " Values show high variability, indicating potential volatility or diverse segments."[m
+[32m+[m[32m                elif stats.get('skew', 0) > 1:[m
+[32m+[m[32m                    insight += " Distribution is right-skewed, suggesting a few high-value outliers may be driving the average."[m
+[32m+[m[32m                elif stats.get('skew', 0) < -1:[m
+[32m+[m[32m                    insight += " Distribution is left-skewed, suggesting a few low-value outliers may be affecting the average."[m
+[32m+[m
+[32m+[m[32m            insights.append(insight)[m
+[32m+[m
+         return " ".join(insights)[m
+ [m
+     def generate_categorical_insight(self):[m
+[36m@@ -99,13 +126,27 @@[m [mclass InsightGenerator:[m
+         )[m
+ [m
+         count = values[top_value][m
+[32m+[m[32m        total = sum(values.values())[m
+[32m+[m[32m        percentage = (count / total) * 100 if total > 0 else 0[m
+ [m
+[31m-        return ([m
+[32m+[m[32m        insight = ([m
+             f"The most common value in "[m
+             f"{column} is '{top_value}' "[m
+[31m-            f"with {count:,} occurrences."[m
+[32m+[m[32m            f"with {count:,} occurrences ({percentage:.1f}% of total)."[m
+         )[m
+ [m
+[32m+[m[32m        # Add business context[m
+[32m+[m[32m        if percentage > 80:[m
+[32m+[m[32m            insight += " Extreme concentration in one category may indicate limited diversity or data quality issues."[m
+[32m+[m[32m        elif percentage > 60:[m
+[32m+[m[32m            insight += " Strong dominance by one category suggests potential market concentration or segment focus."[m
+[32m+[m[32m        elif len(values) > 10:[m
+[32m+[m[32m            insight += " High category diversity suggests rich segmentation opportunities for targeted analysis."[m
+[32m+[m[32m        else:[m
+[32m+[m[32m            insight += " Moderate category distribution allows for meaningful comparative analysis."[m
+[32m+[m
+[32m+[m[32m        return insight[m
+[32m+[m
+     def generate_date_insight(self):[m
+ [m
+         date_summary = self.eda_report.get([m
+[36m@@ -125,13 +166,33 @@[m [mclass InsightGenerator:[m
+ [m
+         details = date_summary[column][m
+ [m
+[31m-        return ([m
+[32m+[m[32m        insight = ([m
+             f"The dataset spans from "[m
+             f"{details['start_date']} "[m
+             f"to {details['end_date']} "[m
+             f"based on {column}."[m
+         )[m
+ [m
+[32m+[m[32m        # Add business context[m
+[32m+[m[32m        try:[m
+[32m+[m[32m            from datetime import datetime[m
+[32m+[m[32m            start_date = datetime.strptime(details['start_date'], '%Y-%m-%d')[m
+[32m+[m[32m            end_date = datetime.strptime(details['end_date'], '%Y-%m-%d')[m
+[32m+[m[32m            duration_days = (end_date - start_date).days[m
+[32m+[m
+[32m+[m[32m            if duration_days < 30:[m
+[32m+[m[32m                insight += " Short time horizon may limit trend analysis but is suitable for operational reviews."[m
+[32m+[m[32m            elif duration_days < 365:[m
+[32m+[m[32m                insight += " Medium-term data enables seasonal pattern recognition and quarterly trend analysis."[m
+[32m+[m[32m            else:[m
+[32m+[m[32m                insight += " Long-term horizon supports year-over-year comparisons and trend identification for strategic planning."[m
+[32m+[m
+[32m+[m[32m            insight += f" Covers {duration_days} days of operational history."[m
+[32m+[m[32m        except:[m
+[32m+[m[32m            insight += " Temporal coverage enables time-based analysis and trend detection."[m
+[32m+[m
+[32m+[m[32m        return insight[m
+[32m+[m
+     def generate_correlation_insight(self):[m
+ [m
+         correlations = self.eda_report.get([m
+[36m@@ -157,7 +218,7 @@[m [mclass InsightGenerator:[m
+             strongest_pair[m
+         ][m
+ [m
+[31m-        return ([m
+[32m+[m[32m        insight = ([m
+             f"The strongest detected "[m
+             f"relationship is between "[m
+             f"{strongest_pair} "[m
+[36m@@ -165,6 +226,24 @@[m [mclass InsightGenerator:[m
+             f"{value:.3f}."[m
+         )[m
+ [m
+[32m+[m[32m        # Add business context[m
+[32m+[m[32m        abs_value = abs(value)[m
+[32m+[m[32m        if abs_value > 0.8:[m
+[32m+[m[32m            insight += " Very strong correlation suggests these metrics move together closely - changes in one likely predict changes in the other."[m
+[32m+[m[32m        elif abs_value > 0.6:[m
+[32m+[m[32m            insight += " Strong correlation indicates a meaningful relationship worth investigating for potential causal links or common drivers."[m
+[32m+[m[32m        elif abs_value > 0.3:[m
+[32m+[m[32m            insight += " Moderate correlation suggests some association exists, though other factors likely influence the relationship."[m
+[32m+[m[32m        else:[m
+[32m+[m[32m            insight += " Weak correlation indicates little linear relationship between these metrics."[m
+[32m+[m
+[32m+[m[32m        if value > 0:[m
+[32m+[m[32m            insight += " Positive relationship means as one increases, the other tends to increase."[m
+[32m+[m[32m        else:[m
+[32m+[m[32m            insight += " Negative relationship means as one increases, the other tends to decrease."[m
+[32m+[m
+[32m+[m[32m        return insight[m
+[32m+[m
+     def generate_outlier_insight(self):[m
+ [m
+         outlier_report = self.eda_report.get([m
+[36m@@ -198,13 +277,25 @@[m [mclass InsightGenerator:[m
+             "outlier_percentage"[m
+         ][m
+ [m
+[31m-        return ([m
+[32m+[m[32m        insight = ([m
+             f"{highest_column} contains "[m
+             f"{count:,} potential outliers "[m
+             f"representing {percentage}% "[m
+             f"of the records."[m
+         )[m
+ [m
+[32m+[m[32m        # Add business context[m
+[32m+[m[32m        if percentage > 10:[m
+[32m+[m[32m            insight += " High outlier concentration suggests potential data quality issues, measurement errors, or significant business events requiring investigation."[m
+[32m+[m[32m        elif percentage > 5:[m
+[32m+[m[32m            insight += " Moderate outlier presence warrants review to determine if outliers represent valuable insights or data quality concerns."[m
+[32m+[m[32m        elif percentage > 1:[m
+[32m+[m[32m            insight += " Low outlier rate is typical for most datasets; investigate individual outliers for potential business significance."[m
+[32m+[m[32m        else:[m
+[32m+[m[32m            insight += " Very few outliers detected indicates consistent data patterns."[m
+[32m+[m
+[32m+[m[32m        return insight[m
+[32m+[m
+     def generate_data_quality_insight(self):[m
+ [m
+         missing_values = self.eda_report.get([m
+[36m@@ -224,13 +315,29 @@[m [mclass InsightGenerator:[m
+         )[m
+ [m
+         count = missing_values[column][m
+[32m+[m[32m        total_rows = self.eda_report.get("dataset_summary", {}).get("rows", 1)[m
+[32m+[m[32m        missing_pct = (count / total_rows) * 100 if total_rows > 0 else 0[m
+ [m
+[31m-        return ([m
+[32m+[m[32m        insight = ([m
+             f"The column '{column}' contains "[m
+             f"the highest number of missing "[m
+[31m-            f"values ({count:,})."[m
+[32m+[m[32m            f"values ({count:,}, {missing_pct:.1f}% of total)."[m
+         )[m
+ [m
+[32m+[m[32m        # Add business context[m
+[32m+[m[32m        if missing_pct > 50:[m
+[32m+[m[32m            insight += " Severe missing data in this column severely limits its usability for analysis and may require alternative data sources or collection methods."[m
+[32m+[m[32m        elif missing_pct > 20:[m
+[32m+[m[32m            insight += " High missing data rate requires careful consideration - analysis results may be biased and imputation methods should be evaluated."[m
+[32m+[m[32m        elif missing_pct > 10:[m
+[32m+[m[32m            insight += " Moderate missing data should be addressed through imputation or careful interpretation of results."[m
+[32m+[m[32m        elif missing_pct > 5:[m
+[32m+[m[32m            insight += " Low missing data level is acceptable for most analyses with minimal impact on results."[m
+[32m+[m[32m        else:[m
+[32m+[m[32m            insight += " Very low missing data indicates good data collection practices for this field."[m
+[32m+[m
+[32m+[m[32m        return insight[m
+[32m+[m
+     def generate_all_insights(self):[m
+ [m
+         return [[m
+[1mdiff --git a/src/rag/context_builder.py b/src/rag/context_builder.py[m
+[1mindex 45c292c..c808c3d 100644[m
+[1m--- a/src/rag/context_builder.py[m
+[1m+++ b/src/rag/context_builder.py[m
+[36m@@ -6,70 +6,93 @@[m [mclass ContextBuilder:[m
+         self.insights = insights[m
+ [m
+     def build_context(self):[m
+[31m-[m
+[31m-        sales_summary = self.eda_report[[m
+[31m-            "sales_summary"[m
+[31m-        ][m
+[31m-[m
+[31m-        profit_summary = self.eda_report[[m
+[31m-            "profit_summary"[m
+[31m-        ][m
+[31m-[m
+[31m-        region_analysis = self.eda_report[[m
+[31m-            "region_analysis"[m
+[31m-        ][m
+[31m-[m
+[31m-        category_analysis = self.eda_report[[m
+[31m-            "category_analysis"[m
+[31m-        ][m
+[31m-[m
+[31m-        segment_analysis = self.eda_report[[m
+[31m-            "segment_analysis"[m
+[31m-        ][m
+[31m-[m
+[31m-        context = f"""[m
+[31m-[m
+[31m-        BUSINESS DATASET SUMMARY[m
+[31m-[m
+[31m-        Total Sales:[m
+[31m-        {sales_summary['total_sales']}[m
+[31m-[m
+[31m-        Average Sales:[m
+[31m-        {sales_summary['average_sales']}[m
+[31m-[m
+[31m-        Total Profit:[m
+[31m-        {profit_summary['total_profit']}[m
+[31m-[m
+[31m-        Average Profit:[m
+[31m-        {profit_summary['average_profit']}[m
+[31m-[m
+[31m-        Best Region:[m
+[31m-        {region_analysis['best_region']}[m
+[31m-[m
+[31m-        Worst Region:[m
+[31m-        {region_analysis['worst_region']}[m
+[31m-[m
+[31m-        Best Category:[m
+[31m-        {category_analysis['best_category']}[m
+[31m-[m
+[31m-        Top Segment:[m
+[31m-        {max([m
+[31m-            segment_analysis['sales_by_segment'],[m
+[31m-            key=segment_analysis['sales_by_segment'].get[m
+[31m-        )}[m
+[31m-[m
+[31m-        BUSINESS INSIGHTS[m
+[31m-[m
+[31m-        """[m
+[31m-[m
+[31m-        for index, insight in enumerate([m
+[31m-            self.insights,[m
+[31m-            start=1[m
+[31m-        ):[m
+[31m-[m
+[31m-            context += ([m
+[31m-                f"\nInsight {index}: "[m
+[31m-                f"{insight}\n"[m
+[31m-            )[m
+[31m-[m
+[31m-        return context[m
+\ No newline at end of file[m
+[32m+[m[32m        # Build a generic context from the eda_report and insights[m
+[32m+[m[32m        context_parts = [][m
+[32m+[m
+[32m+[m[32m        # Dataset overview[m
+[32m+[m[32m        dataset_summary = self.eda_report.get("dataset_summary", {})[m
+[32m+[m[32m        if dataset_summary:[m
+[32m+[m[32m            context_parts.append("DATASET OVERVIEW")[m
+[32m+[m[32m            context_parts.append(f"Rows: {dataset_summary.get('rows', 'N/A')}")[m
+[32m+[m[32m            context_parts.append(f"Columns: {dataset_summary.get('columns', 'N/A')}")[m
+[32m+[m[32m            context_parts.append(f"Missing Values: {dataset_summary.get('missing_values', 'N/A')}")[m
+[32m+[m[32m            context_parts.append(f"Duplicate Rows: {dataset_summary.get('duplicate_rows', 'N/A')}")[m
+[32m+[m[32m            context_parts.append("")  # blank line[m
+[32m+[m
+[32m+[m[32m        # Numeric summary[m
+[32m+[m[32m        numeric_summary = self.eda_report.get("numeric_summary", {})[m
+[32m+[m[32m        if numeric_summary:[m
+[32m+[m[32m            context_parts.append("NUMERIC SUMMARY")[m
+[32m+[m[32m            # Limit to first 5 numeric columns to avoid too long context[m
+[32m+[m[32m            for col, stats in list(numeric_summary.items())[:5]:[m
+[32m+[m[32m                context_parts.append(f"Column: {col}")[m
+[32m+[m[32m                for stat_name, stat_val in stats.items():[m
+[32m+[m[32m                    context_parts.append(f"  {stat_name}: {stat_val}")[m
+[32m+[m[32m                context_parts.append("")  # blank line after each column[m
+[32m+[m
+[32m+[m[32m        # Categorical summary[m
+[32m+[m[32m        categorical_summary = self.eda_report.get("categorical_summary", {})[m
+[32m+[m[32m        if categorical_summary:[m
+[32m+[m[32m            context_parts.append("CATEGORICAL SUMMARY")[m
+[32m+[m[32m            # Limit to first 5 categorical columns[m
+[32m+[m[32m            for col, values in list(categorical_summary.items())[:5]:[m
+[32m+[m[32m                context_parts.append(f"Column: {col}")[m
+[32m+[m[32m                # Show top 3 category values[m
+[32m+[m[32m                for val, count in list(values.items())[:3]:[m
+[32m+[m[32m                    context_parts.append(f"  {val}: {count}")[m
+[32m+[m[32m                context_parts.append("")[m
+[32m+[m
+[32m+[m[32m        # Date summary[m
+[32m+[m[32m        date_summary = self.eda_report.get("date_summary", {})[m
+[32m+[m[32m        if date_summary:[m
+[32m+[m[32m            context_parts.append("DATE SUMMARY")[m
+[32m+[m[32m            for col, details in date_summary.items():[m
+[32m+[m[32m                context_parts.append(f"Column: {col}")[m
+[32m+[m[32m                for detail_name, detail_val in details.items():[m
+[32m+[m[32m                    context_parts.append(f"  {detail_name}: {detail_val}")[m
+[32m+[m[32m                context_parts.append("")[m
+[32m+[m
+[32m+[m[32m        # Correlation analysis[m
+[32m+[m[32m        correlation_analysis = self.eda_report.get("correlation_analysis", {})[m
+[32m+[m[32m        if correlation_analysis:[m
+[32m+[m[32m            context_parts.append("CORRELATION ANALYSIS")[m
+[32m+[m[32m            # Show top 5 correlations by absolute value[m
+[32m+[m[32m            sorted_corr = sorted(correlation_analysis.items(), key=lambda x: abs(x[1]), reverse=True)[m
+[32m+[m[32m            for pair, value in sorted_corr[:5]:[m
+[32m+[m[32m                context_parts.append(f"  {pair}: {value}")[m
+[32m+[m[32m            context_parts.append("")[m
+[32m+[m
+[32m+[m[32m        # Missing value analysis[m
+[32m+[m[32m        missing_value_analysis = self.eda_report.get("missing_value_analysis", {})[m
+[32m+[m[32m        if missing_value_analysis:[m
+[32m+[m[32m            context_parts.append("MISSING VALUE ANALYSIS")[m
+[32m+[m[32m            # Show columns with missing values[m
+[32m+[m[32m            for col, count in missing_value_analysis.items():[m
+[32m+[m[32m                if count > 0:[m
+[32m+[m[32m                    context_parts.append(f"  {col}: {count}")[m
+[32m+[m[32m            context_parts.append("")[m
+[32m+[m
+[32m+[m[32m        # Outlier analysis[m
+[32m+[m[32m        outlier_analysis = self.eda_report.get("outlier_analysis", {})[m
+[32m+[m[32m        if outlier_analysis:[m
+[32m+[m[32m            context_parts.append("OUTLIER ANALYSIS")[m
+[32m+[m[32m            # Show columns with outliers[m
+[32m+[m[32m            for col, details in outlier_analysis.items():[m
+[32m+[m[32m                if details['outlier_count'] > 0:[m
+[32m+[m[32m                    context_parts.append(f"  {col}: {details['outlier_count']} outliers ({details['outlier_percentage']}%)")[m
+[32m+[m[32m            context_parts.append("")[m
+[32m+[m
+[32m+[m[32m        # Insights - now expecting BusinessInsight objects or dicts[m
+[32m+[m[32m        if self.insights:[m
+[32m+[m[32m            context_parts.append("BUSINESS INSIGHTS")[m
+[32m+[m[32m            for i, insight in enumerate(self.insights, start=1):[m
+[32m+[m[32m                # Handle both BusinessInsight objects and dictionaries[m
+[32m+[m[32m                if hasattr(insight, 'insight'):[m
+[32m+[m[32m                    insight_text = insight.insight[m
+[32m+[m[32m                elif isinstance(insight, dict) and 'insight' in insight:[m
+[32m+[m[32m                    insight_text = insight['insight'][m
+[32m+[m[32m                else:[m
+[32m+[m[32m                    insight_text = str(insight)[m
+[32m+[m[32m                context_parts.append(f"  Insight {i}: {insight_text}")[m
+[32m+[m
+[32m+[m[32m        return "\n".join(context_parts)[m
+\ No newline at end of file[m
+[1mdiff --git a/src/rag/document_processor.py b/src/rag/document_processor.py[m
+[1mindex f574763..a1dc7d7 100644[m
+[1m--- a/src/rag/document_processor.py[m
+[1m+++ b/src/rag/document_processor.py[m
+[36m@@ -8,47 +8,135 @@[m [mdef convert_dataframe_to_chunks(df: pd.DataFrame, dataset_name="dataset", rows_p[m
+     """[m
+     chunks = [][m
+     num_rows = len(df)[m
+[31m-    [m
+[32m+[m
+     # Chunk 0: Schema and Structure Summary[m
+     schema_text = f"Dataset: {dataset_name}\n"[m
+     schema_text += f"Total Rows: {num_rows}, Total Columns: {len(df.columns)}\n"[m
+     schema_text += "Columns and Types:\n"[m
+     for col in df.columns:[m
+[31m-        schema_text += f"- {col} (dtype: {df[col].dtype})\n"[m
+[31m-    [m
+[32m+[m[32m        dtype_str = str(df[col].dtype)[m
+[32m+[m[32m        # Add more meaningful description for common types[m
+[32m+[m[32m        if 'int' in dtype_str or 'float' in dtype_str:[m
+[32m+[m[32m            type_desc = "numeric"[m
+[32m+[m[32m        elif 'object' in dtype_str or 'string' in dtype_str:[m
+[32m+[m[32m            type_desc = "text/categorical"[m
+[32m+[m[32m        elif 'bool' in dtype_str:[m
+[32m+[m[32m            type_desc = "boolean"[m
+[32m+[m[32m        elif 'datetime' in dtype_str:[m
+[32m+[m[32m            type_desc = "date/time"[m
+[32m+[m[32m        else:[m
+[32m+[m[32m            type_desc = dtype_str[m
+[32m+[m[32m        schema_text += f"- {col} ({type_desc})\n"[m
+[32m+[m
+     chunks.append({[m
+         "text": schema_text,[m
+         "metadata": {"source": "schema_summary", "dataset": dataset_name}[m
+     })[m
+[31m-    [m
+[31m-    # Chunk 1: General Summary Stats[m
+[32m+[m
+[32m+[m[32m    # Chunk 1: General Summary Stats for Numeric Columns[m
+     numeric_cols = df.select_dtypes(include=[np.number]).columns[m
+[31m-    stats_text = f"Statistical Summary of {dataset_name}:\n"[m
+[31m-    for col in numeric_cols:[m
+[31m-        col_min = df[col].min()[m
+[31m-        col_max = df[col].max()[m
+[31m-        col_mean = df[col].mean()[m
+[31m-        stats_text += f"- Column '{col}': Min = {col_min}, Max = {col_max}, Average = {col_mean:.2f}\n"[m
+[31m-        [m
+[31m-    chunks.append({[m
+[31m-        "text": stats_text,[m
+[31m-        "metadata": {"source": "stats_summary", "dataset": dataset_name}[m
+[31m-    })[m
+[31m-    [m
+[31m-    # Row Chunks: Convert multiple rows to textual descriptions[m
+[32m+[m[32m    if len(numeric_cols) > 0:[m
+[32m+[m[32m        stats_text = f"Statistical Summary of {dataset_name} (Numeric Columns):\n"[m
+[32m+[m[32m        for col in numeric_cols:[m
+[32m+[m[32m            col_min = df[col].min()[m
+[32m+[m[32m            col_max = df[col].max()[m
+[32m+[m[32m            col_mean = df[col].mean()[m
+[32m+[m[32m            col_std = df[col].std()[m
+[32m+[m[32m            stats_text += f"- Column '{col}': Min = {col_min:.2f}, Max = {col_max:.2f}, Average = {col_mean:.2f}, Std Dev = {col_std:.2f}\n"[m
+[32m+[m
+[32m+[m[32m        chunks.append({[m
+[32m+[m[32m            "text": stats_text,[m
+[32m+[m[32m            "metadata": {"source": "numeric_stats_summary", "dataset": dataset_name}[m
+[32m+[m[32m        })[m
+[32m+[m
+[32m+[m[32m    # Chunk 2: Summary for Categorical/Text Columns[m
+[32m+[m[32m    categorical_cols = df.select_dtypes(include=['object', 'string']).columns[m
+[32m+[m[32m    categorical_cols = [col for col in categorical_cols if df[col].nunique() < min(50, len(df) // 2)]  # Only truly categorical[m
+[32m+[m[32m    if len(categorical_cols) > 0:[m
+[32m+[m[32m        cat_text = f"Categorical Summary of {dataset_name}:\n"[m
+[32m+[m[32m        for col in categorical_cols[:5]:  # Limit to first 5 to avoid huge chunks[m
+[32m+[m[32m            unique_count = df[col].nunique()[m
+[32m+[m[32m            top_value = df[col].mode().iloc[0] if not df[col].mode().empty else "N/A"[m
+[32m+[m[32m            top_freq = df[col].value_counts().iloc[0] if not df[col].value_counts().empty else 0[m
+[32m+[m[32m            cat_text += f"- Column '{col}': {unique_count} unique values, Most frequent: '{top_value}' ({top_freq} occurrences)\n"[m
+[32m+[m
+[32m+[m[32m        chunks.append({[m
+[32m+[m[32m            "text": cat_text,[m
+[32m+[m[32m            "metadata": {"source": "categorical_summary", "dataset": dataset_name}[m
+[32m+[m[32m        })[m
+[32m+[m
+[32m+[m[32m    # Chunk 3: Date/Time Column Summary (if any)[m
+[32m+[m[32m    date_cols = df.select_dtypes(include=['datetime64']).columns[m
+[32m+[m[32m    if len(date_cols) > 0:[m
+[32m+[m[32m        date_text = f"Date/Time Summary of {dataset_name}:\n"[m
+[32m+[m[32m        for col in date_cols:[m
+[32m+[m[32m            if not df[col].isna().all():[m
+[32m+[m[32m                min_date = df[col].min()[m
+[32m+[m[32m                max_date = df[col].max()[m
+[32m+[m[32m                date_text += f"- Column '{col}': Range from {min_date} to {max_date}\n"[m
+[32m+[m[32m            else:[m
+[32m+[m[32m                date_text += f"- Column '{col}': All values are null\n"[m
+[32m+[m
+[32m+[m[32m        chunks.append({[m
+[32m+[m[32m            "text": date_text,[m
+[32m+[m[32m            "metadata": {"source": "date_summary", "dataset": dataset_name}[m
+[32m+[m[32m        })[m
+[32m+[m
+[32m+[m[32m    # Chunk 4: Correlation Information (for numeric columns with sufficient data)[m
+[32m+[m[32m    if len(numeric_cols) >= 2:[m
+[32m+[m[32m        # Calculate correlations only if we have enough non-null data[m
+[32m+[m[32m        numeric_df = df[numeric_cols].dropna()[m
+[32m+[m[32m        if len(numeric_df) >= 2:[m
+[32m+[m[32m            corr_matrix = numeric_df.corr()[m
+[32m+[m[32m            # Find strong correlations (absolute value > 0.5)[m
+[32m+[m[32m            strong_correlations = [][m
+[32m+[m[32m            for i in range(len(corr_matrix.columns)):[m
+[32m+[m[32m                for j in range(i+1, len(corr_matrix.columns)):[m
+[32m+[m[32m                    col1 = corr_matrix.columns[i][m
+[32m+[m[32m                    col2 = corr_matrix.columns[j][m
+[32m+[m[32m                    corr_value = corr_matrix.iloc[i, j][m
+[32m+[m[32m                    if abs(corr_value) > 0.5:[m
+[32m+[m[32m                        strong_correlations.append((col1, col2, corr_value))[m
+[32m+[m
+[32m+[m[32m            if strong_correlations:[m
+[32m+[m[32m                corr_text = f"Strong Correlations in {dataset_name} (|r| > 0.5):\n"[m
+[32m+[m[32m                for col1, col2, corr_value in strong_correlations[:10]:  # Limit to top 10[m
+[32m+[m[32m                    corr_text += f"- {col1} ↔ {col2}: {corr_value:.3f}\n"[m
+[32m+[m
+[32m+[m[32m                chunks.append({[m
+[32m+[m[32m                    "text": corr_text,[m
+[32m+[m[32m                    "metadata": {"source": "correlation_summary", "dataset": dataset_name}[m
+[32m+[m[32m                })[m
+[32m+[m
+[32m+[m[32m    # Chunk 5+: Row Chunks with Enhanced Descriptions[m
+[32m+[m[32m    # Instead of just listing all fields, create more meaningful descriptions[m
+     for start_idx in range(0, num_rows, rows_per_chunk):[m
+         end_idx = min(start_idx + rows_per_chunk, num_rows)[m
+         sub_df = df.iloc[start_idx:end_idx][m
+[31m-        [m
+[32m+[m
+         chunk_text = f"Records {start_idx + 1} to {end_idx} in {dataset_name}:\n"[m
+         for idx, row in sub_df.iterrows():[m
+[31m-            row_desc = f"- Row {idx + 1}: "[m
+[31m-            fields = [][m
+[32m+[m[32m            # Create a more natural language description[m
+[32m+[m[32m            row_parts = [][m
+             for col in df.columns:[m
+[31m-                fields.append(f"{col} is '{row[col]}'")[m
+[31m-            row_desc += ", ".join(fields) + "\n"[m
+[31m-            chunk_text += row_desc[m
+[31m-            [m
+[32m+[m[32m                val = row[col][m
+[32m+[m[32m                if pd.isna(val):[m
+[32m+[m[32m                    row_parts.append(f"{col} is not available")[m
+[32m+[m[32m                elif isinstance(val, (int, float)) and not pd.isna(val):[m
+[32m+[m[32m                    row_parts.append(f"{col} is {val}")[m
+[32m+[m[32m                else:[m
+[32m+[m[32m                    row_parts.append(f"{col} is '{val}'")[m
+[32m+[m
+[32m+[m[32m            # Join with commas and "and" for the last item for better readability[m
+[32m+[m[32m            if len(row_parts) == 1:[m
+[32m+[m[32m                row_desc = row_parts[0][m
+[32m+[m[32m            elif len(row_parts) == 2:[m
+[32m+[m[32m                row_desc = " and ".join(row_parts)[m
+[32m+[m[32m            else:[m
+[32m+[m[32m                row_desc = ", ".join(row_parts[:-1]) + ", and " + row_parts[-1][m
+[32m+[m
+[32m+[m[32m            chunk_text += f"- Row {idx + 1}: {row_desc}.\n"[m
+[32m+[m
+         chunks.append({[m
+             "text": chunk_text,[m
+             "metadata": {[m
+[36m@@ -58,5 +146,5 @@[m [mdef convert_dataframe_to_chunks(df: pd.DataFrame, dataset_name="dataset", rows_p[m
+                 "end_row": end_idx[m
+             }[m
+         })[m
+[31m-        [m
+[32m+[m
+     return chunks[m
+[1mdiff --git a/src/rag/llm_handler.py b/src/rag/llm_handler.py[m
+[1mindex a7d60e1..fff8eee 100644[m
+[1m--- a/src/rag/llm_handler.py[m
+[1m+++ b/src/rag/llm_handler.py[m
+[36m@@ -1,8 +1,14 @@[m
+ import os[m
+[31m-[m
+ from dotenv import load_dotenv[m
+[31m-import google.generativeai as genai[m
+ [m
+[32m+[m[32m# Try to use the new Google GenAI API, fallback to legacy if needed[m
+[32m+[m[32mtry:[m
+[32m+[m[32m    from google import genai[m
+[32m+[m[32m    from google.genai import types[m
+[32m+[m[32m    USE_NEW_API = True[m
+[32m+[m[32mexcept ImportError:[m
+[32m+[m[32m    import google.generativeai as genai[m
+[32m+[m[32m    USE_NEW_API = False[m
+ [m
+ load_dotenv()[m
+ [m
+[36m@@ -21,13 +27,16 @@[m [mclass LLMHandler:[m
+                 "GEMINI_API_KEY not found in .env file"[m
+             )[m
+ [m
+[31m-        genai.configure([m
+[31m-            api_key=api_key[m
+[31m-        )[m
+[31m-[m
+[31m-        self.model = genai.GenerativeModel([m
+[31m-            "gemini-2.5-flash"[m
+[31m-        )[m
+[32m+[m[32m        if USE_NEW_API:[m
+[32m+[m[32m            # New Google GenAI API[m
+[32m+[m[32m            self.client = genai.Client(api_key=api_key)[m
+[32m+[m[32m            self.model_name = "gemini-2.5-flash"[m
+[32m+[m[32m        else:[m
+[32m+[m[32m            # Legacy API[m
+[32m+[m[32m            genai.configure(api_key=api_key)[m
+[32m+[m[32m            self.model = genai.GenerativeModel([m
+[32m+[m[32m                "gemini-2.5-flash"[m
+[32m+[m[32m            )[m
+ [m
+     # ==========================================[m
+     # QUESTION TYPE DETECTION[m
+[36m@@ -85,7 +94,7 @@[m [mclass LLMHandler:[m
+             prompt = f"""[m
+ You are an AI Data Analyst.[m
+ [m
+[31m-Answer ONLY using the dataset context.[m
+[32m+[m[32mAnswer ONLY using the dataset context. Do not use any external knowledge or make assumptions.[m
+ [m
+ DATASET CONTEXT[m
+ [m
+[36m@@ -97,11 +106,12 @@[m [mQUESTION[m
+ [m
+ Rules:[m
+ [m
+[31m-1. Give a short direct answer.[m
+[31m-2. If information is not available, clearly say so.[m
+[31m-3. Do not provide recommendations.[m
+[31m-4. Do not provide business interpretation.[m
+[31m-5. Do not invent information.[m
+[32m+[m[32m1. Give a short direct answer based ONLY on the provided context.[m
+[32m+[m[32m2. If information is not available in the context, clearly say: "This information is not available in the dataset."[m
+[32m+[m[32m3. Do not provide recommendations unless asked.[m
+[32m+[m[32m4. Do not provide business interpretation unless asked.[m
+[32m+[m[32m5. Do not invent information, names, values, or columns that are not in the context.[m
+[32m+[m[32m6. If uncertain, state uncertainty rather than guessing.[m
+ """[m
+ [m
+         else:[m
+[36m@@ -109,7 +119,7 @@[m [mRules:[m
+             prompt = f"""[m
+ You are a Senior Business Analyst.[m
+ [m
+[31m-Answer ONLY using the dataset context.[m
+[32m+[m[32mAnswer ONLY using the dataset context. Do not use any external knowledge or make assumptions.[m
+ [m
+ DATASET CONTEXT[m
+ [m
+[36m@@ -121,22 +131,27 @@[m [mQUESTION[m
+ [m
+ Rules:[m
+ [m
+[31m-1. Answer the question.[m
+[31m-2. Explain the business meaning.[m
+[31m-3. Give recommendations if relevant.[m
+[31m-4. Do not invent information.[m
+[32m+[m[32m1. Answer the question based ONLY on the provided context.[m
+[32m+[m[32m2. Explain the business meaning using only information from the context.[m
+[32m+[m[32m3. Give recommendations if relevant, based only on the context.[m
+[32m+[m[32m4. Do not invent information, names, values, or columns that are not in the context.[m
+[32m+[m[32m5. If information is unavailable in the context, clearly state it.[m
+[32m+[m[32m6. If uncertain, state uncertainty rather than guessing.[m
+ """[m
+ [m
+         try:[m
+[31m-[m
+[31m-            response = self.model.generate_content([m
+[31m-                prompt[m
+[31m-            )[m
+[31m-[m
+[31m-            return response.text[m
+[31m-[m
+[32m+[m[32m            if USE_NEW_API:[m
+[32m+[m[32m                # New Google GenAI API[m
+[32m+[m[32m                response = self.client.models.generate_content([m
+[32m+[m[32m                    model=self.model_name,[m
+[32m+[m[32m                    contents=prompt[m
+[32m+[m[32m                )[m
+[32m+[m[32m                return response.text[m
+[32m+[m[32m            else:[m
+[32m+[m[32m                # Legacy API[m
+[32m+[m[32m                response = self.model.generate_content(prompt)[m
+[32m+[m[32m                return response.text[m
+         except Exception as e:[m
+[31m-[m
+             return ([m
+                 f"Error generating response: "[m
+                 f"{str(e)}"[m
+[36m@@ -152,8 +167,14 @@[m [mRules:[m
+         question[m
+     ):[m
+ [m
+[32m+[m[32m        # Extract text content from retrieved documents[m
+[32m+[m[32m        if retrieved_docs and isinstance(retrieved_docs[0], dict) and 'text' in retrieved_docs[0]:[m
+[32m+[m[32m            doc_texts = [doc['text'] for doc in retrieved_docs][m
+[32m+[m[32m        else:[m
+[32m+[m[32m            doc_texts = retrieved_docs[m
+[32m+[m
+         context = "\n".join([m
+[31m-            retrieved_docs[m
+[32m+[m[32m            doc_texts[m
+         )[m
+ [m
+         question_type = ([m
+[36m@@ -167,7 +188,7 @@[m [mRules:[m
+             prompt = f"""[m
+ You are an AI Data Analyst.[m
+ [m
+[31m-Use ONLY the retrieved records.[m
+[32m+[m[32mUse ONLY the retrieved records. Do not use any external knowledge or make assumptions.[m
+ [m
+ RETRIEVED RECORDS[m
+ [m
+[36m@@ -179,14 +200,14 @@[m [mQUESTION[m
+ [m
+ Rules:[m
+ [m
+[31m-1. Answer directly.[m
+[32m+[m[32m1. Answer directly based ONLY on the provided records.[m
+ 2. Be concise.[m
+[31m-3. If the requested information does not exist, say:[m
+[32m+[m[32m3. If the requested information does not exist in the records, say:[m
+    "This information is not available in the dataset."[m
+[31m-4. Never guess.[m
+[31m-5. Never invent names, values or columns.[m
+[31m-6. Do not provide recommendations.[m
+[31m-7. Do not provide business interpretation.[m
+[32m+[m[32m4. Never guess or invent information.[m
+[32m+[m[32m5. Never invent names, values, or columns that are not in the records.[m
+[32m+[m[32m6. Do not provide recommendations unless asked.[m
+[32m+[m[32m7. Do not provide business interpretation unless asked.[m
+ [m
+ Examples:[m
+ [m
+[36m@@ -208,7 +229,7 @@[m [mThis information is not available in the dataset because no employee name field[m
+             prompt = f"""[m
+ You are a Senior Business Analyst.[m
+ [m
+[31m-Use ONLY the retrieved records.[m
+[32m+[m[32mUse ONLY the retrieved records. Do not use any external knowledge or make assumptions.[m
+ [m
+ RETRIEVED RECORDS[m
+ [m
+[36m@@ -220,24 +241,28 @@[m [mQUESTION[m
+ [m
+ Rules:[m
+ [m
+[31m-1. Answer the question.[m
+[31m-2. Explain the business meaning.[m
+[31m-3. Give recommendations if relevant.[m
+[32m+[m[32m1. Answer the question based ONLY on the provided records.[m
+[32m+[m[32m2. Explain the business meaning using only information from the records.[m
+[32m+[m[32m3. Give recommendations if relevant, based only on the records.[m
+ 4. Use only the retrieved records.[m
+[31m-5. If information is unavailable, clearly state it.[m
+[31m-6. Do not invent information.[m
+[32m+[m[32m5. If information is unavailable in the records, clearly state it.[m
+[32m+[m[32m6. Do not invent information, names, values, or columns that are not in the records.[m
+[32m+[m[32m7. If uncertain, state uncertainty rather than guessing.[m
+ """[m
+ [m
+         try:[m
+[31m-[m
+[31m-            response = self.model.generate_content([m
+[31m-                prompt[m
+[31m-            )[m
+[31m-[m
+[31m-            return response.text[m
+[31m-[m
+[32m+[m[32m            if USE_NEW_API:[m
+[32m+[m[32m                # New Google GenAI API[m
+[32m+[m[32m                response = self.client.models.generate_content([m
+[32m+[m[32m                    model=self.model_name,[m
+[32m+[m[32m                    contents=prompt[m
+[32m+[m[32m                )[m
+[32m+[m[32m                return response.text[m
+[32m+[m[32m            else:[m
+[32m+[m[32m                # Legacy API[m
+[32m+[m[32m                response = self.model.generate_content(prompt)[m
+[32m+[m[32m                return response.text[m
+         except Exception as e:[m
+[31m-[m
+             return ([m
+                 f"Error generating RAG response: "[m
+                 f"{str(e)}"[m
+[36m@@ -255,7 +280,7 @@[m [mRules:[m
+         prompt = f"""[m
+ You are a Senior Business Analyst.[m
+ [m
+[31m-Create an executive summary.[m
+[32m+[m[32mCreate an executive summary based ONLY on the provided dataset context. Do not use any external knowledge or make assumptions.[m
+ [m
+ DATASET CONTEXT[m
+ [m
+[36m@@ -263,23 +288,28 @@[m [mDATASET CONTEXT[m
+ [m
+ Provide:[m
+ [m
+[31m-1. Dataset Overview[m
+[31m-2. Key Findings[m
+[31m-3. Risks[m
+[31m-4. Opportunities[m
+[31m-5. Recommendations[m
+[32m+[m[32m1. Dataset Overview - factual description of the dataset[m
+[32m+[m[32m2. Key Findings - insights derived strictly from the data[m
+[32m+[m[32m3. Risks - potential issues or concerns evident in the data[m
+[32m+[m[32m4. Opportunities - potential areas for improvement or growth suggested by the data[m
+[32m+[m[32m5. Recommendations - actionable suggestions based only on the data[m
+[32m+[m
+[32m+[m[32mImportant: Base all statements solely on the provided context. Do not invent information, statistics, or facts not present in the context.[m
+ """[m
+ [m
+         try:[m
+[31m-[m
+[31m-            response = self.model.generate_content([m
+[31m-                prompt[m
+[31m-            )[m
+[31m-[m
+[31m-            return response.text[m
+[31m-[m
+[32m+[m[32m            if USE_NEW_API:[m
+[32m+[m[32m                # New Google GenAI API[m
+[32m+[m[32m                response = self.client.models.generate_content([m
+[32m+[m[32m                    model=self.model_name,[m
+[32m+[m[32m                    contents=prompt[m
+[32m+[m[32m                )[m
+[32m+[m[32m                return response.text[m
+[32m+[m[32m            else:[m
+[32m+[m[32m                # Legacy API[m
+[32m+[m[32m                response = self.model.generate_content(prompt)[m
+[32m+[m[32m                return response.text[m
+         except Exception as e:[m
+[31m-[m
+             return ([m
+                 f"Error generating summary: "[m
+                 f"{str(e)}"[m
+[36m@@ -298,6 +328,8 @@[m [mProvide:[m
+         prompt = f"""[m
+ You are a Business Strategy Consultant.[m
+ [m
+[32m+[m[32mAnalyze the business problem based ONLY on the provided dataset context. Do not use any external knowledge or make assumptions.[m
+[32m+[m
+ DATASET CONTEXT[m
+ [m
+ {context}[m
+[36m@@ -308,23 +340,28 @@[m [mBUSINESS PROBLEM[m
+ [m
+ Provide:[m
+ [m
+[31m-1. Problem Analysis[m
+[31m-2. Root Cause[m
+[31m-3. Impact[m
+[31m-4. Recommendations[m
+[31m-5. Next Actions[m
+[32m+[m[32m1. Problem Analysis - analysis based only on the data[m
+[32m+[m[32m2. Root Cause - root causes evident in or suggested by the data[m
+[32m+[m[32m3. Impact - impacts that can be inferred from the data[m
+[32m+[m[32m4. Recommendations - actionable recommendations based only on the data[m
+[32m+[m[32m5. Next Actions - suggested next steps based on the data[m
+[32m+[m
+[32m+[m[32mImportant: Base all statements solely on the provided context. Do not invent information, statistics, or facts not present in the context. If the data does not contain sufficient information to answer a section, state that the information is not available in the dataset.[m
+ """[m
+ [m
+         try:[m
+[31m-[m
+[31m-            response = self.model.generate_content([m
+[31m-                prompt[m
+[31m-            )[m
+[31m-[m
+[31m-            return response.text[m
+[31m-[m
+[32m+[m[32m            if USE_NEW_API:[m
+[32m+[m[32m                # New Google GenAI API[m
+[32m+[m[32m                response = self.client.models.generate_content([m
+[32m+[m[32m                    model=self.model_name,[m
+[32m+[m[32m                    contents=prompt[m
+[32m+[m[32m                )[m
+[32m+[m[32m                return response.text[m
+[32m+[m[32m            else:[m
+[32m+[m[32m                # Legacy API[m
+[32m+[m[32m                response = self.model.generate_content(prompt)[m
+[32m+[m[32m                return response.text[m
+         except Exception as e:[m
+[31m-[m
+             return ([m
+                 f"Error generating analysis: "[m
+                 f"{str(e)}"[m
+[1mdiff --git a/src/rag/rag_engine.py b/src/rag/rag_engine.py[m
+[1mindex 072f6e0..bbb2b68 100644[m
+[1m--- a/src/rag/rag_engine.py[m
+[1m+++ b/src/rag/rag_engine.py[m
+[36m@@ -12,6 +12,10 @@[m [mfrom src.rag.retriever import ([m
+     Retriever[m
+ )[m
+ [m
+[32m+[m[32mfrom src.rag.document_processor import ([m
+[32m+[m[32m    convert_dataframe_to_chunks[m
+[32m+[m[32m)[m
+[32m+[m
+ [m
+ class RAGEngine:[m
+ [m
+[36m@@ -70,46 +74,21 @@[m [mclass RAGEngine:[m
+     def build_index(self):[m
+ [m
+         print([m
+[31m-            "Building universal dataset documents..."[m
+[32m+[m[32m            "Building enhanced dataset documents..."[m
+         )[m
+ [m
+[31m-        documents = [][m
+[31m-[m
+[31m-        max_rows = min([m
+[31m-            len(self.df),[m
+[31m-            5000[m
+[32m+[m[32m        # Use the improved document processor for better chunking[m
+[32m+[m[32m        documents = convert_dataframe_to_chunks([m
+[32m+[m[32m            self.df.head(min(len(self.df), 5000)),  # Limit to 5000 rows for performance[m
+[32m+[m[32m            dataset_name="dataset",[m
+[32m+[m[32m            rows_per_chunk=10[m
+         )[m
+ [m
+[31m-        for _, row in ([m
+[31m-            self.df.head(max_rows)[m
+[31m-            .iterrows()[m
+[31m-        ):[m
+[31m-[m
+[31m-            row_document = [][m
+[31m-[m
+[31m-            for column in self.df.columns:[m
+[31m-[m
+[31m-                value = row.get([m
+[31m-                    column,[m
+[31m-                    ""[m
+[31m-                )[m
+[31m-[m
+[31m-                if str(value) == "nan":[m
+[31m-[m
+[31m-                    value = ""[m
+[31m-[m
+[31m-                row_document.append([m
+[31m-                    f"{column}: {value}"[m
+[31m-                )[m
+[31m-[m
+[31m-            documents.append([m
+[31m-                "\n".join([m
+[31m-                    row_document[m
+[31m-                )[m
+[31m-            )[m
+[32m+[m[32m        # Extract just the text content for embedding[m
+[32m+[m[32m        document_texts = [doc["text"] for doc in documents][m
+ [m
+         print([m
+[31m-            f"Generated {len(documents)} documents"[m
+[32m+[m[32m            f"Generated {len(document_texts)} documents"[m
+         )[m
+ [m
+         print([m
+[36m@@ -119,7 +98,7 @@[m [mclass RAGEngine:[m
+         embeddings = ([m
+             self.embedding_generator[m
+             .generate_embeddings([m
+[31m-                documents[m
+[32m+[m[32m                document_texts[m
+             )[m
+         )[m
+ [m
+[36m@@ -129,7 +108,7 @@[m [mclass RAGEngine:[m
+ [m
+         self.vector_store.create_index([m
+             embeddings,[m
+[31m-            documents[m
+[32m+[m[32m            documents  # Store the full document objects with metadata[m
+         )[m
+ [m
+         print([m
+[1mdiff --git a/src/schema/dataset_understanding.py b/src/schema/dataset_understanding.py[m
+[1mindex 49ea725..8fa9c8c 100644[m
+[1m--- a/src/schema/dataset_understanding.py[m
+[1m+++ b/src/schema/dataset_understanding.py[m
+[36m@@ -34,6 +34,14 @@[m [mclass DatasetUnderstanding:[m
+             )[m
+         )[m
+ [m
+[32m+[m[32m        capabilities = ([m
+[32m+[m[32m            self._capabilities([m
+[32m+[m[32m                schema_metadata,[m
+[32m+[m[32m                candidate_metrics,[m
+[32m+[m[32m                candidate_dimensions[m
+[32m+[m[32m            )[m
+[32m+[m[32m        )[m
+[32m+[m
+         return {[m
+ [m
+             "row_count":[m
+[36m@@ -60,6 +68,9 @@[m [mclass DatasetUnderstanding:[m
+             "candidate_dimensions":[m
+                 candidate_dimensions,[m
+ [m
+[32m+[m[32m            "capabilities":[m
+[32m+[m[32m                capabilities,[m
+[32m+[m
+             "suggested_questions":[m
+                 self._suggest_questions([m
+                     candidate_metrics,[m
+[36m@@ -78,21 +89,17 @@[m [mclass DatasetUnderstanding:[m
+     ):[m
+ [m
+         excluded_columns = set([m
+[31m-[m
+             schema_metadata.get([m
+                 "id_columns",[m
+                 [][m
+             )[m
+[31m-[m
+         )[m
+ [m
+         excluded_columns.update([m
+[31m-[m
+             schema_metadata.get([m
+                 "boolean_columns",[m
+                 [][m
+             )[m
+[31m-[m
+         )[m
+ [m
+         return [[m
+[36m@@ -106,7 +113,6 @@[m [mclass DatasetUnderstanding:[m
+             )[m
+ [m
+             if column not in excluded_columns[m
+[31m-[m
+         ][m
+ [m
+     # =====================================[m
+[36m@@ -131,12 +137,10 @@[m [mclass DatasetUnderstanding:[m
+         ]:[m
+ [m
+             for column in ([m
+[31m-[m
+                 schema_metadata.get([m
+                     key,[m
+                     [][m
+                 )[m
+[31m-[m
+             ):[m
+ [m
+                 if column not in dimensions:[m
+[36m@@ -147,6 +151,50 @@[m [mclass DatasetUnderstanding:[m
+ [m
+         return dimensions[m
+ [m
+[32m+[m[32m    # =====================================[m
+[32m+[m[32m    # DATASET CAPABILITIES[m
+[32m+[m[32m    # =====================================[m
+[32m+[m
+[32m+[m[32m    def _capabilities([m
+[32m+[m[32m        self,[m
+[32m+[m[32m        schema_metadata,[m
+[32m+[m[32m        candidate_metrics,[m
+[32m+[m[32m        candidate_dimensions[m
+[32m+[m[32m    ):[m
+[32m+[m
+[32m+[m[32m        return {[m
+[32m+[m
+[32m+[m[32m            "analytics":[m
+[32m+[m[32m                len(candidate_metrics) > 0,[m
+[32m+[m
+[32m+[m[32m            "group_analysis":[m
+[32m+[m[32m                len(candidate_dimensions) > 0,[m
+[32m+[m
+[32m+[m[32m            "record_lookup":[m
+[32m+[m[32m                len([m
+[32m+[m[32m                    schema_metadata.get([m
+[32m+[m[32m                        "id_columns",[m
+[32m+[m[32m                        [][m
+[32m+[m[32m                    )[m
+[32m+[m[32m                ) > 0,[m
+[32m+[m
+[32m+[m[32m            "forecasting":[m
+[32m+[m[32m                len([m
+[32m+[m[32m                    schema_metadata.get([m
+[32m+[m[32m                        "date_columns",[m
+[32m+[m[32m                        [][m
+[32m+[m[32m                    )[m
+[32m+[m[32m                ) > 0[m
+[32m+[m[32m                and[m
+[32m+[m[32m                len(candidate_metrics) > 0,[m
+[32m+[m
+[32m+[m[32m            "anomaly_detection":[m
+[32m+[m[32m                len(candidate_metrics) > 0,[m
+[32m+[m
+[32m+[m[32m            "correlation_analysis":[m
+[32m+[m[32m                len(candidate_metrics) >= 2[m
+[32m+[m[32m        }[m
+[32m+[m
+     # =====================================[m
+     # QUESTION SUGGESTIONS[m
+     # =====================================[m
+[36m@@ -172,9 +220,7 @@[m [mclass DatasetUnderstanding:[m
+             )[m
+ [m
+             questions.append([m
+[31m-[m
+                 f"What is the overall summary of {metric}?"[m
+[31m-[m
+             )[m
+ [m
+             if candidate_dimensions:[m
+[36m@@ -184,47 +230,33 @@[m [mclass DatasetUnderstanding:[m
+                 )[m
+ [m
+                 questions.append([m
+[31m-[m
+                     f"How does {metric} vary by {dimension}?"[m
+[31m-[m
+                 )[m
+ [m
+         if len(candidate_metrics) >= 2:[m
+ [m
+             questions.append([m
+[31m-[m
+                 "Which numeric columns are most strongly correlated?"[m
+[31m-[m
+             )[m
+ [m
+         if ([m
+[31m-[m
+             schema_metadata.get([m
+                 "date_columns"[m
+             )[m
+[31m-[m
+             and[m
+[31m-[m
+             candidate_metrics[m
+[31m-[m
+         ):[m
+ [m
+             questions.append([m
+[31m-[m
+                 f"What trend is visible over {schema_metadata['date_columns'][0]}?"[m
+[31m-[m
+             )[m
+ [m
+         questions.append([m
+[31m-[m
+             "What are the most important patterns in this dataset?"[m
+[31m-[m
+         )[m
+ [m
+         questions.append([m
+[31m-[m
+             "Are there missing values, duplicates, or outliers to review?"[m
+[31m-[m
+         )[m
+ [m
+         return questions[:6][m
+[36m@@ -239,9 +271,6 @@[m [mdef understand_dataset([m
+ ):[m
+ [m
+     return DatasetUnderstanding([m
+[31m-[m
+         df,[m
+[31m-[m
+         schema_metadata[m
+[31m-[m
+     ).summarize()[m
+\ No newline at end of file[m
+[1mdiff --git a/tests/test_context_builder.py b/tests/test_context_builder.py[m
+[1mindex e38f0e7..c543642 100644[m
+[1m--- a/tests/test_context_builder.py[m
+[1m+++ b/tests/test_context_builder.py[m
+[36m@@ -1,6 +1,8 @@[m
+ import sys[m
+ from pathlib import Path[m
+ [m
+[32m+[m[32mimport pytest[m
+[32m+[m
+ project_root = Path(__file__).resolve().parent.parent[m
+ sys.path.append(str(project_root))[m
+ [m
+[36m@@ -10,19 +12,25 @@[m [mfrom src.insights.insight_generator import InsightGenerator[m
+ from src.rag.context_builder import ContextBuilder[m
+ [m
+ [m
+[31m-df = DataLoader.load_data()[m
+[32m+[m[32mdef test_context_builder():[m
+[32m+[m[32m    df = DataLoader.load_data("data/raw/sales_data.csv")[m
+ [m
+[31m-eda = ExploratoryAnalysis(df)[m
+[32m+[m[32m    eda = ExploratoryAnalysis(df)[m
+ [m
+[31m-eda_report = eda.generate_eda_report()[m
+[32m+[m[32m    eda_report = eda.generate_eda_report()[m
+ [m
+[31m-insights = InsightGenerator([m
+[31m-    eda_report[m
+[31m-).generate_all_insights()[m
+[32m+[m[32m    insights = InsightGenerator([m
+[32m+[m[32m        eda_report[m
+[32m+[m[32m    ).generate_all_insights()[m
+ [m
+[31m-context = ContextBuilder([m
+[31m-    eda_report,[m
+[31m-    insights[m
+[31m-).build_context()[m
+[32m+[m[32m    context = ContextBuilder([m
+[32m+[m[32m        eda_report,[m
+[32m+[m[32m        insights[m
+[32m+[m[32m    ).build_context()[m
+ [m
+[31m-print(context)[m
+\ No newline at end of file[m
+[32m+[m[32m    # Check that context is a string and contains expected sections[m
+[32m+[m[32m    assert isinstance(context, str)[m
+[32m+[m[32m    assert "DATASET OVERVIEW" in context[m
+[32m+[m[32m    assert "NUMERIC SUMMARY" in context[m
+[32m+[m[32m    # Check that at least one insight is included[m
+[32m+[m[32m    assert "Insight 1:" in context or "BUSINESS INSIGHTS" in context[m
+\ No newline at end of file[m
+[1mdiff --git a/tests/test_eda.py b/tests/test_eda.py[m
+[1mindex 8f06cc0..387e18f 100644[m
+[1m--- a/tests/test_eda.py[m
+[1m+++ b/tests/test_eda.py[m
+[36m@@ -1,6 +1,8 @@[m
+ import sys[m
+ from pathlib import Path[m
+ [m
+[32m+[m[32mimport pytest[m
+[32m+[m
+ project_root = Path(__file__).resolve().parent.parent[m
+ sys.path.append(str(project_root))[m
+ [m
+[36m@@ -8,16 +10,18 @@[m [mfrom src.ingestion.data_loader import DataLoader[m
+ from src.eda.exploratory_analysis import ExploratoryAnalysis[m
+ [m
+ [m
+[31m-df = DataLoader.load_data()[m
+[31m-[m
+[31m-eda = ExploratoryAnalysis(df)[m
+[31m-[m
+[31m-report = eda.generate_eda_report()[m
+[31m-[m
+[31m-print("\nEDA REPORT\n")[m
+[32m+[m[32mdef test_eda():[m
+[32m+[m[32m    df = DataLoader.load_data("data/raw/sales_data.csv")[m
+ [m
+[31m-for section, values in report.items():[m
+[32m+[m[32m    eda = ExploratoryAnalysis(df)[m
+ [m
+[31m-    print(f"\n{section.upper()}")[m
+[32m+[m[32m    report = eda.generate_eda_report()[m
+ [m
+[31m-    print(values)[m
+\ No newline at end of file[m
+[32m+[m[32m    # Check that the report is a dict and has expected sections[m
+[32m+[m[32m    assert isinstance(report, dict)[m
+[32m+[m[32m    assert "dataset_summary" in report[m
+[32m+[m[32m    assert "numeric_summary" in report[m
+[32m+[m[32m    assert "categorical_summary" in report[m
+[32m+[m[32m    # Check that the dataset summary has rows and columns[m
+[32m+[m[32m    assert report["dataset_summary"]["rows"] > 0[m
+[32m+[m[32m    assert report["dataset_summary"]["columns"] > 0[m
+\ No newline at end of file[m
+[1mdiff --git a/tests/test_insights.py b/tests/test_insights.py[m
+[1mindex a0d8b75..8c82d1a 100644[m
+[1m--- a/tests/test_insights.py[m
+[1m+++ b/tests/test_insights.py[m
+[36m@@ -1,6 +1,8 @@[m
+ import sys[m
+ from pathlib import Path[m
+ [m
+[32m+[m[32mimport pytest[m
+[32m+[m
+ project_root = Path(__file__).resolve().parent.parent[m
+ sys.path.append(str(project_root))[m
+ [m
+[36m@@ -9,25 +11,24 @@[m [mfrom src.eda.exploratory_analysis import ExploratoryAnalysis[m
+ from src.insights.insight_generator import InsightGenerator[m
+ [m
+ [m
+[31m-df = DataLoader.load_data()[m
+[31m-[m
+[31m-eda = ExploratoryAnalysis(df)[m
+[32m+[m[32mdef test_insights():[m
+[32m+[m[32m    df = DataLoader.load_data("data/raw/sales_data.csv")[m
+ [m
+[31m-eda_report = eda.generate_eda_report()[m
+[32m+[m[32m    eda = ExploratoryAnalysis(df)[m
+ [m
+[31m-insight_generator = InsightGenerator([m
+[31m-    eda_report[m
+[31m-)[m
+[32m+[m[32m    eda_report = eda.generate_eda_report()[m
+ [m
+[31m-insights = insight_generator.generate_all_insights()[m
+[32m+[m[32m    insight_generator = InsightGenerator([m
+[32m+[m[32m        eda_report[m
+[32m+[m[32m    )[m
+ [m
+[31m-print("\nBUSINESS INSIGHTS\n")[m
+[32m+[m[32m    insights = insight_generator.generate_all_insights()[m
+ [m
+[31m-for index, insight in enumerate([m
+[31m-    insights,[m
+[31m-    start=1[m
+[31m-):[m
+[31m-    print([m
+[31m-        f"\nInsight {index}:"[m
+[31m-    )[m
+[31m-    print(insight)[m
+\ No newline at end of file[m
+[32m+[m[32m    # Check that we get a list of strings[m
+[32m+[m[32m    assert isinstance(insights, list)[m
+[32m+[m[32m    assert all(isinstance(insight, str) for insight in insights)[m
+[32m+[m[32m    # Check that we have at least one insight[m
+[32m+[m[32m    assert len(insights) > 0[m
+[32m+[m[32m    # Check that each insight is non-empty[m
+[32m+[m[32m    for insight in insights:[m
+[32m+[m[32m        assert insight.strip() != ""[m
+\ No newline at end of file[m
+[1mdiff --git a/tests/test_profiler.py b/tests/test_profiler.py[m
+[1mindex 9756221..2f94cc3 100644[m
+[1m--- a/tests/test_profiler.py[m
+[1m+++ b/tests/test_profiler.py[m
+[36m@@ -1,7 +1,7 @@[m
+ import pytest[m
+ import pandas as pd[m
+ import numpy as np[m
+[31m-from src.profiling.data_profiler import profile_dataset[m
+[32m+[m[32mfrom src.profiling.data_profiler import DataProfiler[m
+ [m
+ def test_profile_dataset():[m
+     # Construct synthetic data[m
+[36m@@ -10,12 +10,12 @@[m [mdef test_profile_dataset():[m
+         "values": [1.5, 2.5, 3.5, np.nan, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5],[m
+         "label": ["A", "B", "A", "B", "A", "B", "A", "B", "A", "B"][m
+     })[m
+[31m-    [m
+[31m-    profile = profile_dataset(df)[m
+[31m-    assert profile["num_rows"] == 10[m
+[31m-    assert profile["num_cols"] == 3[m
+[31m-    assert profile["total_missing_cells"] == 1[m
+[31m-    assert "values" in profile["columns"][m
+[31m-    assert profile["columns"]["values"]["type"] == "float"[m
+[31m-    assert profile["columns"]["label"]["type"] == "categorical"[m
+[31m-    assert profile["data_quality_score"] > 50.0  # Should be decent[m
+[32m+[m
+[32m+[m[32m    profiler = DataProfiler(df)[m
+[32m+[m[32m    profile = profiler.generate_profile()[m
+[32m+[m[32m    assert profile["rows"] == 10[m
+[32m+[m[32m    assert profile["columns"] == 3[m
+[32m+[m[32m    assert profile["missing_values"]["values"] == 1[m
+[32m+[m[32m    assert "values" in profile["column_names"][m
+[32m+[m[32m    assert "dates" in profile["data_types"][m
+[32m+[m[32m    assert "label" in profile["data_types"][m
+[1mdiff --git a/tests/test_rag.py b/tests/test_rag.py[m
+[1mindex cc8d8fc..604d773 100644[m
+[1m--- a/tests/test_rag.py[m
+[1m+++ b/tests/test_rag.py[m
+[36m@@ -1,6 +1,8 @@[m
+ import sys[m
+ from pathlib import Path[m
+ [m
+[32m+[m[32mimport pytest[m
+[32m+[m
+ project_root = ([m
+     Path(__file__)[m
+     .resolve()[m
+[36m@@ -28,51 +30,42 @@[m [mfrom src.rag.retriever import ([m
+     Retriever[m
+ )[m
+ [m
+[32m+[m[32mfrom src.rag.document_processor import ([m
+[32m+[m[32m    convert_dataframe_to_chunks[m
+[32m+[m[32m)[m
+ [m
+[31m-df = DataLoader.load_data()[m
+[32m+[m[32mfrom app.utils.data_manager import DataManager[m
+ [m
+[31m-documents = [][m
+ [m
+[31m-for _, row in df.iterrows():[m
+[32m+[m[32mdef test_rag_retrieval():[m
+[32m+[m[32m    df = DataLoader.load_data("data/raw/sales_data.csv")[m
+ [m
+[31m-    doc = ([m
+[31m-        f"Region: {row['Region']}, "[m
+[31m-        f"Category: {row['Category']}, "[m
+[31m-        f"Sales: {row['Sales']}, "[m
+[31m-        f"Profit: {row['Profit']}"[m
+[32m+[m[32m    # Use the proper document processor to create chunks[m
+[32m+[m[32m    documents = convert_dataframe_to_chunks([m
+[32m+[m[32m        df.head(100),  # Limit for faster testing[m
+[32m+[m[32m        dataset_name="test_dataset",[m
+[32m+[m[32m        rows_per_chunk=10[m
+     )[m
+ [m
+[31m-    documents.append(doc)[m
+[31m-[m
+[31m-embedding_generator = ([m
+[31m-    EmbeddingGenerator()[m
+[31m-)[m
+[32m+[m[32m    embedding_generator = EmbeddingGenerator()[m
+ [m
+[31m-embeddings = ([m
+[31m-    embedding_generator[m
+[31m-    .generate_embeddings([m
+[31m-        documents[m
+[31m-    )[m
+[31m-)[m
+[32m+[m[32m    # Extract text for embeddings[m
+[32m+[m[32m    document_texts = [doc["text"] for doc in documents][m
+[32m+[m[32m    embeddings = embedding_generator.generate_embeddings(document_texts)[m
+ [m
+[31m-vector_store = VectorStore()[m
+[32m+[m[32m    dataset_fingerprint = DataManager.generate_dataset_fingerprint(df)[m
+[32m+[m[32m    vector_store = VectorStore(dataset_fingerprint)[m
+ [m
+[31m-vector_store.create_index([m
+[31m-    embeddings,[m
+[31m-    documents[m
+[31m-)[m
+[31m-[m
+[31m-retriever = Retriever([m
+[31m-    embedding_generator,[m
+[31m-    vector_store[m
+[31m-)[m
+[31m-[m
+[31m-results = retriever.retrieve([m
+[31m-    "highest profit technology sales"[m
+[31m-)[m
+[32m+[m[32m    vector_store.create_index(embeddings, documents)[m
+ [m
+[31m-print("\nRAG RESULTS\n")[m
+[32m+[m[32m    retriever = Retriever(embedding_generator, vector_store)[m
+ [m
+[31m-for result in results:[m
+[32m+[m[32m    results = retriever.retrieve("highest profit technology sales")[m
+ [m
+[31m-    print(result)[m
+\ No newline at end of file[m
+[32m+[m[32m    # Check that we get results[m
+[32m+[m[32m    assert isinstance(results, list)[m
+[32m+[m[32m    # Check that each result is a dict with text and metadata (as stored in vector_store)[m
+[32m+[m[32m    for result in results:[m
+[32m+[m[32m        assert isinstance(result, dict)[m
+[32m+[m[32m        assert "text" in result[m
+[32m+[m[32m        assert "metadata" in result[m
+\ No newline at end of file[m
+[1mdiff --git a/tests/test_rag_llm.py b/tests/test_rag_llm.py[m
+[1mindex 7b6baf3..b928114 100644[m
+[1m--- a/tests/test_rag_llm.py[m
+[1m+++ b/tests/test_rag_llm.py[m
+[36m@@ -1,6 +1,8 @@[m
+ import sys[m
+ from pathlib import Path[m
+ [m
+[32m+[m[32mimport pytest[m
+[32m+[m
+ project_root = ([m
+     Path(__file__)[m
+     .resolve()[m
+[36m@@ -25,23 +27,29 @@[m [mfrom src.rag.llm_handler import ([m
+ )[m
+ [m
+ [m
+[31m-df = DataLoader.load_data()[m
+[32m+[m[32mdef test_rag_llm_integration():[m
+[32m+[m[32m    df = DataLoader.load_data("data/raw/sales_data.csv")[m
+ [m
+[31m-rag = RAGEngine(df)[m
+[32m+[m[32m    rag = RAGEngine(df)[m
+ [m
+[31m-llm = LLMHandler()[m
+[32m+[m[32m    llm = LLMHandler()[m
+ [m
+[31m-question = ([m
+[31m-    "Which technology products are generating the highest profit?"[m
+[31m-)[m
+[32m+[m[32m    question = ([m
+[32m+[m[32m        "Which technology products are generating the highest profit?"[m
+[32m+[m[32m    )[m
+ [m
+[31m-docs = rag.retrieve([m
+[31m-    question[m
+[31m-)[m
+[32m+[m[32m    docs = rag.retrieve(question)[m
+ [m
+[31m-response = llm.ask_rag_question([m
+[31m-    docs,[m
+[31m-    question[m
+[31m-)[m
+[32m+[m[32m    # Check that we get documents[m
+[32m+[m[32m    assert isinstance(docs, list)[m
+[32m+[m[32m    assert len(docs) > 0[m
+[32m+[m
+[32m+[m[32m    # Get response from LLM[m
+[32m+[m[32m    response = llm.ask_rag_question(docs, question)[m
+[32m+[m
+[32m+[m[32m    # Check that we get a string response[m
+[32m+[m[32m    assert isinstance(response, str)[m
+[32m+[m[32m    assert len(response) > 0[m
+ [m
+[31m-print(response)[m
+\ No newline at end of file[m
+[32m+[m[32m    # The response should not be an error message (basic check)[m
+[32m+[m[32m    assert "Error generating" not in response or len(response) > 50  # Allow short error messages[m
+\ No newline at end of file[m

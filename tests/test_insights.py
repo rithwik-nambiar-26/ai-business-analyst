@@ -1,6 +1,8 @@
 import sys
 from pathlib import Path
 
+import pytest
+
 project_root = Path(__file__).resolve().parent.parent
 sys.path.append(str(project_root))
 
@@ -9,25 +11,24 @@ from src.eda.exploratory_analysis import ExploratoryAnalysis
 from src.insights.insight_generator import InsightGenerator
 
 
-df = DataLoader.load_data()
+def test_insights():
+    df = DataLoader.load_data("data/raw/sales_data.csv")
 
-eda = ExploratoryAnalysis(df)
+    eda = ExploratoryAnalysis(df)
 
-eda_report = eda.generate_eda_report()
+    eda_report = eda.generate_eda_report()
 
-insight_generator = InsightGenerator(
-    eda_report
-)
-
-insights = insight_generator.generate_all_insights()
-
-print("\nBUSINESS INSIGHTS\n")
-
-for index, insight in enumerate(
-    insights,
-    start=1
-):
-    print(
-        f"\nInsight {index}:"
+    insight_generator = InsightGenerator(
+        eda_report
     )
-    print(insight)
+
+    insights = insight_generator.generate_all_insights()
+
+    # Check that we get a list of strings
+    assert isinstance(insights, list)
+    assert all(isinstance(insight, str) for insight in insights)
+    # Check that we have at least one insight
+    assert len(insights) > 0
+    # Check that each insight is non-empty
+    for insight in insights:
+        assert insight.strip() != ""

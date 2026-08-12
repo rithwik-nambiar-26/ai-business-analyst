@@ -37,7 +37,7 @@ st.set_page_config(
 )
 
 st.title(
-    "🤖 AI Data Analyst Chat"
+    "���������🤖 AI Data Analyst Chat"
 )
 
 # =====================================
@@ -69,6 +69,8 @@ dataset_summary = (
 dataset_fingerprint = (
     DataManager.get_dataset_fingerprint()
 )
+
+dataset_intelligence = DataManager.get_dataset_intelligence()
 
 if dataset_fingerprint is None:
 
@@ -106,19 +108,9 @@ st.success(
 
 if dataset_summary:
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
 
     with col1:
-
-        st.metric(
-            "Dataset Type",
-            dataset_summary.get(
-                "dataset_type",
-                "Generic"
-            )
-        )
-
-    with col2:
 
         st.metric(
             "Rows",
@@ -128,7 +120,7 @@ if dataset_summary:
             )
         )
 
-    with col3:
+    with col2:
 
         st.metric(
             "Columns",
@@ -142,19 +134,33 @@ if dataset_summary:
 # SUGGESTED QUESTIONS
 # =====================================
 
-if dataset_summary:
+if dataset_intelligence and dataset_intelligence.get('suggested_questions'):
 
     st.markdown(
         "### Suggested Questions"
     )
 
     for suggested_question in (
+        dataset_intelligence.get(
+            'suggested_questions',
+            []
+        )
+    ):
 
+        st.info(
+            suggested_question
+        )
+elif dataset_summary:
+
+    st.markdown(
+        "### Suggested Questions"
+    )
+
+    for suggested_question in (
         dataset_summary.get(
             "suggested_questions",
             []
         )
-
     ):
 
         st.info(
@@ -297,20 +303,24 @@ if question:
                 # ==========================
 
                 retrieved_docs = (
-
                     rag_engine.retrieve(
                         question
                     )
-
                 )
 
-                response = (
+                # Build context string from dataset summary and retrieved documents
+                context_parts = []
+                if dataset_summary:
+                    context_parts.append("Dataset Summary:")
+                    for key, value in dataset_summary.items():
+                        context_parts.append(f"  {key}: {value}")
+                context_parts.append("\nRetrieved Records:")
+                context_parts.extend(retrieved_docs)
+                context_string = "\n".join(context_parts)
 
-                    llm.ask_rag_question(
-                        retrieved_docs,
-                        question
-                    )
-
+                response = llm.ask_question(
+                    context_string,
+                    question
                 )
 
                 st.markdown(
@@ -322,11 +332,8 @@ if question:
                 ):
 
                     for i, doc in enumerate(
-
                         retrieved_docs,
-
                         start=1
-
                     ):
 
                         st.markdown(

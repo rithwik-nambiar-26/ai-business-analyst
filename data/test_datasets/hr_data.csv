@@ -1,0 +1,11 @@
+Employee ID,First Name,Last Name,Department,Position,Hire Date,Salary,Gender,Age,Performance Score
+1001,John,Doe,Engineering,Software Engineer,2020-01-15,75000,Male,28,85
+1002,Jane,Smith,Marketing,Marketing Manager,2019-03-22,82000,Female,35,92
+1003,Bob,Johnson,Sales,Sales Representative,2021-07-10,65000,Male,26,78
+1004,Alice,Brown,HR,HR Coordinator,2020-11-05,58000,Female,32,88
+1005,Charlie,Wilson,Engineering,Senior Engineer,2018-09-30,95000,Male,35,95
+1006,Davis,Lee,Marketing,Marketing Analyst,2021-02-14,68000,Female,29,81
+1007,Evelyn,Clark,Sales,Sales Manager,2019-12-03,88000,Female,34,89
+1008,Frank,Taylor,Engineering,DevOps Engineer,2020-06-18,82000,Male,31,87
+1009,Grace,Anderson,Finance,Financial Analyst,2021-01-20,72000,Female,33,90
+1010,Henry,Thomas,Operations,Operations Manager,2018-04-12,78000,Male,36,84

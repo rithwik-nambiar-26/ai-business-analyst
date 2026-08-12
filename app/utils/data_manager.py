@@ -6,6 +6,7 @@ import streamlit as st
 from src.ingestion.data_loader import DataLoader
 from src.schema.dataset_understanding import understand_dataset
 from src.schema.schema_analyzer import analyze_schema
+from src.dataset_intelligence import get_dataset_intelligence
 
 from src.dataset_manager.dataset_storage import (
     DatasetStorage
@@ -196,6 +197,28 @@ class DataManager:
             schema_metadata
         )
 
+        # Generate dataset intelligence
+        dataset_intelligence = get_dataset_intelligence(df)
+        dataset_intelligence_dict = {
+            'dataset_type': dataset_intelligence.dataset_type,
+            'entity_type': dataset_intelligence.entity_type,
+            'entity_name_singular': dataset_intelligence.entity_name_singular,
+            'description': dataset_intelligence.description,
+            'column_display_names': dataset_intelligence.column_display_names,
+            'column_descriptions': dataset_intelligence.column_descriptions,
+            'important_metrics': dataset_intelligence.important_metrics,
+            'important_dimensions': dataset_intelligence.important_dimensions,
+            'time_column': dataset_intelligence.time_column,
+            'available_analyses': dataset_intelligence.available_analyses,
+            'recommended_analyses': dataset_intelligence.recommended_analyses,
+            'page_names': dataset_intelligence.page_names,
+            'kpis': dataset_intelligence.kpis,
+            'chart_suggestions': dataset_intelligence.chart_suggestions,
+            'terminology': dataset_intelligence.terminology,
+            'suggested_questions': dataset_intelligence.suggested_questions,
+            'suggested_actions': dataset_intelligence.suggested_actions
+        }
+
         dataset_fingerprint = (
             DataManager.generate_dataset_fingerprint(
                 df
@@ -219,6 +242,10 @@ class DataManager:
         ] = dataset_summary
 
         st.session_state[
+            "dataset_intelligence"
+        ] = dataset_intelligence_dict
+
+        st.session_state[
             "dataset_fingerprint"
         ] = dataset_fingerprint
 
@@ -226,6 +253,7 @@ class DataManager:
             "df": df,
             "schema_metadata": schema_metadata,
             "dataset_summary": dataset_summary,
+            "dataset_intelligence": dataset_intelligence_dict,
             "dataset_fingerprint": dataset_fingerprint,
         }
 
@@ -248,6 +276,12 @@ class DataManager:
 
         return st.session_state.get(
             "dataset_fingerprint"
+        )
+
+    @staticmethod
+    def get_dataset_intelligence():
+        return st.session_state.get(
+            "dataset_intelligence"
         )
 
     @staticmethod

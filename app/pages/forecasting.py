@@ -16,9 +16,9 @@ sys.path.append(
     str(project_root)
 )
 
-from app.utils.data_manager import DataManager
-
-from src.ingestion.data_loader import DataLoader
+from app.utils.data_manager import (
+    DataManager
+)
 
 from src.kpi.kpi_engine import (
     identify_kpi_columns
@@ -52,17 +52,37 @@ df = DataManager.get_data()
 
 if df is None:
 
-    try:
+    st.warning(
+        "Please upload and select a dataset first."
+    )
 
-        df = DataLoader.load_data()
+    st.stop()
 
-    except Exception:
+# --------------------------------------------------
+# CAPABILITY CHECK
+# --------------------------------------------------
 
-        st.warning(
-            "Please load a dataset first."
-        )
+dataset_summary = (
+    DataManager.get_dataset_summary()
+)
 
-        st.stop()
+capabilities = (
+    dataset_summary.get(
+        "capabilities",
+        {}
+    )
+)
+
+if not capabilities.get(
+    "forecasting",
+    False
+):
+
+    st.info(
+        "This dataset does not support forecasting."
+    )
+
+    st.stop()
 
 # --------------------------------------------------
 # KPI DETECTION
@@ -190,8 +210,6 @@ with right_col:
 
             fig = go.Figure()
 
-            # Historical Actuals
-
             fig.add_trace(
                 go.Scatter(
                     x=history["Date"],
@@ -200,8 +218,6 @@ with right_col:
                     name="Actual"
                 )
             )
-
-            # Fitted
 
             fig.add_trace(
                 go.Scatter(
@@ -212,8 +228,6 @@ with right_col:
                 )
             )
 
-            # Forecast
-
             fig.add_trace(
                 go.Scatter(
                     x=future["Date"],
@@ -223,8 +237,6 @@ with right_col:
                 )
             )
 
-            # Upper CI
-
             fig.add_trace(
                 go.Scatter(
                     x=future["Date"],
@@ -233,8 +245,6 @@ with right_col:
                     showlegend=False
                 )
             )
-
-            # Lower CI
 
             fig.add_trace(
                 go.Scatter(
@@ -259,7 +269,7 @@ with right_col:
 
             st.plotly_chart(
                 fig,
-                width="stretch"
+                use_container_width=True
             )
 
             st.subheader(
@@ -275,7 +285,7 @@ with right_col:
                         "Upper_CI"
                     ]
                 ],
-                width="stretch"
+                use_container_width=True
             )
 
     else:

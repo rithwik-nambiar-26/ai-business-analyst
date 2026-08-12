@@ -12,6 +12,10 @@ from src.rag.retriever import (
     Retriever
 )
 
+from src.rag.document_processor import (
+    convert_dataframe_to_chunks
+)
+
 
 class RAGEngine:
 
@@ -70,46 +74,21 @@ class RAGEngine:
     def build_index(self):
 
         print(
-            "Building universal dataset documents..."
+            "Building enhanced dataset documents..."
         )
 
-        documents = []
-
-        max_rows = min(
-            len(self.df),
-            5000
+        # Use the improved document processor for better chunking
+        documents = convert_dataframe_to_chunks(
+            self.df.head(min(len(self.df), 5000)),  # Limit to 5000 rows for performance
+            dataset_name="dataset",
+            rows_per_chunk=10
         )
 
-        for _, row in (
-            self.df.head(max_rows)
-            .iterrows()
-        ):
-
-            row_document = []
-
-            for column in self.df.columns:
-
-                value = row.get(
-                    column,
-                    ""
-                )
-
-                if str(value) == "nan":
-
-                    value = ""
-
-                row_document.append(
-                    f"{column}: {value}"
-                )
-
-            documents.append(
-                "\n".join(
-                    row_document
-                )
-            )
+        # Extract just the text content for embedding
+        document_texts = [doc["text"] for doc in documents]
 
         print(
-            f"Generated {len(documents)} documents"
+            f"Generated {len(document_texts)} documents"
         )
 
         print(
@@ -119,7 +98,7 @@ class RAGEngine:
         embeddings = (
             self.embedding_generator
             .generate_embeddings(
-                documents
+                document_texts
             )
         )
 
@@ -129,7 +108,7 @@ class RAGEngine:
 
         self.vector_store.create_index(
             embeddings,
-            documents
+            documents  # Store the full document objects with metadata
         )
 
         print(

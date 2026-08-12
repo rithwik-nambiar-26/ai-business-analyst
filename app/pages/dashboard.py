@@ -1,172 +1,432 @@
 import sys
 from pathlib import Path
 
+import pandas as pd
 import streamlit as st
 import plotly.express as px
 
-project_root = Path(__file__).resolve().parent.parent.parent
-sys.path.append(str(project_root))
+project_root = (
+    Path(__file__)
+    .resolve()
+    .parent
+    .parent
+    .parent
+)
 
-from src.ingestion.data_loader import DataLoader
+sys.path.append(
+    str(project_root)
+)
 
+from app.utils.data_manager import (
+    DataManager
+)
+
+from src.eda.exploratory_analysis import (
+    ExploratoryAnalysis
+)
+
+# =====================================
+# PAGE CONFIG
+# =====================================
 
 st.set_page_config(
     page_title="Dashboard",
     layout="wide"
 )
 
-st.title("Business Dashboard")
-
-# Load Data
-df = DataLoader.load_data()
-
-# KPIs
-
-total_sales = round(df["Sales"].sum(), 2)
-
-total_profit = round(df["Profit"].sum(), 2)
-
-profit_margin = round(
-    (total_profit / total_sales) * 100,
-    2
+st.title(
+    "���������📊 Dataset Intelligence Dashboard"
 )
 
-total_orders = df["Order ID"].nunique()
+# =====================================
+# LOAD DATA
+# =====================================
 
-# KPI SECTION
+df = DataManager.get_data()
+
+if df is None:
+
+    st.warning(
+        "Please upload and select a dataset first."
+    )
+
+    st.stop()
+
+dataset_summary = (
+    DataManager.get_dataset_summary()
+)
+dataset_intelligence = DataManager.get_dataset_intelligence()
+
+eda = ExploratoryAnalysis(
+    df
+)
+
+eda_report = (
+    eda.generate_eda_report()
+)
+
+# =====================================
+# DATASET OVERVIEW
+# =====================================
+
+st.header(
+    "Dataset Overview"
+)
 
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
+
     st.metric(
-        "Total Sales",
-        f"${total_sales:,.0f}"
+        "Rows",
+        dataset_summary.get(
+            "row_count",
+            0
+        )
     )
 
 with col2:
+
     st.metric(
-        "Total Profit",
-        f"${total_profit:,.0f}"
+        "Columns",
+        dataset_summary.get(
+            "column_count",
+            0
+        )
     )
 
 with col3:
+
     st.metric(
-        "Profit Margin",
-        f"{profit_margin}%"
+        "Missing Values",
+        sum(
+            dataset_summary.get(
+                "missing_values",
+                {}
+            ).values()
+        )
     )
 
 with col4:
+
     st.metric(
-        "Total Orders",
-        total_orders
+        "Duplicate Rows",
+        dataset_summary.get(
+            "duplicate_rows",
+            0
+        )
     )
 
-st.markdown("---")
+st.divider()
 
-# SALES BY REGION
+# =====================================
+# KEY METRICS
+# =====================================
 
-region_sales = (
-    df.groupby("Region")["Sales"]
-    .sum()
-    .reset_index()
+st.header(
+    "Key Metrics"
 )
 
-fig_region_sales = px.bar(
-    region_sales,
-    x="Region",
-    y="Sales",
-    title="Sales by Region"
-)
+# Get KPIs from dataset intelligence
+if dataset_intelligence and dataset_intelligence.get('kpis'):
+    kpis = dataset_intelligence['kpis']
 
-st.plotly_chart(
-    fig_region_sales,
-    use_container_width=True
-)
+    # Limit to 4 columns
+    metric_columns = st.columns(min(4, len(kpis)))
 
-# PROFIT BY REGION
+    for idx, kpi in enumerate(kpis[:4]):
+        column = kpi['column']
+        display_name = kpi['display_name']
+        calc_type = kpi['calculation']
 
-region_profit = (
-    df.groupby("Region")["Profit"]
-    .sum()
-    .reset_index()
-)
+        try:
+            if calc_type == 'sum':
+                value = round(float(df[column].sum()), 2)
+            else:  # average
+                value = round(float(df[column].mean()), 2)
 
-fig_region_profit = px.bar(
-    region_profit,
-    x="Region",
-    y="Profit",
-    title="Profit by Region"
-)
+            # Format based on KPI specification
+            format_type = kpi.get('format', 'number')
+            if format_type == 'currency':
+                formatted_value = f"${value:,.2f}"
+            else:
+                formatted_value = f"{value:,.2f}"
 
-st.plotly_chart(
-    fig_region_profit,
-    use_container_width=True
-)
-
-# SALES BY CATEGORY
-
-category_sales = (
-    df.groupby("Category")["Sales"]
-    .sum()
-    .reset_index()
-)
-
-fig_category_sales = px.pie(
-    category_sales,
-    names="Category",
-    values="Sales",
-    title="Sales by Category"
-)
-
-st.plotly_chart(
-    fig_category_sales,
-    use_container_width=True
-)
-
-# SALES BY SEGMENT
-
-segment_sales = (
-    df.groupby("Segment")["Sales"]
-    .sum()
-    .reset_index()
-)
-
-fig_segment_sales = px.pie(
-    segment_sales,
-    names="Segment",
-    values="Sales",
-    title="Sales by Segment"
-)
-
-st.plotly_chart(
-    fig_segment_sales,
-    use_container_width=True
-)
-
-st.markdown("---")
-
-# BEST REGION
-
-best_region = (
-    df.groupby("Region")["Sales"]
-    .sum()
-    .idxmax()
-)
-
-worst_region = (
-    df.groupby("Region")["Sales"]
-    .sum()
-    .idxmin()
-)
-
-col1, col2 = st.columns(2)
-
-with col1:
-    st.success(
-        f"Best Performing Region: {best_region}"
+            with metric_columns[idx]:
+                st.metric(
+                    display_name,
+                    formatted_value
+                )
+        except Exception:
+            continue
+else:
+    # Fallback to original logic
+    candidate_metrics = (
+        dataset_summary.get(
+            "candidate_metrics",
+            []
+        )
     )
 
-with col2:
-    st.error(
-        f"Worst Performing Region: {worst_region}"
+    if candidate_metrics:
+
+        metric_columns = st.columns(
+            min(
+                4,
+                len(candidate_metrics)
+            )
+        )
+
+        for idx, metric in enumerate(
+            candidate_metrics[:4]
+        ):
+
+            try:
+
+                value = round(
+                    float(
+                        df[metric].mean()
+                    ),
+                    2
+                )
+
+                with metric_columns[idx]:
+
+                    st.metric(
+                        metric,
+                        value
+                    )
+
+            except Exception:
+
+                continue
+
+    else:
+
+        st.info(
+            "No candidate metrics detected."
+        )
+
+st.divider()
+
+# =====================================
+# METRIC EXPLORER
+# =====================================
+
+st.header(
+    "Metric Explorer"
+)
+
+candidate_metrics = (
+    dataset_summary.get(
+        "candidate_metrics",
+        []
     )
+)
+candidate_dimensions = (
+    dataset_summary.get(
+        "candidate_dimensions",
+        []
+    )
+)
+
+if (
+
+    len(candidate_metrics) > 0
+    and
+    len(candidate_dimensions) > 0
+
+):
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+
+        selected_metric = (
+            st.selectbox(
+                "Select Metric",
+                candidate_metrics
+            )
+        )
+
+    with col2:
+
+        selected_dimension = (
+            st.selectbox(
+                "Select Dimension",
+                candidate_dimensions
+            )
+        )
+
+    try:
+
+        chart_df = (
+            df.groupby(
+                selected_dimension
+            )[selected_metric]
+
+            .mean()
+
+            .reset_index()
+
+            .sort_values(
+                selected_metric,
+                ascending=False
+            )
+        )
+
+        if not chart_df.empty:
+
+            fig = px.bar(
+                chart_df,
+                x=selected_dimension,
+                y=selected_metric,
+                title=(
+                    f"{selected_metric}"
+                    f" by "
+                    f"{selected_dimension}"
+                )
+            )
+
+            st.plotly_chart(
+                fig,
+                use_container_width=True
+            )
+
+        else:
+
+            st.info(
+                "No data available for chart."
+            )
+
+    except Exception as e:
+
+        st.warning(
+            f"Unable to build chart: {e}"
+        )
+
+else:
+
+    st.info(
+        "Metric Explorer requires both numeric metrics and categorical dimensions."
+    )
+
+st.divider()
+
+# =====================================
+# CORRELATION HIGHLIGHTS
+# =====================================
+
+st.header(
+    "Correlation Highlights"
+)
+
+correlations = (
+    eda_report.get(
+        "correlation_analysis",
+        {}
+    )
+)
+
+if correlations:
+
+    valid_correlations = {
+
+        pair: value
+
+        for pair, value in correlations.items()
+
+        if pd.notna(value)
+
+    }
+
+    if valid_correlations:
+
+        top_correlations = sorted(
+
+            valid_correlations.items(),
+
+            key=lambda x: abs(
+                x[1]
+            ),
+
+            reverse=True
+
+        )[:5]
+
+        for pair, value in (
+            top_correlations
+        ):
+
+            st.info(
+                f"{pair} → {value}"
+            )
+
+    else:
+
+        st.info(
+            "No valid correlations detected."
+        )
+
+else:
+
+    st.info(
+        "No correlation analysis available."
+    )
+
+st.divider()
+
+# =====================================
+# OUTLIER SUMMARY
+# =====================================
+
+st.header(
+    "Outlier Summary"
+)
+
+outliers = (
+    eda_report.get(
+        "outlier_analysis",
+        {}
+    )
+)
+
+if outliers:
+
+    outlier_df = pd.DataFrame(
+        outliers
+    ).T
+
+    outlier_df = (
+        outlier_df
+        .sort_values(
+            by="outlier_percentage",
+            ascending=False
+        )
+    )
+
+    st.dataframe(
+        outlier_df,
+        use_container_width=True
+    )
+
+else:
+
+    st.info(
+        "No outlier analysis available."
+    )
+
+st.divider()
+
+# =====================================
+# DATA PREVIEW
+# =====================================
+
+st.header(
+    "Dataset Preview"
+)
+
+st.dataframe(
+    df.head(20),
+    use_container_width=True
+)

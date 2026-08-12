@@ -7,7 +7,7 @@ import streamlit as st
 project_root = Path(__file__).resolve().parent.parent.parent
 sys.path.append(str(project_root))
 
-from src.ingestion.data_loader import DataLoader
+from app.utils.data_manager import DataManager
 from src.profiling.data_profiler import DataProfiler
 from src.preprocessing.data_cleaner import DataCleaner
 
@@ -19,7 +19,15 @@ st.set_page_config(
 
 st.title("Data Quality Report")
 
-df = DataLoader.load_data()
+df = DataManager.get_data()
+
+if df is None:
+
+    st.warning(
+        "Please upload and select a dataset first."
+    )
+
+    st.stop()
 
 profiler = DataProfiler(df)
 profile = profiler.generate_profile()

@@ -34,6 +34,14 @@ class DatasetUnderstanding:
             )
         )
 
+        capabilities = (
+            self._capabilities(
+                schema_metadata,
+                candidate_metrics,
+                candidate_dimensions
+            )
+        )
+
         return {
 
             "row_count":
@@ -60,6 +68,9 @@ class DatasetUnderstanding:
             "candidate_dimensions":
                 candidate_dimensions,
 
+            "capabilities":
+                capabilities,
+
             "suggested_questions":
                 self._suggest_questions(
                     candidate_metrics,
@@ -78,21 +89,17 @@ class DatasetUnderstanding:
     ):
 
         excluded_columns = set(
-
             schema_metadata.get(
                 "id_columns",
                 []
             )
-
         )
 
         excluded_columns.update(
-
             schema_metadata.get(
                 "boolean_columns",
                 []
             )
-
         )
 
         return [
@@ -106,7 +113,6 @@ class DatasetUnderstanding:
             )
 
             if column not in excluded_columns
-
         ]
 
     # =====================================
@@ -131,12 +137,10 @@ class DatasetUnderstanding:
         ]:
 
             for column in (
-
                 schema_metadata.get(
                     key,
                     []
                 )
-
             ):
 
                 if column not in dimensions:
@@ -146,6 +150,50 @@ class DatasetUnderstanding:
                     )
 
         return dimensions
+
+    # =====================================
+    # DATASET CAPABILITIES
+    # =====================================
+
+    def _capabilities(
+        self,
+        schema_metadata,
+        candidate_metrics,
+        candidate_dimensions
+    ):
+
+        return {
+
+            "analytics":
+                len(candidate_metrics) > 0,
+
+            "group_analysis":
+                len(candidate_dimensions) > 0,
+
+            "record_lookup":
+                len(
+                    schema_metadata.get(
+                        "id_columns",
+                        []
+                    )
+                ) > 0,
+
+            "forecasting":
+                len(
+                    schema_metadata.get(
+                        "date_columns",
+                        []
+                    )
+                ) > 0
+                and
+                len(candidate_metrics) > 0,
+
+            "anomaly_detection":
+                len(candidate_metrics) > 0,
+
+            "correlation_analysis":
+                len(candidate_metrics) >= 2
+        }
 
     # =====================================
     # QUESTION SUGGESTIONS
@@ -172,9 +220,7 @@ class DatasetUnderstanding:
             )
 
             questions.append(
-
                 f"What is the overall summary of {metric}?"
-
             )
 
             if candidate_dimensions:
@@ -184,47 +230,33 @@ class DatasetUnderstanding:
                 )
 
                 questions.append(
-
                     f"How does {metric} vary by {dimension}?"
-
                 )
 
         if len(candidate_metrics) >= 2:
 
             questions.append(
-
                 "Which numeric columns are most strongly correlated?"
-
             )
 
         if (
-
             schema_metadata.get(
                 "date_columns"
             )
-
             and
-
             candidate_metrics
-
         ):
 
             questions.append(
-
                 f"What trend is visible over {schema_metadata['date_columns'][0]}?"
-
             )
 
         questions.append(
-
             "What are the most important patterns in this dataset?"
-
         )
 
         questions.append(
-
             "Are there missing values, duplicates, or outliers to review?"
-
         )
 
         return questions[:6]
@@ -239,9 +271,6 @@ def understand_dataset(
 ):
 
     return DatasetUnderstanding(
-
         df,
-
         schema_metadata
-
     ).summarize()

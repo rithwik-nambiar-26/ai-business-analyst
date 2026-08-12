@@ -16,5 +16,23 @@
         "columns": 38,
         "upload_time": "2026-06-14 12:47:35",
         "fingerprint": "77605c365438fc4e0dc718cfa22b7b1e5d78f63fecbfea0c71097c63e34177d6"
+    },
+    {
+        "dataset_name": "heart.csv",
+        "dataset_path": "data\\user_datasets\\heart.csv",
+        "dataset_type": "Generic",
+        "rows": 1025,
+        "columns": 14,
+        "upload_time": "2026-06-22 20:34:53",
+        "fingerprint": "38d67f80809a519a8596ba81d025f0077d68ca7cda0d516c088062d4db5cbda3"
+    },
+    {
+        "dataset_name": "creditcard.csv",
+        "dataset_path": "data\\user_datasets\\creditcard.csv",
+        "dataset_type": "Generic",
+        "rows": 284807,
+        "columns": 31,
+        "upload_time": "2026-06-22 20:35:57",
+        "fingerprint": "44acf5c0a185484861faaf4edd9e0c45e366e661a9815463832f8c1ac7b2017a"
     }
 ]

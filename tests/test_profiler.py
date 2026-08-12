@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 import numpy as np
-from src.profiling.data_profiler import profile_dataset
+from src.profiling.data_profiler import DataProfiler
 
 def test_profile_dataset():
     # Construct synthetic data
@@ -10,12 +10,12 @@ def test_profile_dataset():
         "values": [1.5, 2.5, 3.5, np.nan, 5.5, 6.5, 7.5, 8.5, 9.5, 10.5],
         "label": ["A", "B", "A", "B", "A", "B", "A", "B", "A", "B"]
     })
-    
-    profile = profile_dataset(df)
-    assert profile["num_rows"] == 10
-    assert profile["num_cols"] == 3
-    assert profile["total_missing_cells"] == 1
-    assert "values" in profile["columns"]
-    assert profile["columns"]["values"]["type"] == "float"
-    assert profile["columns"]["label"]["type"] == "categorical"
-    assert profile["data_quality_score"] > 50.0  # Should be decent
+
+    profiler = DataProfiler(df)
+    profile = profiler.generate_profile()
+    assert profile["rows"] == 10
+    assert profile["columns"] == 3
+    assert profile["missing_values"]["values"] == 1
+    assert "values" in profile["column_names"]
+    assert "dates" in profile["data_types"]
+    assert "label" in profile["data_types"]

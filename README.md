@@ -380,7 +380,6 @@ Developed interactive dashboards, predictive analytics modules, and conversation
 # Author
 
 ## Rithwik Nambiar
-
 ---
 
 # License

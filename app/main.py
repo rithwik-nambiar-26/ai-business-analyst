@@ -10,6 +10,7 @@ from src.profiling.data_profiler import DataProfiler
 from src.preprocessing.data_cleaner import DataCleaner
 from src.eda.exploratory_analysis import ExploratoryAnalysis
 from src.insights.insight_generator import InsightGenerator
+from src.insights.business_insight_engine import BusinessInsightEngine
 
 from app.utils.data_manager import DataManager
 
@@ -20,7 +21,7 @@ from app.utils.data_manager import DataManager
 
 st.set_page_config(
     page_title="Universal AI Data Analyst",
-    page_icon="📊",
+    page_icon="���📊",
     layout="wide"
 )
 
@@ -28,7 +29,7 @@ st.set_page_config(
 # HEADER
 # --------------------------------------------------
 
-st.title("📊 Universal AI Data Analyst")
+st.title("���📊 Universal AI Data Analyst")
 
 st.markdown(
     """
@@ -52,7 +53,7 @@ st.markdown("---")
 # SIDEBAR
 # --------------------------------------------------
 
-st.sidebar.title("📁 Dataset Management")
+st.sidebar.title("���📁 Dataset Management")
 
 uploaded_file = st.sidebar.file_uploader(
     "Upload Dataset",
@@ -132,7 +133,7 @@ if df is None:
 
     st.info(
         """
-        👋 Welcome to Universal AI Data Analyst
+        �� 👋 Welcome to Universal AI Data Analyst
 
         Upload a dataset to begin analysis.
 
@@ -167,6 +168,10 @@ dataset_fingerprint = (
     DataManager.get_dataset_fingerprint()
 )
 
+dataset_intelligence = (
+    DataManager.get_dataset_intelligence()
+)
+
 # --------------------------------------------------
 # CURRENT DATASET PANEL
 # --------------------------------------------------
@@ -187,10 +192,14 @@ if active_dataset:
         active_dataset
     )
 
-    if dataset_summary:
+    if dataset_intelligence:
 
         st.sidebar.write(
-            f"Type: {dataset_summary.get('dataset_type', 'Generic')}"
+            f"Type: {dataset_intelligence.get('dataset_type', 'Generic').title()}"
+        )
+
+        st.sidebar.write(
+            f"Entity: {dataset_intelligence.get('entity_type', 'Records').title()}"
         )
 
         st.sidebar.write(
@@ -200,6 +209,9 @@ if active_dataset:
         st.sidebar.write(
             f"Columns: {dataset_summary.get('column_count', 0)}"
         )
+
+        # Show description
+        st.sidebar.caption(dataset_intelligence.get('description', ''))
 
 # --------------------------------------------------
 # PROCESSING PIPELINE
@@ -223,21 +235,21 @@ eda_report = (
     eda.generate_eda_report()
 )
 
-insight_generator = (
-    InsightGenerator(
-        eda_report
-    )
+# Generate basic insights for context building
+basic_insight_generator = InsightGenerator(
+    eda_report
 )
+basic_insights = basic_insight_generator.generate_all_insights()
 
-insights = (
-    insight_generator.generate_all_insights()
-)
+# Generate business insights for display
+business_insight_engine = BusinessInsightEngine(eda_report)
+business_insights = business_insight_engine.generate_all_insights()
 
 # --------------------------------------------------
 # DATASET OVERVIEW
 # --------------------------------------------------
 
-st.header("📁 Dataset Overview")
+st.header("���📁 Dataset Overview")
 
 col1, col2, col3, col4 = st.columns(4)
 
@@ -273,6 +285,10 @@ with col4:
         ]
     )
 
+# Dataset description
+if dataset_intelligence:
+    st.info(dataset_intelligence.get('description', ''))
+
 # --------------------------------------------------
 # DATASET UNDERSTANDING
 # --------------------------------------------------
@@ -280,17 +296,21 @@ with col4:
 st.markdown("---")
 
 st.header(
-    "🧠 Dataset Understanding"
+    "Dataset Intelligence"
 )
 
-if dataset_summary:
+if dataset_intelligence:
 
     col1, col2 = st.columns(2)
 
     with col1:
 
         st.write(
-            f"**Dataset Type:** {dataset_summary.get('dataset_type', 'Unknown')}"
+            f"**Dataset Type:** {dataset_intelligence.get('dataset_type', 'Generic').title()}"
+        )
+
+        st.write(
+            f"**Primary Entity:** {dataset_intelligence.get('entity_type', 'Records').title()}"
         )
 
         st.write(
@@ -304,26 +324,75 @@ if dataset_summary:
     with col2:
 
         st.write(
-            "**Candidate Metrics**"
+            "**Description**"
         )
+        st.info(dataset_intelligence.get('description', 'No description available'))
 
         st.write(
-            dataset_summary.get(
-                "candidate_metrics",
-                []
+            "**Key Features Detected**"
+        )
+        features = []
+        if dataset_intelligence.get('important_metrics'):
+            features.append(f"{len(dataset_intelligence['important_metrics'])} key measurements")
+        if dataset_intelligence.get('important_dimensions'):
+            features.append(f"{len(dataset_intelligence['important_dimensions'])} grouping categories")
+        if dataset_intelligence.get('time_column'):
+            features.append("Time series capability")
+        if dataset_intelligence.get('available_analyses'):
+            features.append(f"{len(dataset_intelligence['available_analyses'])} analysis types available")
+
+        for feature in features:
+            st.write(f"• {feature}")
+else:
+    # Fallback to original dataset summary if intelligence not available
+    if dataset_summary:
+
+        col1, col2 = st.columns(2)
+
+        with col1:
+
+            st.write(
+                f"**Rows:** {dataset_summary.get('row_count', 0):,}"
             )
-        )
 
-        st.write(
-            "**Candidate Dimensions**"
-        )
-
-        st.write(
-            dataset_summary.get(
-                "candidate_dimensions",
-                []
+            st.write(
+                f"**Columns:** {dataset_summary.get('column_count', 0)}"
             )
-        )
+
+            st.write(
+                "**Capabilities**"
+            )
+
+            st.json(
+                dataset_summary.get(
+                    "capabilities",
+                    {}
+                )
+            )
+
+        with col2:
+
+            st.write(
+                "**Candidate Metrics**"
+            )
+
+            st.write(
+                dataset_summary.get(
+                    "candidate_metrics",
+                    []
+                )
+            )
+
+            st.write(
+                "**Candidate Dimensions**"
+            )
+
+            st.write(
+                dataset_summary.get(
+                    "candidate_dimensions",
+                    []
+                )
+            )
 
 # --------------------------------------------------
 # SCHEMA ANALYSIS
@@ -331,7 +400,7 @@ if dataset_summary:
 
 st.markdown("---")
 
-st.header("🔍 Schema Analysis")
+st.header("���🔍 Schema Analysis")
 
 if schema_metadata:
 
@@ -415,7 +484,7 @@ if schema_metadata:
 
 st.markdown("---")
 
-st.header("🧹 Data Quality")
+st.header("���🧹 Data Quality")
 
 col1, col2 = st.columns(2)
 
@@ -448,7 +517,7 @@ with col2:
 st.markdown("---")
 
 st.header(
-    "📈 Exploratory Data Analysis"
+    "���📈 Exploratory Data Analysis"
 )
 
 st.subheader(
@@ -508,17 +577,44 @@ st.json(
 st.markdown("---")
 
 st.header(
-    "🤖 AI Insights"
+    "���🤖 AI Insights"
 )
 
-for index, insight in enumerate(
-    insights,
-    start=1
-):
+# Display business insights with categorization
+if business_insights:
+    # Group insights by category
+    insights_by_category = {}
+    for insight in business_insights:
+        category = insight.category
+        if category not in insights_by_category:
+            insights_by_category[category] = []
+        insights_by_category[category].append(insight)
 
-    st.success(
-        f"Insight {index}: {insight}"
-    )
+    # Display insights by category
+    category_icons = {
+        "performance": "���📈",
+        "risk": "��⚠��️",
+        "opportunity": "���💡",
+        "trend": "���🔮",
+        "data_quality": "���🧹"
+    }
+
+    for category, category_insights in insights_by_category.items():
+        icon = category_icons.get(category, "���📊")
+        with st.expander(f"{icon} {category.title()} Insights ({len(category_insights)})", expanded=True):
+            for index, insight in enumerate(category_insights, start=1):
+                st.info(f"**Insight {index}:** {insight.insight}")
+                if insight.suggested_action:
+                    st.caption(f"���💡 Suggested Action: {insight.suggested_action}")
+else:
+    # Fallback to basic insights if no business insights generated
+    for index, insight in enumerate(
+        basic_insights,
+        start=1
+    ):
+        st.success(
+            f"Insight {index}: {insight}"
+        )
 
 # --------------------------------------------------
 # QUESTIONS
@@ -529,7 +625,7 @@ if dataset_summary:
     st.markdown("---")
 
     st.header(
-        "💡 Suggested Questions"
+        "���💡 Suggested Questions"
     )
 
     for question in dataset_summary.get(
@@ -546,7 +642,7 @@ if dataset_summary:
 st.markdown("---")
 
 st.header(
-    "🔐 Dataset Fingerprint"
+    "���🔐 Dataset Fingerprint"
 )
 
 st.code(
@@ -560,7 +656,7 @@ st.code(
 st.markdown("---")
 
 st.header(
-    "📄 Dataset Preview"
+    "���📄 Dataset Preview"
 )
 
 st.dataframe(

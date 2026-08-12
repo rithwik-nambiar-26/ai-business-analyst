@@ -1,8 +1,14 @@
 import os
-
 from dotenv import load_dotenv
-import google.generativeai as genai
 
+# Try to use the new Google GenAI API, fallback to legacy if needed
+try:
+    from google import genai
+    from google.genai import types
+    USE_NEW_API = True
+except ImportError:
+    import google.generativeai as genai
+    USE_NEW_API = False
 
 load_dotenv()
 
@@ -21,13 +27,16 @@ class LLMHandler:
                 "GEMINI_API_KEY not found in .env file"
             )
 
-        genai.configure(
-            api_key=api_key
-        )
-
-        self.model = genai.GenerativeModel(
-            "gemini-2.5-flash"
-        )
+        if USE_NEW_API:
+            # New Google GenAI API
+            self.client = genai.Client(api_key=api_key)
+            self.model_name = "gemini-2.5-flash"
+        else:
+            # Legacy API
+            genai.configure(api_key=api_key)
+            self.model = genai.GenerativeModel(
+                "gemini-2.5-flash"
+            )
 
     # ==========================================
     # QUESTION TYPE DETECTION
@@ -85,7 +94,7 @@ class LLMHandler:
             prompt = f"""
 You are an AI Data Analyst.
 
-Answer ONLY using the dataset context.
+Answer ONLY using the dataset context. Do not use any external knowledge or make assumptions.
 
 DATASET CONTEXT
 
@@ -97,11 +106,12 @@ QUESTION
 
 Rules:
 
-1. Give a short direct answer.
-2. If information is not available, clearly say so.
-3. Do not provide recommendations.
-4. Do not provide business interpretation.
-5. Do not invent information.
+1. Give a short direct answer based ONLY on the provided context.
+2. If information is not available in the context, clearly say: "This information is not available in the dataset."
+3. Do not provide recommendations unless asked.
+4. Do not provide business interpretation unless asked.
+5. Do not invent information, names, values, or columns that are not in the context.
+6. If uncertain, state uncertainty rather than guessing.
 """
 
         else:
@@ -109,7 +119,7 @@ Rules:
             prompt = f"""
 You are a Senior Business Analyst.
 
-Answer ONLY using the dataset context.
+Answer ONLY using the dataset context. Do not use any external knowledge or make assumptions.
 
 DATASET CONTEXT
 
@@ -121,22 +131,27 @@ QUESTION
 
 Rules:
 
-1. Answer the question.
-2. Explain the business meaning.
-3. Give recommendations if relevant.
-4. Do not invent information.
+1. Answer the question based ONLY on the provided context.
+2. Explain the business meaning using only information from the context.
+3. Give recommendations if relevant, based only on the context.
+4. Do not invent information, names, values, or columns that are not in the context.
+5. If information is unavailable in the context, clearly state it.
+6. If uncertain, state uncertainty rather than guessing.
 """
 
         try:
-
-            response = self.model.generate_content(
-                prompt
-            )
-
-            return response.text
-
+            if USE_NEW_API:
+                # New Google GenAI API
+                response = self.client.models.generate_content(
+                    model=self.model_name,
+                    contents=prompt
+                )
+                return response.text
+            else:
+                # Legacy API
+                response = self.model.generate_content(prompt)
+                return response.text
         except Exception as e:
-
             return (
                 f"Error generating response: "
                 f"{str(e)}"
@@ -152,8 +167,14 @@ Rules:
         question
     ):
 
+        # Extract text content from retrieved documents
+        if retrieved_docs and isinstance(retrieved_docs[0], dict) and 'text' in retrieved_docs[0]:
+            doc_texts = [doc['text'] for doc in retrieved_docs]
+        else:
+            doc_texts = retrieved_docs
+
         context = "\n".join(
-            retrieved_docs
+            doc_texts
         )
 
         question_type = (
@@ -167,7 +188,7 @@ Rules:
             prompt = f"""
 You are an AI Data Analyst.
 
-Use ONLY the retrieved records.
+Use ONLY the retrieved records. Do not use any external knowledge or make assumptions.
 
 RETRIEVED RECORDS
 
@@ -179,14 +200,14 @@ QUESTION
 
 Rules:
 
-1. Answer directly.
+1. Answer directly based ONLY on the provided records.
 2. Be concise.
-3. If the requested information does not exist, say:
+3. If the requested information does not exist in the records, say:
    "This information is not available in the dataset."
-4. Never guess.
-5. Never invent names, values or columns.
-6. Do not provide recommendations.
-7. Do not provide business interpretation.
+4. Never guess or invent information.
+5. Never invent names, values, or columns that are not in the records.
+6. Do not provide recommendations unless asked.
+7. Do not provide business interpretation unless asked.
 
 Examples:
 
@@ -208,7 +229,7 @@ This information is not available in the dataset because no employee name field 
             prompt = f"""
 You are a Senior Business Analyst.
 
-Use ONLY the retrieved records.
+Use ONLY the retrieved records. Do not use any external knowledge or make assumptions.
 
 RETRIEVED RECORDS
 
@@ -220,24 +241,28 @@ QUESTION
 
 Rules:
 
-1. Answer the question.
-2. Explain the business meaning.
-3. Give recommendations if relevant.
+1. Answer the question based ONLY on the provided records.
+2. Explain the business meaning using only information from the records.
+3. Give recommendations if relevant, based only on the records.
 4. Use only the retrieved records.
-5. If information is unavailable, clearly state it.
-6. Do not invent information.
+5. If information is unavailable in the records, clearly state it.
+6. Do not invent information, names, values, or columns that are not in the records.
+7. If uncertain, state uncertainty rather than guessing.
 """
 
         try:
-
-            response = self.model.generate_content(
-                prompt
-            )
-
-            return response.text
-
+            if USE_NEW_API:
+                # New Google GenAI API
+                response = self.client.models.generate_content(
+                    model=self.model_name,
+                    contents=prompt
+                )
+                return response.text
+            else:
+                # Legacy API
+                response = self.model.generate_content(prompt)
+                return response.text
         except Exception as e:
-
             return (
                 f"Error generating RAG response: "
                 f"{str(e)}"
@@ -255,7 +280,7 @@ Rules:
         prompt = f"""
 You are a Senior Business Analyst.
 
-Create an executive summary.
+Create an executive summary based ONLY on the provided dataset context. Do not use any external knowledge or make assumptions.
 
 DATASET CONTEXT
 
@@ -263,23 +288,28 @@ DATASET CONTEXT
 
 Provide:
 
-1. Dataset Overview
-2. Key Findings
-3. Risks
-4. Opportunities
-5. Recommendations
+1. Dataset Overview - factual description of the dataset
+2. Key Findings - insights derived strictly from the data
+3. Risks - potential issues or concerns evident in the data
+4. Opportunities - potential areas for improvement or growth suggested by the data
+5. Recommendations - actionable suggestions based only on the data
+
+Important: Base all statements solely on the provided context. Do not invent information, statistics, or facts not present in the context.
 """
 
         try:
-
-            response = self.model.generate_content(
-                prompt
-            )
-
-            return response.text
-
+            if USE_NEW_API:
+                # New Google GenAI API
+                response = self.client.models.generate_content(
+                    model=self.model_name,
+                    contents=prompt
+                )
+                return response.text
+            else:
+                # Legacy API
+                response = self.model.generate_content(prompt)
+                return response.text
         except Exception as e:
-
             return (
                 f"Error generating summary: "
                 f"{str(e)}"
@@ -298,6 +328,8 @@ Provide:
         prompt = f"""
 You are a Business Strategy Consultant.
 
+Analyze the business problem based ONLY on the provided dataset context. Do not use any external knowledge or make assumptions.
+
 DATASET CONTEXT
 
 {context}
@@ -308,23 +340,28 @@ BUSINESS PROBLEM
 
 Provide:
 
-1. Problem Analysis
-2. Root Cause
-3. Impact
-4. Recommendations
-5. Next Actions
+1. Problem Analysis - analysis based only on the data
+2. Root Cause - root causes evident in or suggested by the data
+3. Impact - impacts that can be inferred from the data
+4. Recommendations - actionable recommendations based only on the data
+5. Next Actions - suggested next steps based on the data
+
+Important: Base all statements solely on the provided context. Do not invent information, statistics, or facts not present in the context. If the data does not contain sufficient information to answer a section, state that the information is not available in the dataset.
 """
 
         try:
-
-            response = self.model.generate_content(
-                prompt
-            )
-
-            return response.text
-
+            if USE_NEW_API:
+                # New Google GenAI API
+                response = self.client.models.generate_content(
+                    model=self.model_name,
+                    contents=prompt
+                )
+                return response.text
+            else:
+                # Legacy API
+                response = self.model.generate_content(prompt)
+                return response.text
         except Exception as e:
-
             return (
                 f"Error generating analysis: "
                 f"{str(e)}"
